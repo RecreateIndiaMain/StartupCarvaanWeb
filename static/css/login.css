@@ -56,6 +56,7 @@
     flex-direction: column;
     align-items: center;
     padding: 140px 250px;
+    height:100vh;
 }
 .card>p{
     font-size: 2.8rem;
