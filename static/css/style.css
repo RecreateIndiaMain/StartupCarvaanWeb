@@ -89,6 +89,21 @@ h1, h2, h3, h4, h5, h6 {
   box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.1);
 }
 
+@media (max-width: 400px) {
+  #to{
+    position: relative;
+    top: 10px;
+  }
+  #everything{
+    position: relative;
+    top: 10px;
+  }
+  #descr{
+    position: relative;
+    top: 10px;
+  }
+}
+
 #header .logo h1 {
   font-size: 30px;
   margin: 0;
