@@ -1,0 +1,60 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StartUp Carvaan | Join Us</title>
+    <link rel="stylesheet" href="{% static '../static/css/join.css' %}">
+</head>
+<body>
+    <div class="join-wrapper">
+        <div class="logo">
+            <img src="{% static '../static/media/common/Logo.png'  %}" alt="err">
+            <p>StartUp Carvan</p>
+        </div>
+        <div class="msg">
+            <p>This is a message</p>
+        </div>
+
+        <div class="join">
+            <img src="{% static '../static/media/joinus/join.png' %}" alt="err">
+            <div class="data">
+                <p class="head">Join Our Community...</p>
+                <form action="POST" class="fr" >
+                    <input class="value" type="text" placeholder="Team Name">
+                    <div class="value fr-email">
+                        <input class="value mail" type="text" placeholder="Email">
+                        <div class="status">
+                            <img class="" src="{% static '../static/media/joinus/loop.svg' %}"" alt='err'>
+                            <p>Check Status</p>
+                        </div>
+                    </div>
+                    <input class="value" type="text" placeholder="Phone Number">
+                    <input class="value" type="text" placeholder="Team Size">
+                    <div class="upl">
+                        <img src="{% static '../static/media/joinus/upload.svg' %}" alt="err">
+                        <p>Upload Documents</p>
+                    </div>
+                    <div class="ch">
+                        <div class="tick" >
+                            <input class="ch-box" type="checkbox">
+                            <p>Student</p>
+                        </div>
+                        <div class="tick" >
+                            <input type="checkbox">
+                            <p>Professional</p>
+                        </div>
+                    </div>
+                    <div class="btn-cen">
+                        <button type="submit" class="sb-btn">Submit</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="{% static '../static/js/joinus/joinus.js' %}"></script>
+
+</html>
