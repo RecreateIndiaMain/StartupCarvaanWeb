@@ -9,60 +9,68 @@
     <title>Login Page</title>
 </head>
 <body>
-    <div class="logo">
-        <img src="{% static 'media/login/Logo.png' %}" alt="err">
-        <p>StartUp Caravan</p>
-    </div>
-    <div class="login">
-        <div class="card col-primary">
-            <img src="{% static 'media/login/User.png' %}" alt="err">
-            <p>User</p>
-
-            <div class="fr">
-                <img src="{% static 'media/login/avatar.svg' %}" alt="err">
-                <input type="text" placeholder="Username" >    
-            </div>
-
-            <div class="fr">
-                <img src="{% static 'media/login/password.svg' %}" alt="err">
-                <input type="password" placeholder="Password">
-            </div>
-            <div class="options">
-                <div class="rem">
-                    <input type="checkbox">
-                    <p>Remember</p>
-                </div>
-                <p class="border-primary" >Forgot Password ?.</p>
-            </div>
-
-            <button type="submit" class="primary col-assent" >Login</button>
-
-
+    <div class="login-wrapper">
+        <div class="logo">
+            <img src="{% static 'media/login/Logo.png' %}" alt="err">
+            <p>StartUp Caravan</p>
         </div>
+        <div class="rocket">
+            <img src="{% static 'media/login/rocket.png' %}" alt = 'err'>
+        </div>
+        <div class="login">
+            <div class="card col-primary">
+                <img src="{% static 'media/login/User.png' %}" alt="err">
+                <p>User</p>
+                <form class="fr-login" method="POST" >
+                    <div class="fr">
+                        <img src="{% static 'media/login/avatar.svg' %}" alt="err">
+                        <input type="text" placeholder="Username" >    
+                    </div>
+                    <div class="fr">
+                        <img src="{% static 'media/login/password.svg' %}" alt="err">
+                        <input type="password" placeholder="Password">
+                    </div>
+                    <div class="options">
+                        <div class="rem">
+                            <input type="checkbox">
+                            <p>Remember</p>
+                        </div>
+                        <p class="border-primary" >Forgot Password ?.</p>
+                    </div>
 
-        <div class="card primary col-assent">
-            <img src="{% static 'media/login/Startup.png' %}" alt="err">
-            <p>StartUp</p>
+                    <button type="submit" class="lg-btn primary col-assent">Login</button>
+                </form>
+                
 
-            <div class="fr">
-                <img src="{% static 'media/login/avatar.svg' %}" alt="err">
-                <input type="text" placeholder="Username" >    
+
             </div>
 
-            <div class="fr">
-                <img src="{% static 'media/login/password.svg' %}" alt="err">
-                <input type="password" placeholder="Password">
-            </div>
+            <div class="card primary col-assent">
+                <img src="{% static 'media/login/Startup.png' %}" alt="err">
+                <p>StartUp</p>
 
-            <div class="options">
-                <div class="rem">
-                    <input type="checkbox">
-                    <p>Remember</p>
-                </div>
-                <p class="border" >Forgot Password ?.</p>
-            </div>
+                <form>
+                    <div class="fr">
+                        <img src="{% static 'media/login/avatar.svg' %}" alt="err">
+                        <input type="text" placeholder="Username" required>    
+                    </div>
 
-            <button type="submit" class="col-primary" >Login</button>
+                    <div class="fr">
+                        <img src="{% static 'media/login/password.svg' %}" alt="err">
+                        <input type="password" placeholder="Password" required>
+                    </div>
+
+                    <div class="options">
+                        <div class="rem">
+                            <input type="checkbox">
+                            <p>Remember</p>
+                        </div>
+                        <p class="border" >Forgot Password ?.</p>
+                    </div>
+
+                    <button type="submit" class="lg-btn col-primary">Login</button>
+                </form>
+            </div>
         </div>
     </div>
 
