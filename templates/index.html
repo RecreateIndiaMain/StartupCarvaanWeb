@@ -1,3 +1,4 @@
+{% load static%}
 <!DOCTYPE html>
 <html lang="en">
 
@@ -25,16 +26,15 @@
   <link href="static/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
 
   <!-- Template Main CSS File -->
-  <link href="static/css/style.css" rel="stylesheet">
+  <link href="{% static 'css/style.css' %}" rel="stylesheet">
 </head>
-
 <body>
 
   <header id="header" class="fixed-top  header-transparent ">
     <div class="mx-3 d-flex align-items-center justify-content-between">
 
       <div class="logo">
-        <h1><a href="index.html"><img src="static/img/logo.jpeg" style = "min-height: 100px;width: 100px;color: #fff;font-weight: bolder;" alt="">CARVAAN</a></h1>
+        <h1><a href="index.html"><img src="{% static '../static/img/logo.jpeg' %}" style = "min-height: 100px;width: 100px;color: #fff;font-weight: bolder;" alt="">CARVAAN</a></h1>
       </div>
 
       <nav id="navbar" class="navbar" >
@@ -60,14 +60,11 @@
           </div>
         </div>
         <div class="col-lg-6 d-lg-flex flex-lg-column align-items-stretch order-1 order-lg-2 hero-img" data-aos="fade-up">
-          <img src="static/img/main_illustration.png" class="img-fluid" alt="">
+          <img src="{% static '../static/img/main_illustration.png' %}" class="img-fluid" alt="">
         </div>
       </div>
-  </section><!-- End Hero -->
-
+  </section>
   <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
-
-  <!-- Vendor JS Files -->
   <script src="static/vendor/aos/aos.js"></script>
   <script src="static/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
   <script src="static/vendor/glightbox/js/glightbox.min.js"></script>
