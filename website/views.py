@@ -28,3 +28,6 @@ def login(request):
 def join(request):
     return render(request,'join.html',{})
 
+def achievements(request):
+    return render(request,'achievements.html',{})
+

@@ -1,0 +1,81 @@
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <title>Startup Carvaan</title>
+    <link rel="stylesheet" href="{% static '../static/css/info.css' %}">
+    <style>
+    .circle {
+        width: 90px;
+        height: 90px;
+        border-radius: 90px;
+        background-color: orange;
+        text-align: center;
+        display: table-cell;
+        overflow: hidden;
+        vertical-align:middle;
+    }
+    #over{
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    }
+    .in-circle{
+        padding: 80px;
+        border-radius: 1000px;
+    }
+    #carouselsection{
+        height: 100%; 
+        width: 100%;
+        background: #000;
+        margin-top: 20px;
+    }
+    .carousel-heading{
+        overflow: hidden;
+        color: #d3d3d3;
+        font-weight: bold
+    }
+    </style>
+</head>
+<body>
+    <div class="logo">
+        <img src="{% static '../static/media/common/Logo.png'  %}" alt="err">
+        <p>StartUp Carvan</p>
+    </div>
+    <div class = "container">
+        <div class = "row align-content-center">
+            <div class = "col-lg-4">
+                <div class = "circle mb-3 in-circle" id = "over">
+                    
+                </div>
+            </div>
+            <div class = "col-lg-4">
+                <div class = "circle mb-3 in-circle" id = "over">
+                    
+                </div>
+            </div>
+            <div class = "col-lg-4">
+                <div class = "circle mb-3 in-circle" id = "over">
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+    <section id = "carouselsection">
+        <div class = "container">
+            <div class="row align-items-center my-5">
+                <div class="col-lg-7">
+                    <h1 class="font-weight-light text-uppercase carousel-heading">What we accomplished</h1>
+                    <p style = "color: #d3d3d3">This passage will talk about the achievements of the company related to the image.The text changes as the slider moves.The slider bar fills upas we progress furthur</p>
+                  </div>
+                <div class="col-lg-5">
+                  <img class="img-fluid rounded mb-4 mb-lg-0" src="http://placehold.it/900x400" alt="">
+                </div>
+              </div>
+        </div>
+    </section>
+</body>
+</html>
