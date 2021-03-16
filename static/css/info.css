@@ -1,0 +1,42 @@
+@import url("https://fonts.googleapis.com/css2?family=Akaya+Kanadaka&display=swap");
+* {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+	overflow-x: hidden;
+}
+:root {
+	--primary: #364f6b;
+	--assent: white;
+	--main: "Akaya Kanadaka", cursive;
+}
+
+.circle {
+	width: 90px;
+	height: 90px;
+	border-radius: 90px;
+	background-color: orange;
+	text-align: center;
+	display: table-cell;
+	overflow: hidden;
+	vertical-align: middle;
+}
+#over {
+	margin-left: auto;
+	margin-right: auto;
+	display: block;
+}
+.in-circle {
+	padding: 80px;
+	border-radius: 1000px;
+}
+#carouselsection {
+	width: 100%;
+	background: #000;
+	margin-top: 20px;
+}
+.carousel-heading {
+	overflow: hidden;
+	color: #d3d3d3;
+	font-weight: bold;
+}

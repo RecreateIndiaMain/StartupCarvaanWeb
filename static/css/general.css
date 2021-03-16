@@ -11,19 +11,6 @@
     --main:'Akaya Kanadaka', cursive;
 }
 
-/* ---Logo Start Up Carvan--- */
-
-.logo{
-    margin: 10px 20px 0px 20px;
-    display: flex;
-    align-items: center;
-    font-size: 2rem;
-    font-family: var(--main);
-}
-.logo>img{
-    width: 80px;
-}
-
 /* gr base */
 .gr{
     padding: 20px 40px 0px 60px;
@@ -59,7 +46,6 @@
     object-fit: cover;
 }
 
-
 /* -- END gr base -- */
 
 
@@ -70,6 +56,7 @@
         padding: 20px 10px 0px 30px;
         display: grid;
         grid-template-columns: 1fr 1fr;
+        margin-top: 150px !important;
     }
     .gr-base{
         display: flex;
