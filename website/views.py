@@ -20,7 +20,7 @@ from django.shortcuts import render
 # auth.sign_in_with_email_and_password("test@gmail.com","testuser")
 # print(auth.current_user['email'])
 def home(request):
-    return render(request,'index.html',{})
+    return render(request,'home.html',{})
 
 def login(request):
     return render(request,'login.html',{})
@@ -28,6 +28,4 @@ def login(request):
 def join(request):
     return render(request,'join.html',{})
 
-def achievements(request):
-    return render(request,'achievements.html',{})
 

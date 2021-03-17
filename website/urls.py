@@ -23,7 +23,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('login/', login, name="login_page"),
     path('join/', join, name="joinus_page"),
-    path('achievements/', achievements),
     path('',home),
 ]
 urlpatterns+=static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
