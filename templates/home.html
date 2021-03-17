@@ -1,0 +1,146 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+		<link rel="stylesheet" href="../static/css/home.css" />
+        <script defer src="https://kit.fontawesome.com/0675cdd2af.js" crossorigin="anonymous"></script>
+		<script defer src={% static "../static/js/home.js" %} type="text/javascript" ></script>
+        <title>Start Up Carvan</title>
+	</head>
+	<body>
+		<header>
+			<nav>
+				<div class="logo">
+					<img src="{% static '../static/media/common/Logo.png' %}" alt="err" />
+					<p>Carvan</p>
+				</div>
+				<ul>
+					<li><a href="{% url 'login_page' %}" >SignIn</a></li>
+					<li><a href="{% url 'joinus_page' %}" >Join Us</a></li>
+				</ul>
+				<div id="ham-menu">
+					<div id="bar1" class="bar"></div>
+					<div id="bar2" class="bar"></div>
+					<div id="bar3" class="bar"></div>
+				</div>
+			</nav>
+            <a class="gotobtn" href="#"><i class="fas fa-arrow-up"></i></a>
+		</header>
+
+		<section class="home-data">
+			<section>
+				<main class="hero">
+					<div class="hero-main">
+						<p>Carvan To</p>
+						<p>Everything</p>
+						<p>
+							We are a crowdfunding marketing platform for students and young
+							entreprenuers to bring their ideas to the public
+						</p>
+					</div>
+					<img src="{% static '../static/media/Home/hero.png' %}" alt="err" />
+				</main>
+			</section>
+
+			<section>
+				<p>Information</p>
+				<div class="gr">
+					<div class="gr-base">
+						<div class="gr-img">
+							<img
+								src="{% static '../static/media/Home/users.png' %}"
+								alt="err"
+							/>
+							<h1>User/Investors</h1>
+						</div>
+						<p>
+							Users/Investors joined with our platform can explore startup
+							Ideas.
+						</p>
+						<p>Get Plenty of startups to choose from and invest.</p>
+						<p>
+							Connect with out website and get opportunities to work from home.
+						</p>
+					</div>
+
+					<div class="gr-base">
+						<div class="gr-img">
+							<img
+								src="{% static '../static/media/Home/staartups.png' %}"
+								alt="err"
+							/>
+							<h1>Startups</h1>
+						</div>
+						<p>
+							Join our platform to hire people interested to work with your
+							ideas.
+						</p>
+						<p>Get Investors wiling to fund your ideas.</p>
+						<p>
+							Boost your startups by including people from vast global pool.
+						</p>
+					</div>
+				</div>
+			</section>
+
+			<section>
+				<p>Achievements</p>
+				<div class="container">
+					<div class="row align-content-center">
+						<div class="col-lg-4">
+							<div class="circle mb-3 in-circle" id="over"></div>
+						</div>
+						<div class="col-lg-4">
+							<div class="circle mb-3 in-circle" id="over"></div>
+						</div>
+						<div class="col-lg-4">
+							<div class="circle mb-3 in-circle" id="over"></div>
+						</div>
+					</div>
+				</div>
+				<section id="carouselsection">
+					<div class="container">
+						<div class="row align-items-center my-5">
+							<div class="col-lg-7">
+								<h1 class="font-weight-light text-uppercase carousel-heading">
+									What we accomplished
+								</h1>
+								<p style="color: #d3d3d3">
+									This passage will talk about the achievements of the company
+									related to the image.The text changes as the slider moves.The
+									slider bar fills upas we progress furthur
+								</p>
+							</div>
+							<div class="col-lg-5">
+								<img
+									class="img-fluid rounded mb-4 mb-lg-0"
+									src="http://placehold.it/900x400"
+									alt=""
+								/>
+							</div>
+						</div>
+					</div>
+				</section>
+			</section>
+
+
+            <section class="ft" >
+                <div class="ft-logo">
+                    <img src={% static "../static/media/common/Logo.png" %} alt = 'err'>
+                    <p>StartUp Carvan</p>
+                </div>
+                <div class="ft-options">
+                    <p>About</p>
+                    <p>Contact</p>
+                    <p>Downloads</p>
+                    <p>Others</p>
+                </div>
+            </section>
+		</section>
+        <p class="copy" >Copyright @ All Rights Reserved !</p>
+	</body>
+</html>

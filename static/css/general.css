@@ -13,9 +13,10 @@
 
 /* gr base */
 .gr{
-    padding: 20px 40px 0px 60px;
+    padding: 0px 40px 100px 60px;
     display: grid;
     grid-template-columns: 1fr 1fr;
+    margin-bottom: 200px;
 }
 .gr-base{
     display: flex;

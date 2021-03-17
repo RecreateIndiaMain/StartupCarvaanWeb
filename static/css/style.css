@@ -4,6 +4,11 @@
 * Author: BootstrapMade.com
 * License: https://bootstrapmade.com/license/
 */
+:root{
+  --primary:#364f6b;
+  --assent:white;
+  --main:'Akaya Kanadaka', cursive;
+}
 
 /*--------------------------------------------------------------
 # General
@@ -76,7 +81,7 @@ h1, h2, h3, h4, h5, h6 {
   transition: all 0.5s;
   z-index: 997;
   transition: all 0.5s;
-  padding: 15px 0;
+  padding: 15px 0 10px 0;
   background: rgba(255, 255, 255, 0.95);
 }
 
@@ -87,6 +92,10 @@ h1, h2, h3, h4, h5, h6 {
 #header.header-scrolled {
   background: rgba(255, 255, 255, 0.95);
   box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.1);
+}
+.logo-text{
+  font-family: var(--main);
+  font-size: 20px;
 }
 
 @media (max-width: 400px) {
@@ -120,7 +129,7 @@ h1, h2, h3, h4, h5, h6 {
 
 #header .logo img {
   margin: 0;
-  max-height: 40px;
+  max-height: 20px;
 }
 
 /*--------------------------------------------------------------
