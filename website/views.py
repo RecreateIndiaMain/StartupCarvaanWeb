@@ -1,8 +1,8 @@
 from django.http import HttpResponse
 from django.shortcuts import render
-# import firebase_admin
-# from  pyrebase import pyrebase
-# from firebase_admin import credentials
+import firebase_admin
+from  pyrebase import pyrebase
+from firebase_admin import credentials
 # firebaseConfig = {
 #   "apiKey": "AIzaSyC7fz_pXat1z2hEvzVvEk3waoQnMjmyook",
 #   "authDomain": "startup-carvaan-4c5db.firebaseapp.com",
