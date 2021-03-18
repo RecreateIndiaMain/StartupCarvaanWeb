@@ -15,11 +15,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-<<<<<<< HEAD
 from .views import home, login , join, startups
-=======
-from .views import home, login , join
->>>>>>> f914fa826b6bf917873ba2f92f5d254397427b33
 from django.conf import settings
 from django.conf.urls.static import static
 
