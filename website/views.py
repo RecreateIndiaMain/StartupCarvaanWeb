@@ -28,4 +28,7 @@ def login(request):
 def join(request):
     return render(request,'join.html',{})
 
+def startups(request):
+    return render(request,'startups.html',{})
+
 
