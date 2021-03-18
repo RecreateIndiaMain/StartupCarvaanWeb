@@ -31,4 +31,7 @@ def join(request):
 def startups(request):
     return render(request,'startups.html',{})
 
+def users(request):
+    return render(request,'users.html',{})
+
 
