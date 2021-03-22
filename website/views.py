@@ -34,4 +34,7 @@ def startups(request):
 def users(request):
     return render(request,'users.html',{})
 
+def table(request):
+    return render(request,'table.html',{})
+
 
