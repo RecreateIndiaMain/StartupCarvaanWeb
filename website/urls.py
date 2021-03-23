@@ -25,7 +25,7 @@ urlpatterns = [
     path('join/', join, name="joinus_page"),
     path('startups/', startups),
     path('users/', users),
-    path('/table', table),
+    path('table/', table),
     path('',home),
 ]
 urlpatterns+=static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
