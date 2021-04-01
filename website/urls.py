@@ -15,7 +15,9 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from .views import home, login , join, startups, users, table, dashboard
+
+from .views import home, login , join, startups, users, table, blog, dashboard
+
 from django.conf import settings
 from django.conf.urls.static import static
 
@@ -27,6 +29,8 @@ urlpatterns = [
     path('users/', users),
     path('table/', table),
     path('dashboard/', dashboard),
+    path('blog/', blog),
     path('',home),
+    path('delete/<str:id>',delete)
 ]
 urlpatterns+=static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
