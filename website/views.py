@@ -37,4 +37,7 @@ def users(request):
 def table(request):
     return render(request,'table.html',{})
 
+def dashboard(request):
+    return render(request,'dashboard.html',{})
+
 
