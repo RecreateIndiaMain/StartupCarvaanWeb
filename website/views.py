@@ -34,4 +34,10 @@ def startups(request):
 def users(request):
     return render(request,'users.html',{})
 
+def delete(request,id):
+    id=id.replace('>','')
+    id=id.replace('<','')
+    print(id)
+    return HttpResponse(str(id))
+
 
