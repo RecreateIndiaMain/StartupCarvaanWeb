@@ -22,28 +22,29 @@
             <img src="{% static '../static/media/joinus/join.png' %}" alt="err">
             <div class="data">
                 <p class="head">Join Our Community...</p>
-                <form action="POST" class="fr" >
-                    <input class="value" type="text" placeholder="Team Name">
+                <form  class="fr" action="/join/" method="POST" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <input class="value" type="text" placeholder="Team Name" name="teamname" required>
                     <div class="value fr-email">
-                        <input class="value mail" type="text" placeholder="Email">
+                        <input class="value mail" type="text" placeholder="Email" name="email" required>
                         <div class="status">
                             <img class="" src="{% static '../static/media/joinus/loop.svg' %}"" alt='err'>
                             <p>Check Status</p>
                         </div>
                     </div>
-                    <input class="value" type="text" placeholder="Phone Number">
-                    <input class="value" type="text" placeholder="Team Size">
+                    <input class="value" type="text" placeholder="Phone Number" name="phone" required>
+                    <input class="value" type="text" placeholder="Team Size" name="team_size" required>
                     <div class="upl">
                         <img src="{% static '../static/media/joinus/upload.svg' %}" alt="err">
-                        <input id = 'file' type="file" value="upload document">
+                        <input id = 'file' type="file" value="upload document" name="blueone" required>
                     </div>
                     <div class="ch">
                         <div class="tick" >
-                            <input class="ch-box" type="checkbox">
+                            <input class="ch-box" type="checkbox" value="1" name="student">
                             <p>Student</p>
                         </div>
                         <div class="tick" >
-                            <input type="checkbox">
+                            <input type="checkbox" value="2" name="professional">
                             <p>Professional</p>
                         </div>
                     </div>

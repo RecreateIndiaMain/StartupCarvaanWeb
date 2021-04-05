@@ -21,14 +21,15 @@
             <div class="card col-primary">
                 <img src="{% static 'media/login/User.png' %}" alt="err">
                 <p>User</p>
-                <form class="fr-login" method="POST" >
+                <form class="fr-login" action="/userlogin/" method="POST">
+                    {% csrf_token %}
                     <div class="fr">
                         <img src="{% static 'media/login/avatar.svg' %}" alt="err">
-                        <input type="text" placeholder="Username" >    
+                        <input type="text" name="useremail" placeholder="Username" >    
                     </div>
                     <div class="fr">
                         <img src="{% static 'media/login/password.svg' %}" alt="err">
-                        <input type="password" placeholder="Password">
+                        <input type="password" name="userpwd" placeholder="Password">
                     </div>
                     <div class="options">
                         <div class="rem">
@@ -49,15 +50,16 @@
                 <img src="{% static 'media/login/Startup.png' %}" alt="err">
                 <p>StartUp</p>
 
-                <form>
+                <form action="/startuplogin/" method="POST">
+                    {% csrf_token %}
                     <div class="fr">
                         <img src="{% static 'media/login/avatar.svg' %}" alt="err">
-                        <input type="text" placeholder="Username" required>    
+                        <input type="text" name="startupemail" placeholder="Username" required>    
                     </div>
 
                     <div class="fr">
                         <img src="{% static 'media/login/password.svg' %}" alt="err">
-                        <input type="password" placeholder="Password" required>
+                        <input type="password" name="startuppwd" placeholder="Password" required>
                     </div>
 
                     <div class="options">
