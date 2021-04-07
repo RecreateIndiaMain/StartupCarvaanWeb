@@ -1,6 +1,7 @@
 from django.http import HttpResponse
 from django.shortcuts import render,redirect
 from django.contrib import messages
+import uuid
 import firebase_admin
 from django.utils.datastructures import MultiValueDictKeyError
 from  pyrebase import pyrebase
@@ -55,18 +56,25 @@ def join(request):
         teamName=request.POST.get('teamname')
         email=request.POST.get('email')
         number=request.POST.get('phone')
-        student=request.POST.get('student')
-        professional=request.POST.get('professional')
+        student=True
+        professional=True
+        if request.POST.get('student')==None:
+            student=False
+        if request.POST.get('professional')==None:
+            professional=False
         myfile = request.FILES['blueone']
-        storage.child('startupFiles').put(myfile)
+        folder = uuid.uuid4().hex
+        folder = folder[:20]
+        storage.child('startupFiles').child(folder).put(myfile)
         filename = myfile.name
-        db.collection('registration').document().set({
+        db.collection('newstartups').document(folder).set({
             'teamName':teamName,
             'email':email,
             'number':number,
             'student':student,
             'professional':professional,
-            'filename':filename
+            'filename':filename,
+            'status':False
         })
         return redirect('/userlogin')
     return render(request, 'join.html',{})
@@ -91,4 +99,52 @@ def dashboard(request):
 def blog(request):
     return render(request, 'blog.html', {})
 
+#def addblog(request):
+#    if request.method == 'POST':
+#        if auth.current_user:
+#            localId=auth.current_user['localId']
+#            title=request.POST.get('title')
+#            blogurl=request.POST.get('blogurl')
+#            description=request.Post.get('description')
+#            needAsistance=True
+#            needFreelancer=True
+#            needIntern=True
+#            if request.POST.get('assistance')==None:
+#                needAsistance=False
+#            if request.POST.get('freelancing')==None:
+#                needFreelancer=False
+#            if request.POST.get('intern')==None:
+#                needIntern=False
+#            db.collection('allshares').document(localId).collection('blogs').document().set({
+#                'title':title,
+#                'url':videourl,
+#                'needAsistance':needAsistance,
+#                'needFreelancer':needFreelancer,
+#                'needIntern':needIntern,
+#                'description':description
+#            })
 
+
+#def help(request):
+#    if auth.current_user:
+#        if request.method=='GET':
+#            return render(request,'help.html',{})
+#        if request.method == 'POST':
+#            Ask_for_Assistance=True
+#            Ask_for_Mentor=True
+#            Increase_My_Share_Price=True
+#            if request.POST.get('assistance')==None:
+#                needAsistance=False
+#            if request.POST.get('mentorship')==None:
+#                needFreelancer=False
+#            if request.POST.get('share_price')==None:
+#                needIntern=False
+#            Add_Comment=request.POST.get('comment')
+#            db.collection('help').document().set({
+#                'Ask_for_Assistance':Ask_for_Assistance,
+#                'Ask_for_Mentor':Ask_for_Mentor,
+#                'Increase_My_Share_Price':Increase_My_Share_Price,
+#                'Add_Comment':Add_Comment
+#            })
+#            return render(request,'help.html',{})
+#    return redirect('/login/')
