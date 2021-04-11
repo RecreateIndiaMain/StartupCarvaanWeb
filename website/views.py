@@ -151,3 +151,5 @@ def startabout(request):
 #            })
 #            return render(request,'help.html',{})
 #    return redirect('/login/')
+def userprofile(request):
+    return render(request, "userprofile.html", {});

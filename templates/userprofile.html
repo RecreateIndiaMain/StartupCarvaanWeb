@@ -1,0 +1,81 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static '../static/css/userprofile.css' %}">
+    <title>User Profile</title>
+</head>
+<body>
+    <nav>
+        <img src="{% static '../static/media/common/Logo.png' %}" alt="logo">
+        <p>Startup Carvaan</p>
+    </nav>
+
+    <section class="page" >
+        <div class="profile">
+            <img src="{% static '../static/media/userprofile/avatar.png' %}" alt="avatar">
+            <div class="label">
+                <p>User Details:</p>
+                <p>John Doe</p>
+            </div>
+            <div class="label">
+                <p>Joined:</p>
+                <p>11 June 2021</p>
+            </div>
+            <div class="label">
+                <p>User Details:</p>
+                <p class="coins" ><img class="coinsimg" src="{% static '../static/media/userprofile/coin.png' %}" alt="coins"> 92478</p>
+            </div>
+        </div>
+        <div class="details">
+            <div class="username">
+                <div class="name">
+                    <p>John Doe</p>
+                    <p class="map" ><img class="mapimg" src="{% static '../static/media/userprofile/map.png' %}" alt="Map"> Meerut, Uttar Pradesh </p>
+                </div>
+                <p>Rank Beginner</p>
+            </div>
+            <div class="info">
+                <div class="title">
+                    <p>Contact Information</p>
+                    <div class="title-margin"></div>
+                </div>
+                <div class="entry">
+                    <div class="label space">
+                        <p>Phone</p>
+                        <p>+91 - 8999899989</p>
+                    </div>
+                    <div class="label space">
+                        <p>Address</p>
+                        <p class="widthSize" >214, Sector - 14, UE Meerut, Uttar Pradesh - 250110</p>
+                    </div>
+                    <div class="label space">
+                        <p>Email</p>
+                        <p>sanfoundary@gmail.com</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="info">
+                <div class="title">
+                    <p>General Information</p>
+                    <div class="title-margin"></div>
+                </div>
+                <div class="entry">
+                    <div class="label space">
+                        <p>Resume</p>
+                        <p>Document Url <img class="url" src="{% static '../static/media/userprofile/url.png' %}" alt="url"></p>
+                    </div>
+                    <div class="label space">
+                        <p>Description</p>
+                        <p class="widthSize" >Lorem ipsum dolor sit, Lorem ipsum dolor sit, Lorem ipsum dolor sit,Lorem ipsum dolor sit,Lorem ipsum dolor sit </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+</html>
