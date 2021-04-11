@@ -16,7 +16,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
-from .views import home, startuplogin , join, startups, users, table, blog, dashboard, userlogin, startabout, userprofile
+from .views import home, startuplogin , join, startups, users, table, blog, dashboard, userlogin, startabout, userprofile, addBlogPage
 
 from django.conf import settings
 from django.conf.urls.static import static
@@ -33,6 +33,7 @@ urlpatterns = [
     path('blog/', blog),
     path('startup-blog/', startabout),
     path('profile', userprofile),
+    path('addblog', addBlogPage),
     path('',home)
 ]
 urlpatterns+=static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

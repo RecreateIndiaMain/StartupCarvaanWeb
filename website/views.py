@@ -152,4 +152,7 @@ def startabout(request):
 #            return render(request,'help.html',{})
 #    return redirect('/login/')
 def userprofile(request):
-    return render(request, "userprofile.html", {});
+    return render(request, "userprofile.html", {})
+
+def addBlogPage(request):
+    return render(request, 'addblog.html', {})
