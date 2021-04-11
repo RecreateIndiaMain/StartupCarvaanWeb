@@ -128,7 +128,8 @@ def startabout(request):
 #            })
 
 
-#def help(request):
+def help(request):
+    return render(request,'help.html',{})
 #    if auth.current_user:
 #        if request.method=='GET':
 #            return render(request,'help.html',{})

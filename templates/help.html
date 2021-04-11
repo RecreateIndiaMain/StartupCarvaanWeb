@@ -1,0 +1,63 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="{% static '../static/css/help.css' %}" />
+    <title>Help Page</title>
+  </head>
+  <body>
+    <nav>
+      <div class="logo">
+        <img src="{% static '../static/media/common/Logo.png' %}" alt="logo" />
+        <h1>startup carvaan</h1>
+      </div>
+      <ul>
+        <li>Home Page</li>
+        <li>Blog</li>
+        <li>Add Blog</li>
+        <li>Help</li>
+      </ul>
+      <div class="ham">
+        <img src="{% static '../static/media/help/square.png' %}" alt="ham" />
+      </div>
+    </nav>
+
+    <section class="page">
+      <div class="help">
+        <div class="head">
+          <h1>Need Help ?.</h1>
+          <span
+            >Tell us more about your problem and our support staff will help
+            you.</span
+          >
+        </div>
+        <form>
+          <div class="choice">
+            <div class="one">
+              <input type="checkbox" name="choice" id="freelancing" />
+              <label for="freelancing">Ask For Freelancing</label>
+            </div>
+            <div class="two">
+              <input type="checkbox" name="choice" id="intern" />
+              <label for="intern">Ask For Intern</label>
+            </div>
+            <div class="three">
+              <input type="checkbox" name="choice" id="assistance" />
+              <label for="assistance">Ask For Assistance</label>
+            </div>
+          </div>
+          <div class="entry">
+            <textarea name="" id="desc"  rows="8"></textarea>
+          </div>
+          <button class="btn-submit"> Submit </button>
+        </form>
+      </div>
+      <div class="hero-image">
+        <img src="{% static '../static/media/help/main.png' %}" alt="Hero Image" />
+      </div>
+    </section>
+  </body>
+</html>
