@@ -1,0 +1,72 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="{% static '../static/css/addblog.css' %}">
+    <title>Add Blog</title>
+  </head>
+  <body>
+    <nav>
+      <div class="logo">
+        <img src="{% static '../static/media/common/Logo.png' %}" alt="logo" />
+        <h1>startup carvaan</h1>
+      </div>
+      <ul>
+        <li>Home Page</li>
+        <li>Blog</li>
+        <li>Add Blog</li>
+        <li>Help</li>
+      </ul>
+      <div class="ham">
+          <img src="{% static '../static/media/addblog/square.png' %}" alt="ham">
+      </div>
+    </nav>
+
+    <section class="addPage" >
+      <div class="hero-image">
+        <img src="{% static '../static/media/addblog/main.png' %}" alt="hero image" />
+      </div>
+
+      <div class="upload">
+        <div class="head">
+          <h1>Share Your Ideas</h1>
+          <span
+            >Tell us about your problems and our support will contact you</span
+          >
+        </div>
+        <form>
+          <div class="entry">
+            <label for="title">Title</label>
+            <input id="title" type="text" />
+          </div>
+          <div class="entry">
+            <label for="desc">Description</label>
+            <textarea name="" id="desc"  rows="3"></textarea>
+          </div>
+          <div class="entry">
+            <label for="link">Upload Video</label>
+            <input type="file" name="video" id="link" />
+          </div>
+          <div class="choice">
+            <div class="one">
+              <input type="checkbox" name="choice" id="freelancing" />
+              <label for="freelancing">Ask For Freelancing</label>
+            </div>
+            <div class="two">
+              <input type="checkbox" name="choice" id="intern" />
+              <label for="intern">Ask For Intern</label>
+            </div>
+            <div class="three">
+              <input type="checkbox" name="choice" id="assistance" />
+              <label for="assistance">Ask For Assistance</label>
+            </div>
+          </div>
+          <button class="btn-submit" type="submit">Add Blog</button>
+        </form>
+      </div>
+    </section>
+  </body>
+</html>

@@ -1,0 +1,137 @@
+@import url('https://fonts.googleapis.com/css2?family=Akaya+Kanadaka&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@200;300;400;500;600;700;800;900&display=swap');
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+html{
+    scroll-behavior: smooth;
+}
+/* Constants */
+:root{
+    --primary:#364f6b;
+    --assent:white;
+    --main:'Akaya Kanadaka', cursive;
+    --secon: 'Inconsolata', monospace;
+    --hover:#dbf6e9;
+    --under: #A2A2A2;
+}
+
+/* Nav */
+nav{
+    display: flex;
+    align-items: center;
+    font-size: 2.2em;
+    font-family: var(--main);
+    padding: 20px 20px;
+}
+nav>img{
+    width: 80px;
+}
+nav>p{
+    margin-left: 20px;
+}
+/* End Nav */
+
+/* Section */
+.page{
+    display: flex;
+    margin: 20px 20px 30px 140px;
+}
+.profile{
+    display: flex;
+    flex-direction: column;
+    margin: 0px 100px 0px 0px;
+}
+.label{
+    display: flex;
+    margin-top: 20px;
+    align-items: center;
+    justify-content: space-between;
+}
+.label>p:nth-child(2){
+    margin-left: 10px;
+    font-size: 1.2em;
+    font-family: var(--secon);
+}
+.label>p:nth-child(1){
+    font-weight: bold;
+    font-family: var(--secon);
+    font-size: 1.3em;
+}
+.coins{
+    display: flex;
+    align-items: center;
+}
+.coinsimg{
+    margin-right: 5px;
+}
+.details{
+    display: flex;
+    flex-direction: column;
+    width: 40%;
+    
+}
+.username{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 50px;
+}
+.username>p{
+    font-size: 1.6em;
+    color: blueviolet;
+    font-weight: bold;
+    font-family: var(--secon);
+}
+.name{
+    display: flex;
+    align-items: center;
+}
+.name>p:nth-child(1){
+    font-size: 3.8em;
+    font-family: var(--main);
+    margin-right: 10px;
+}
+.map{
+    display: flex;
+    align-items: center;
+    transform: translateY(50%);
+    font-family: var(--secon);
+    font-weight: bold;
+    color: var(--under);
+    margin-left: 10px;
+}
+.mapimg{
+    margin-right: 5px;
+}
+.info{
+    display: flex;
+    flex-direction: column;
+}
+.title{
+    display: flex;
+    align-items: center;
+    font-size: 1.5em;
+    color: var(--under);
+    font-family: var(--secon);
+    margin-bottom: 10px;
+}
+.title>p{
+    flex: 1;
+}
+.title-margin{
+    width: 45%;
+    height: 1px;
+    border-top: 2px solid var(--under);
+    margin-left: 10px;
+}
+.space{
+    margin-bottom: 40px;
+}
+.widthSize{
+    width: 280px;
+}
+
+.
+/* End Section */

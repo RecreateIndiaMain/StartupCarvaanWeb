@@ -1,0 +1,750 @@
+{% load static%}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="{% static '../static/css/StartAbout.css' %}" />
+    <script
+      defer
+      type="text/javascript"
+      src="https://www.gstatic.com/charts/loader.js"
+    ></script>
+    <script defer src="{% static '../static/js/StartAbout/StartAbout.js' %}"></script>
+    <title>Start Up Carvaan</title>
+  </head>
+  <body>
+    <nav>
+      <img src="{% static '../static/media/StartAbout/Logo.png' %}" alt="Logo" />
+      <form class="search">
+        <input type="text" placeholder="Search Blog" />
+        <button class="find" ><img src="{% static '../static/media/StartAbout/glass.svg' %}" alt="Search"></button>
+      </form>
+      <ul>
+        <li>Home</li>
+        <li>About</li>
+        <li>Contact</li>
+      </ul>
+    </nav>
+
+    <div class="blog-page">
+      <div class="bl-head">
+        <div class="title">
+          <div class="bl-logo">
+            <img src="{% static '../static/media/StartAbout/startup.svg' %}" alt="logo" />
+            <h1>TalkAt</h1>
+          </div>
+        </div>
+        <div class="bl-tags">
+          <p>FEATURED</p>
+          <p>CHATAPP</p>
+          <p>MACHINE LEARNING</p>
+          <p>WINNER-STARTUP 19'</p>
+          <p>FULLY FUNDED</p>
+          <p>IIT ALUMNI</p>
+        </div>
+      </div>
+      <hr />
+      <div class="bl-content">
+        <div class="bl-pitch">
+          <div class="video">
+            <h1 class="pitch-title">Pitch Video</h1>
+            <iframe
+              class="pitch"
+              width="580"
+              height="345"
+              src="https://www.youtube.com/embed/OCWj5xgu5Ng"
+              title="YouTube video player"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen
+            ></iframe>
+          </div>
+          <div class="chart">
+            <h1 class="pitch-title space">Growth Chart</h1>
+            <div id="curve_chart" style="width: 700px; height: 400px"></div>
+          </div>
+        </div>
+        <div class="bl-desc">
+          <div class="desc">
+            <h1 class="pitch-title">About</h1>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores
+              dolorem quia in, dolore vero dignissimos quam eaque veniam unde
+              suscipit nisi, eum saepe facilis dicta iusto sit error cumque
+              vitae. Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+              Ea error, deleniti voluptates animi repudiandae illum temporibus
+              voluptate! Odio, deserunt! Error rerum inventore nemo optio
+              delectus ut itaque officia odio vitae. Lorem ipsum dolor sit amet
+              consectetur adipisicing elit. Cupiditate ex illo doloremque
+              repellat! Possimus, voluptatibus aliquam libero dolor saepe sit
+              recusandae aspernatur sunt dolorem est excepturi modi eos
+              similique impedit?
+            </p>
+          </div>
+          <button class="btn-invest">INVEST IN ME</button>
+        </div>
+      </div>
+    </div>
+    <div class="blog-page">
+      <div class="bl-head">
+        <div class="title">
+          <div class="bl-logo">
+            <img src="{% static '../static/media/StartAbout/startup.svg' %}" alt="logo" />
+            <h1>TalkAt</h1>
+          </div>
+        </div>
+        <div class="bl-tags">
+          <p>FEATURED</p>
+          <p>CHATAPP</p>
+          <p>MACHINE LEARNING</p>
+          <p>WINNER-STARTUP 19'</p>
+          <p>FULLY FUNDED</p>
+          <p>IIT ALUMNI</p>
+        </div>
+      </div>
+      <hr />
+      <div class="bl-content">
+        <div class="bl-pitch">
+          <div class="video">
+            <h1 class="pitch-title">Pitch Video</h1>
+            <iframe
+              class="pitch"
+              width="580"
+              height="345"
+              src="https://www.youtube.com/embed/OCWj5xgu5Ng"
+              title="YouTube video player"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen
+            ></iframe>
+          </div>
+          <div class="chart">
+            <h1 class="pitch-title space">Growth Chart</h1>
+            <div id="curve_chart" style="width: 700px; height: 400px"></div>
+          </div>
+        </div>
+        <div class="bl-desc">
+          <div class="desc">
+            <h1 class="pitch-title">About</h1>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores
+              dolorem quia in, dolore vero dignissimos quam eaque veniam unde
+              suscipit nisi, eum saepe facilis dicta iusto sit error cumque
+              vitae. Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+              Ea error, deleniti voluptates animi repudiandae illum temporibus
+              voluptate! Odio, deserunt! Error rerum inventore nemo optio
+              delectus ut itaque officia odio vitae. Lorem ipsum dolor sit amet
+              consectetur adipisicing elit. Cupiditate ex illo doloremque
+              repellat! Possimus, voluptatibus aliquam libero dolor saepe sit
+              recusandae aspernatur sunt dolorem est excepturi modi eos
+              similique impedit?
+            </p>
+          </div>
+          <button class="btn-invest">INVEST IN ME</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="blog-page">
+      <div class="bl-head">
+        <div class="title">
+          <div class="bl-logo">
+            <img src="{% static '../static/media/StartAbout/startup.svg' %}" alt="logo" />
+            <h1>TalkAt</h1>
+          </div>
+        </div>
+        <div class="bl-tags">
+          <p>FEATURED</p>
+          <p>CHATAPP</p>
+          <p>MACHINE LEARNING</p>
+          <p>WINNER-STARTUP 19'</p>
+          <p>FULLY FUNDED</p>
+          <p>IIT ALUMNI</p>
+        </div>
+      </div>
+      <hr />
+      <div class="bl-content">
+        <div class="bl-pitch">
+          <div class="video">
+            <h1 class="pitch-title">Pitch Video</h1>
+            <iframe
+              class="pitch"
+              width="580"
+              height="345"
+              src="https://www.youtube.com/embed/OCWj5xgu5Ng"
+              title="YouTube video player"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen
+            ></iframe>
+          </div>
+          <div class="chart">
+            <h1 class="pitch-title space">Growth Chart</h1>
+            <div id="curve_chart" style="width: 700px; height: 400px"></div>
+          </div>
+        </div>
+        <div class="bl-desc">
+          <div class="desc">
+            <h1 class="pitch-title">About</h1>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores
+              dolorem quia in, dolore vero dignissimos quam eaque veniam unde
+              suscipit nisi, eum saepe facilis dicta iusto sit error cumque
+              vitae. Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+              Ea error, deleniti voluptates animi repudiandae illum temporibus
+              voluptate! Odio, deserunt! Error rerum inventore nemo optio
+              delectus ut itaque officia odio vitae. Lorem ipsum dolor sit amet
+              consectetur adipisicing elit. Cupiditate ex illo doloremque
+              repellat! Possimus, voluptatibus aliquam libero dolor saepe sit
+              recusandae aspernatur sunt dolorem est excepturi modi eos
+              similique impedit?
+            </p>
+          </div>
+          <button class="btn-invest">INVEST IN ME</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="blog-page">
+      <div class="bl-head">
+        <div class="title">
+          <div class="bl-logo">
+            <img src="{% static '../static/media/StartAbout/startup.svg' %}" alt="logo" />
+            <h1>TalkAt</h1>
+          </div>
+        </div>
+        <div class="bl-tags">
+          <p>FEATURED</p>
+          <p>CHATAPP</p>
+          <p>MACHINE LEARNING</p>
+          <p>WINNER-STARTUP 19'</p>
+          <p>FULLY FUNDED</p>
+          <p>IIT ALUMNI</p>
+        </div>
+      </div>
+      <hr />
+      <div class="bl-content">
+        <div class="bl-pitch">
+          <div class="video">
+            <h1 class="pitch-title">Pitch Video</h1>
+            <iframe
+              class="pitch"
+              width="580"
+              height="345"
+              src="https://www.youtube.com/embed/OCWj5xgu5Ng"
+              title="YouTube video player"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen
+            ></iframe>
+          </div>
+          <div class="chart">
+            <h1 class="pitch-title space">Growth Chart</h1>
+            <div id="curve_chart" style="width: 700px; height: 400px"></div>
+          </div>
+        </div>
+        <div class="bl-desc">
+          <div class="desc">
+            <h1 class="pitch-title">About</h1>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores
+              dolorem quia in, dolore vero dignissimos quam eaque veniam unde
+              suscipit nisi, eum saepe facilis dicta iusto sit error cumque
+              vitae. Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+              Ea error, deleniti voluptates animi repudiandae illum temporibus
+              voluptate! Odio, deserunt! Error rerum inventore nemo optio
+              delectus ut itaque officia odio vitae. Lorem ipsum dolor sit amet
+              consectetur adipisicing elit. Cupiditate ex illo doloremque
+              repellat! Possimus, voluptatibus aliquam libero dolor saepe sit
+              recusandae aspernatur sunt dolorem est excepturi modi eos
+              similique impedit?
+            </p>
+          </div>
+          <button class="btn-invest">INVEST IN ME</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="blog-page">
+      <div class="bl-head">
+        <div class="title">
+          <div class="bl-logo">
+            <img src="{% static '../static/media/StartAbout/startup.svg' %}" alt="logo" />
+            <h1>TalkAt</h1>
+          </div>
+        </div>
+        <div class="bl-tags">
+          <p>FEATURED</p>
+          <p>CHATAPP</p>
+          <p>MACHINE LEARNING</p>
+          <p>WINNER-STARTUP 19'</p>
+          <p>FULLY FUNDED</p>
+          <p>IIT ALUMNI</p>
+        </div>
+      </div>
+      <hr />
+      <div class="bl-content">
+        <div class="bl-pitch">
+          <div class="video">
+            <h1 class="pitch-title">Pitch Video</h1>
+            <iframe
+              class="pitch"
+              width="580"
+              height="345"
+              src="https://www.youtube.com/embed/OCWj5xgu5Ng"
+              title="YouTube video player"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen
+            ></iframe>
+          </div>
+          <div class="chart">
+            <h1 class="pitch-title space">Growth Chart</h1>
+            <div id="curve_chart" style="width: 700px; height: 400px"></div>
+          </div>
+        </div>
+        <div class="bl-desc">
+          <div class="desc">
+            <h1 class="pitch-title">About</h1>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores
+              dolorem quia in, dolore vero dignissimos quam eaque veniam unde
+              suscipit nisi, eum saepe facilis dicta iusto sit error cumque
+              vitae. Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+              Ea error, deleniti voluptates animi repudiandae illum temporibus
+              voluptate! Odio, deserunt! Error rerum inventore nemo optio
+              delectus ut itaque officia odio vitae. Lorem ipsum dolor sit amet
+              consectetur adipisicing elit. Cupiditate ex illo doloremque
+              repellat! Possimus, voluptatibus aliquam libero dolor saepe sit
+              recusandae aspernatur sunt dolorem est excepturi modi eos
+              similique impedit?
+            </p>
+          </div>
+          <button class="btn-invest">INVEST IN ME</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="blog-page">
+      <div class="bl-head">
+        <div class="title">
+          <div class="bl-logo">
+            <img src="{% static '../static/media/StartAbout/startup.svg' %}" alt="logo" />
+            <h1>TalkAt</h1>
+          </div>
+        </div>
+        <div class="bl-tags">
+          <p>FEATURED</p>
+          <p>CHATAPP</p>
+          <p>MACHINE LEARNING</p>
+          <p>WINNER-STARTUP 19'</p>
+          <p>FULLY FUNDED</p>
+          <p>IIT ALUMNI</p>
+        </div>
+      </div>
+      <hr />
+      <div class="bl-content">
+        <div class="bl-pitch">
+          <div class="video">
+            <h1 class="pitch-title">Pitch Video</h1>
+            <iframe
+              class="pitch"
+              width="580"
+              height="345"
+              src="https://www.youtube.com/embed/OCWj5xgu5Ng"
+              title="YouTube video player"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen
+            ></iframe>
+          </div>
+          <div class="chart">
+            <h1 class="pitch-title space">Growth Chart</h1>
+            <div id="curve_chart" style="width: 700px; height: 400px"></div>
+          </div>
+        </div>
+        <div class="bl-desc">
+          <div class="desc">
+            <h1 class="pitch-title">About</h1>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores
+              dolorem quia in, dolore vero dignissimos quam eaque veniam unde
+              suscipit nisi, eum saepe facilis dicta iusto sit error cumque
+              vitae. Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+              Ea error, deleniti voluptates animi repudiandae illum temporibus
+              voluptate! Odio, deserunt! Error rerum inventore nemo optio
+              delectus ut itaque officia odio vitae. Lorem ipsum dolor sit amet
+              consectetur adipisicing elit. Cupiditate ex illo doloremque
+              repellat! Possimus, voluptatibus aliquam libero dolor saepe sit
+              recusandae aspernatur sunt dolorem est excepturi modi eos
+              similique impedit?
+            </p>
+          </div>
+          <button class="btn-invest">INVEST IN ME</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="blog-page">
+      <div class="bl-head">
+        <div class="title">
+          <div class="bl-logo">
+            <img src="{% static '../static/media/StartAbout/startup.svg' %}" alt="logo" />
+            <h1>TalkAt</h1>
+          </div>
+        </div>
+        <div class="bl-tags">
+          <p>FEATURED</p>
+          <p>CHATAPP</p>
+          <p>MACHINE LEARNING</p>
+          <p>WINNER-STARTUP 19'</p>
+          <p>FULLY FUNDED</p>
+          <p>IIT ALUMNI</p>
+        </div>
+      </div>
+      <hr />
+      <div class="bl-content">
+        <div class="bl-pitch">
+          <div class="video">
+            <h1 class="pitch-title">Pitch Video</h1>
+            <iframe
+              class="pitch"
+              width="580"
+              height="345"
+              src="https://www.youtube.com/embed/OCWj5xgu5Ng"
+              title="YouTube video player"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen
+            ></iframe>
+          </div>
+          <div class="chart">
+            <h1 class="pitch-title space">Growth Chart</h1>
+            <div id="curve_chart" style="width: 700px; height: 400px"></div>
+          </div>
+        </div>
+        <div class="bl-desc">
+          <div class="desc">
+            <h1 class="pitch-title">About</h1>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores
+              dolorem quia in, dolore vero dignissimos quam eaque veniam unde
+              suscipit nisi, eum saepe facilis dicta iusto sit error cumque
+              vitae. Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+              Ea error, deleniti voluptates animi repudiandae illum temporibus
+              voluptate! Odio, deserunt! Error rerum inventore nemo optio
+              delectus ut itaque officia odio vitae. Lorem ipsum dolor sit amet
+              consectetur adipisicing elit. Cupiditate ex illo doloremque
+              repellat! Possimus, voluptatibus aliquam libero dolor saepe sit
+              recusandae aspernatur sunt dolorem est excepturi modi eos
+              similique impedit?
+            </p>
+          </div>
+          <button class="btn-invest">INVEST IN ME</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="blog-page">
+      <div class="bl-head">
+        <div class="title">
+          <div class="bl-logo">
+            <img src="{% static '../static/media/StartAbout/startup.svg' %}" alt="logo" />
+            <h1>TalkAt</h1>
+          </div>
+        </div>
+        <div class="bl-tags">
+          <p>FEATURED</p>
+          <p>CHATAPP</p>
+          <p>MACHINE LEARNING</p>
+          <p>WINNER-STARTUP 19'</p>
+          <p>FULLY FUNDED</p>
+          <p>IIT ALUMNI</p>
+        </div>
+      </div>
+      <hr />
+      <div class="bl-content">
+        <div class="bl-pitch">
+          <div class="video">
+            <h1 class="pitch-title">Pitch Video</h1>
+            <iframe
+              class="pitch"
+              width="580"
+              height="345"
+              src="https://www.youtube.com/embed/OCWj5xgu5Ng"
+              title="YouTube video player"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen
+            ></iframe>
+          </div>
+          <div class="chart">
+            <h1 class="pitch-title space">Growth Chart</h1>
+            <div id="curve_chart" style="width: 700px; height: 400px"></div>
+          </div>
+        </div>
+        <div class="bl-desc">
+          <div class="desc">
+            <h1 class="pitch-title">About</h1>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores
+              dolorem quia in, dolore vero dignissimos quam eaque veniam unde
+              suscipit nisi, eum saepe facilis dicta iusto sit error cumque
+              vitae. Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+              Ea error, deleniti voluptates animi repudiandae illum temporibus
+              voluptate! Odio, deserunt! Error rerum inventore nemo optio
+              delectus ut itaque officia odio vitae. Lorem ipsum dolor sit amet
+              consectetur adipisicing elit. Cupiditate ex illo doloremque
+              repellat! Possimus, voluptatibus aliquam libero dolor saepe sit
+              recusandae aspernatur sunt dolorem est excepturi modi eos
+              similique impedit?
+            </p>
+          </div>
+          <button class="btn-invest">INVEST IN ME</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="blog-page">
+      <div class="bl-head">
+        <div class="title">
+          <div class="bl-logo">
+            <img src="{% static '../static/media/StartAbout/startup.svg' %}" alt="logo" />
+            <h1>TalkAt</h1>
+          </div>
+        </div>
+        <div class="bl-tags">
+          <p>FEATURED</p>
+          <p>CHATAPP</p>
+          <p>MACHINE LEARNING</p>
+          <p>WINNER-STARTUP 19'</p>
+          <p>FULLY FUNDED</p>
+          <p>IIT ALUMNI</p>
+        </div>
+      </div>
+      <hr />
+      <div class="bl-content">
+        <div class="bl-pitch">
+          <div class="video">
+            <h1 class="pitch-title">Pitch Video</h1>
+            <iframe
+              class="pitch"
+              width="580"
+              height="345"
+              src="https://www.youtube.com/embed/OCWj5xgu5Ng"
+              title="YouTube video player"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen
+            ></iframe>
+          </div>
+          <div class="chart">
+            <h1 class="pitch-title space">Growth Chart</h1>
+            <div id="curve_chart" style="width: 700px; height: 400px"></div>
+          </div>
+        </div>
+        <div class="bl-desc">
+          <div class="desc">
+            <h1 class="pitch-title">About</h1>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores
+              dolorem quia in, dolore vero dignissimos quam eaque veniam unde
+              suscipit nisi, eum saepe facilis dicta iusto sit error cumque
+              vitae. Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+              Ea error, deleniti voluptates animi repudiandae illum temporibus
+              voluptate! Odio, deserunt! Error rerum inventore nemo optio
+              delectus ut itaque officia odio vitae. Lorem ipsum dolor sit amet
+              consectetur adipisicing elit. Cupiditate ex illo doloremque
+              repellat! Possimus, voluptatibus aliquam libero dolor saepe sit
+              recusandae aspernatur sunt dolorem est excepturi modi eos
+              similique impedit?
+            </p>
+          </div>
+          <button class="btn-invest">INVEST IN ME</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="blog-page">
+      <div class="bl-head">
+        <div class="title">
+          <div class="bl-logo">
+            <img src="{% static '../static/media/StartAbout/startup.svg' %}" alt="logo" />
+            <h1>TalkAt</h1>
+          </div>
+        </div>
+        <div class="bl-tags">
+          <p>FEATURED</p>
+          <p>CHATAPP</p>
+          <p>MACHINE LEARNING</p>
+          <p>WINNER-STARTUP 19'</p>
+          <p>FULLY FUNDED</p>
+          <p>IIT ALUMNI</p>
+        </div>
+      </div>
+      <hr />
+      <div class="bl-content">
+        <div class="bl-pitch">
+          <div class="video">
+            <h1 class="pitch-title">Pitch Video</h1>
+            <iframe
+              class="pitch"
+              width="580"
+              height="345"
+              src="https://www.youtube.com/embed/OCWj5xgu5Ng"
+              title="YouTube video player"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen
+            ></iframe>
+          </div>
+          <div class="chart">
+            <h1 class="pitch-title space">Growth Chart</h1>
+            <div id="curve_chart" style="width: 700px; height: 400px"></div>
+          </div>
+        </div>
+        <div class="bl-desc">
+          <div class="desc">
+            <h1 class="pitch-title">About</h1>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores
+              dolorem quia in, dolore vero dignissimos quam eaque veniam unde
+              suscipit nisi, eum saepe facilis dicta iusto sit error cumque
+              vitae. Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+              Ea error, deleniti voluptates animi repudiandae illum temporibus
+              voluptate! Odio, deserunt! Error rerum inventore nemo optio
+              delectus ut itaque officia odio vitae. Lorem ipsum dolor sit amet
+              consectetur adipisicing elit. Cupiditate ex illo doloremque
+              repellat! Possimus, voluptatibus aliquam libero dolor saepe sit
+              recusandae aspernatur sunt dolorem est excepturi modi eos
+              similique impedit?
+            </p>
+          </div>
+          <button class="btn-invest">INVEST IN ME</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="blog-page">
+      <div class="bl-head">
+        <div class="title">
+          <div class="bl-logo">
+            <img src="{% static '../static/media/StartAbout/startup.svg' %}" alt="logo" />
+            <h1>TalkAt</h1>
+          </div>
+        </div>
+        <div class="bl-tags">
+          <p>FEATURED</p>
+          <p>CHATAPP</p>
+          <p>MACHINE LEARNING</p>
+          <p>WINNER-STARTUP 19'</p>
+          <p>FULLY FUNDED</p>
+          <p>IIT ALUMNI</p>
+        </div>
+      </div>
+      <hr />
+      <div class="bl-content">
+        <div class="bl-pitch">
+          <div class="video">
+            <h1 class="pitch-title">Pitch Video</h1>
+            <iframe
+              class="pitch"
+              width="580"
+              height="345"
+              src="https://www.youtube.com/embed/OCWj5xgu5Ng"
+              title="YouTube video player"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen
+            ></iframe>
+          </div>
+          <div class="chart">
+            <h1 class="pitch-title space">Growth Chart</h1>
+            <div id="curve_chart" style="width: 700px; height: 400px"></div>
+          </div>
+        </div>
+        <div class="bl-desc">
+          <div class="desc">
+            <h1 class="pitch-title">About</h1>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores
+              dolorem quia in, dolore vero dignissimos quam eaque veniam unde
+              suscipit nisi, eum saepe facilis dicta iusto sit error cumque
+              vitae. Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+              Ea error, deleniti voluptates animi repudiandae illum temporibus
+              voluptate! Odio, deserunt! Error rerum inventore nemo optio
+              delectus ut itaque officia odio vitae. Lorem ipsum dolor sit amet
+              consectetur adipisicing elit. Cupiditate ex illo doloremque
+              repellat! Possimus, voluptatibus aliquam libero dolor saepe sit
+              recusandae aspernatur sunt dolorem est excepturi modi eos
+              similique impedit?
+            </p>
+          </div>
+          <button class="btn-invest">INVEST IN ME</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="blog-page">
+      <div class="bl-head">
+        <div class="title">
+          <div class="bl-logo">
+            <img src="{% static '../static/media/StartAbout/startup.svg' %}" alt="logo" />
+            <h1>TalkAt</h1>
+          </div>
+        </div>
+        <div class="bl-tags">
+          <p>FEATURED</p>
+          <p>CHATAPP</p>
+          <p>MACHINE LEARNING</p>
+          <p>WINNER-STARTUP 19'</p>
+          <p>FULLY FUNDED</p>
+          <p>IIT ALUMNI</p>
+        </div>
+      </div>
+      <hr />
+      <div class="bl-content">
+        <div class="bl-pitch">
+          <div class="video">
+            <h1 class="pitch-title">Pitch Video</h1>
+            <iframe
+              class="pitch"
+              width="580"
+              height="345"
+              src="https://www.youtube.com/embed/OCWj5xgu5Ng"
+              title="YouTube video player"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen
+            ></iframe>
+          </div>
+          <div class="chart">
+            <h1 class="pitch-title space">Growth Chart</h1>
+            <div id="curve_chart" style="width: 700px; height: 400px"></div>
+          </div>
+        </div>
+        <div class="bl-desc">
+          <div class="desc">
+            <h1 class="pitch-title">About</h1>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores
+              dolorem quia in, dolore vero dignissimos quam eaque veniam unde
+              suscipit nisi, eum saepe facilis dicta iusto sit error cumque
+              vitae. Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+              Ea error, deleniti voluptates animi repudiandae illum temporibus
+              voluptate! Odio, deserunt! Error rerum inventore nemo optio
+              delectus ut itaque officia odio vitae. Lorem ipsum dolor sit amet
+              consectetur adipisicing elit. Cupiditate ex illo doloremque
+              repellat! Possimus, voluptatibus aliquam libero dolor saepe sit
+              recusandae aspernatur sunt dolorem est excepturi modi eos
+              similique impedit?
+            </p>
+          </div>
+          <button class="btn-invest">INVEST IN ME</button>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

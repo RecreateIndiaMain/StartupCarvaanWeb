@@ -2,28 +2,28 @@ from django.http import HttpResponse
 from django.shortcuts import render,redirect
 from django.contrib import messages
 import uuid
-import firebase_admin
+# import firebase_admin
 from django.utils.datastructures import MultiValueDictKeyError
-from  pyrebase import pyrebase
-from firebase_admin import credentials,firestore
-firebaseConfig = {
-   "apiKey": "AIzaSyC7fz_pXat1z2hEvzVvEk3waoQnMjmyook",
-   "authDomain": "startup-carvaan-4c5db.firebaseapp.com",
-   "projectId": "startup-carvaan-4c5db",
-   "databaseURL": "https://startupcarvaan.firebaseio.com",
-   "storageBucket": "startup-carvaan-4c5db.appspot.com",
-   "messagingSenderId": "581476801467",
-   "appId": "1:581476801467:web:038c2a553a3b660312829e",
-   "measurementId": "G-P8WXN23XPF"
-}
-cred=credentials.Certificate('serviceAccountkey.json')
-firebase_admin.initialize_app(cred)
-pyrebase_app=pyrebase.initialize_app(firebaseConfig)
-auth=pyrebase_app.auth()
-db=firestore.client()
-storage=pyrebase_app.storage()
-# auth.sign_in_with_email_and_password("test@gmail.com","testuser")
-# print(auth.current_user['email'])
+# from  pyrebase import pyrebase
+# from firebase_admin import credentials,firestore
+# firebaseConfig = {
+#    "apiKey": "AIzaSyC7fz_pXat1z2hEvzVvEk3waoQnMjmyook",
+#    "authDomain": "startup-carvaan-4c5db.firebaseapp.com",
+#    "projectId": "startup-carvaan-4c5db",
+#    "databaseURL": "https://startupcarvaan.firebaseio.com",
+#    "storageBucket": "startup-carvaan-4c5db.appspot.com",
+#    "messagingSenderId": "581476801467",
+#    "appId": "1:581476801467:web:038c2a553a3b660312829e",
+#    "measurementId": "G-P8WXN23XPF"
+# }
+# cred=credentials.Certificate('serviceAccountkey.json')
+# firebase_admin.initialize_app(cred)
+# pyrebase_app=pyrebase.initialize_app(firebaseConfig)
+# auth=pyrebase_app.auth()
+# db=firestore.client()
+# storage=pyrebase_app.storage()
+# # auth.sign_in_with_email_and_password("test@gmail.com","testuser")
+# # print(auth.current_user['email'])
 def home(request):
     return render(request,'home.html',{})
 
@@ -99,6 +99,9 @@ def dashboard(request):
 def blog(request):
     return render(request, 'blog.html', {})
 
+def startabout(request):
+    return render(request, 'startabout.html', {})
+
 #def addblog(request):
 #    if request.method == 'POST':
 #        if auth.current_user:
@@ -125,7 +128,8 @@ def blog(request):
 #            })
 
 
-#def help(request):
+def help(request):
+    return render(request,'help.html',{})
 #    if auth.current_user:
 #        if request.method=='GET':
 #            return render(request,'help.html',{})
@@ -148,3 +152,8 @@ def blog(request):
 #            })
 #            return render(request,'help.html',{})
 #    return redirect('/login/')
+def userprofile(request):
+    return render(request, "userprofile.html", {})
+
+def addBlogPage(request):
+    return render(request, 'addblog.html', {})
