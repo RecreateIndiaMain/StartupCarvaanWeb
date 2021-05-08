@@ -18,6 +18,14 @@ html{
     --hover:#dbf6e9;
     --under: #EBEEF2;
 }
+a{
+    text-decoration: none;
+    color: inherit;
+}
+a:hover{
+    text-decoration: none;
+    color: inherit;
+}
 
 /* Nav Bar */
 nav{
