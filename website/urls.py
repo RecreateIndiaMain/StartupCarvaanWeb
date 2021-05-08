@@ -26,15 +26,15 @@ urlpatterns = [
     path('startuplogin/', startuplogin, name="login_page"),
     path('userlogin/', userlogin, name="login_page"),
     path('join/', join, name="joinus_page"),
-    path('startups/', startups),
-    path('users/', users),
-    path('table/', table),
-    path('dashboard/', dashboard),
-    path('blog/', blog),
-    path('startup-blog/', startabout),
-    path('profile', userprofile),
-    path('addblog', addBlogPage),
-    path('help', help),
-    path('',home)
+    path('startups/', startups, name = 'startup_page'),
+    path('users/', users, name = 'users_page'),
+    path('table/', table, name = 'table_page'),
+    path('dashboard/', dashboard, name = 'dash_page'),
+    path('blog/', blog, name = 'blog_page'),
+    path('startup-blog/', startabout, name = 'startup_blog'),
+    path('profile', userprofile, name = 'profile_page'),
+    path('addblog', addBlogPage, name = 'add_blog'),
+    path('help', help, name = 'help_page'),
+    path('',home, name = 'home_page')
 ]
 urlpatterns+=static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
