@@ -30,6 +30,7 @@ urlpatterns = [
     path('users/', users, name = 'users_page'),
     path('table/', table, name = 'table_page'),
     path('dashboard/', dashboard, name = 'dash_page'),
+    path('help-dash/', helpdash, name = 'help_dash_page'),
     path('blog/', blog, name = 'blog_page'),
     path('startup-blog/', startabout, name = 'startup_blog'),
     path('profile', userprofile, name = 'profile_page'),
