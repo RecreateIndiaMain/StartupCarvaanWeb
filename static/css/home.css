@@ -109,7 +109,7 @@ ul>li:nth-child(4){
     display: none;
 }
 .main-nav{
-    border-bottom: 2px solid #364f6b ;
+    border-bottom: 2px solid #364f6b;
 }
 .bar{
     border-radius: 5px;
@@ -560,6 +560,4 @@ ul>li:nth-child(4){
         margin-left: 10px;
         font-size: 1.2rem;
     }
-
-/* End Footer */
-
+}
