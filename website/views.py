@@ -157,3 +157,6 @@ def userprofile(request):
 
 def addBlogPage(request):
     return render(request, 'addblog.html', {})
+
+def helpdash(request):
+    return render(request, 'help-dash.html', {})

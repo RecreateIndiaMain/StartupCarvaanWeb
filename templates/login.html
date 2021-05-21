@@ -18,32 +18,8 @@
             <img src="{% static 'media/login/rocket.png' %}" alt = 'err'>
         </div>
         <div class="login">
-            <div class="card col-primary">
-                <img src="{% static 'media/login/User.png' %}" alt="err">
-                <p>User</p>
-                <form class="fr-login" action="/userlogin/" method="POST">
-                    {% csrf_token %}
-                    <div class="fr">
-                        <img src="{% static 'media/login/avatar.svg' %}" alt="err">
-                        <input type="text" name="useremail" placeholder="Username" >    
-                    </div>
-                    <div class="fr">
-                        <img src="{% static 'media/login/password.svg' %}" alt="err">
-                        <input type="password" name="userpwd" placeholder="Password">
-                    </div>
-                    <div class="options">
-                        <div class="rem">
-                            <input type="checkbox">
-                            <p>Remember</p>
-                        </div>
-                        <p class="border-primary" >Forgot Password ?.</p>
-                    </div>
-
-                    <button type="submit" class="lg-btn primary col-assent">Login</button>
-                </form>
-                
-
-
+            <div class="col-primary">
+                <img class="image-login" src ="{% static 'media/login/three.jpeg' %}" alt = '' />
             </div>
 
             <div class="card primary col-assent">

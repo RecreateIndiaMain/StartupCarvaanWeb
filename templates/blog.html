@@ -11,13 +11,29 @@
     <title>StartUp Carvaan | Blog Page</title>
   </head>
   <body>
+    <nav>
+        <div class="logo">
+          <img
+            src="{% static '../static/media/common/Logo.png' %}"
+            alt="logo"
+          />
+          <h1>startup carvaan</h1>
+        </div>
+        <ul>
+          <li><a href="{% url 'dash_page' %}">Home</a></li>
+          <li><a href="{% url 'blog_page' %}">Blog</a></li>
+          <li><a href="{% url 'add_blog' %}">Add Blog</a></li>
+          <li><a href="{% url 'help_page' %}">Help</a></li>
+        </ul>
+        <div class="ham">
+          <img
+            src="{% static '../static/media/addblog/square.png' %}"
+            alt="ham"
+          />
+        </div>
+      </nav>
     <main>
         <section class="sidebar">
-            <form class="search-form" >
-                <input autocomplete="off" id='search-box' type="text" name="search" placeholder="Type Blog or Author Name">
-                <button id='search-btn' type="submit" ><img src="{% static '../static/media/Blog/search.png' %}" alt="err"></button>
-            </form>
-
             <div class="blog-data" id = 'slug'>
                 <h1 class="blog-title">
                     What is a StartUp?.
@@ -230,14 +246,7 @@
 
         </section>
         <section class="blog-page">
-            <nav>
-                <img src="{% static '../static/media/common/Logo.png' %}" alt="logo-err">
-                <ul>
-                    <li>Home</li>
-                    <li>About</li>
-                    <li>Login</li>
-                </ul>
-            </nav>
+            
 
             <div class="blog-value">
                 <header class="head">

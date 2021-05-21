@@ -14,6 +14,15 @@
         <script defer src="https://kit.fontawesome.com/0675cdd2af.js" crossorigin="anonymous"></script>
 		<script defer src={% static "../static/js/home.js" %} type="text/javascript" ></script>
         <title>Start Up Carvan</title>
+		<style>
+			.carousel-control-prev {
+				margin-left: -100px;
+			}
+
+			.carousel-control-next {
+				margin-right: -100px;
+			}
+		</style>
 	</head>
 	<body>
 		<header>
@@ -23,6 +32,8 @@
 					<p>Carvan</p>
 				</div>
 				<ul>
+					<li><i class = "fa fa-info-circle mr-2" style = "vertical-align: middle;"></i><span class="main-nav"><a href="" >For Startups</a></span></li>
+					<li><i class = "fa fa-info-circle mr-2" style = "vertical-align: middle;"></i><span class="main-nav"><a href="" >For Investors</a></span></li>
 					<li><a href="{% url 'login_page' %}" >SignIn</a></li>
 					<li><a href="{% url 'joinus_page' %}" >Join Us</a></li>
 				</ul>
@@ -36,8 +47,8 @@
 		</header>
 
 		<section class="home-data">
-			<section>
-				<main class="hero">
+			<section class="page-container" >
+				<main  class="hero scroll-snap" >
 					<div class="hero-main">
 						<p>Carvan To</p>
 						<p>Everything</p>
@@ -50,8 +61,8 @@
 				</main>
 			</section>
 
-			<section>
-				<p>Information</p>
+			<section class="page-container" >
+				<p class="scroll-snap" >Information</p>
 				<div class="gr">
 					<div class="gr-base">
 						<div class="gr-img">
@@ -91,16 +102,25 @@
 				</div>
 			</section>
 
-			<section>
-                <section id="carouselsection" style = "background: #29293d">
-					<div class="container">
+			<section class="page-container" style = "margin-top: -100px;">
+				<p class="scroll-snap" >Achievements</p>
+				<div class="container">
+					<div class="row align-content-center" style="margin-bottom:100px;">
+						<div class="col-lg-4">
+							<div class="circle mb-3 in-circle" id="over"></div>
+						</div>
+						<div class="col-lg-4">
+							<div class="circle mb-3 in-circle" id="over"></div>
+						</div>
+						<div class="col-lg-4">
+							<div class="circle mb-3 in-circle" id="over"></div>
+						</div>
+					</div>
+				</div>
+				<section id="carouselsection" style = "background: #29293d">
+					<div class="mx-4">
 						<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-							<ol class="carousel-indicators">
-							  <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-							  <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-							  <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-							</ol>
-							<div class="carousel-inner">
+							<div class="carousel-inner jumbotron bg-transparent">
 							  <div class="carousel-item active">
 								<div class="row align-items-center my-5">
 									<div class="col-lg-7">
@@ -176,21 +196,6 @@
 						  </div>
 					</div>
 				</section>
-				<p>Achievements</p>
-				<div class="container">
-					<div class="row align-content-center" style="margin-bottom:100px;">
-						<div class="col-lg-4">
-							<div class="circle mb-3 in-circle" id="over"></div>
-						</div>
-						<div class="col-lg-4">
-							<div class="circle mb-3 in-circle" id="over"></div>
-						</div>
-						<div class="col-lg-4">
-							<div class="circle mb-3 in-circle" id="over"></div>
-						</div>
-					</div>
-				</div>
-				
 			</section>
 
 

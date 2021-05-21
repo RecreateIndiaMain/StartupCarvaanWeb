@@ -11,17 +11,23 @@
   <body>
     <nav>
       <div class="logo">
-        <img src="{% static '../static/media/common/Logo.png' %}" alt="logo" />
+        <img
+          src="{% static '../static/media/common/Logo.png' %}"
+          alt="logo"
+        />
         <h1>startup carvaan</h1>
       </div>
       <ul>
-        <li>Home Page</li>
-        <li>Blog</li>
-        <li>Add Blog</li>
-        <li>Help</li>
+        <li><a href="{% url 'dash_page' %}">Home</a></li>
+        <li><a href="{% url 'blog_page' %}">Blog</a></li>
+        <li><a href="{% url 'add_blog' %}">Add Blog</a></li>
+        <li><a href="{% url 'help_page' %}">Help</a></li>
       </ul>
       <div class="ham">
-        <img src="{% static '../static/media/help/square.png' %}" alt="ham" />
+        <img
+          src="{% static '../static/media/addblog/square.png' %}"
+          alt="ham"
+        />
       </div>
     </nav>
 
