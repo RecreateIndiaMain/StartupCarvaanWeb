@@ -4,6 +4,7 @@ from django.contrib import messages
 import uuid
 import firebase_admin
 from django.utils.datastructures import MultiValueDictKeyError
+from google.oauth2 import service_account
 from  pyrebase import pyrebase
 from django.core.files.storage import FileSystemStorage 
 from firebase_admin import credentials,firestore
@@ -17,7 +18,19 @@ firebaseConfig = {
    "appId": "1:581476801467:web:038c2a553a3b660312829e",
    "measurementId": "G-P8WXN23XPF"
 }
-cred=credentials.Certificate('serviceAccountkey.json')
+serviceAccountKey= {
+  "type": "service_account",
+  "project_id": "startup-carvaan-4c5db",
+  "private_key_id": "63ffa70265193e4209188101388c644167a6f918",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQDIb0Mv8Cc9QZ0q\nKjXWqXOtAdMHwvEzFAQ7n8anLUlMcZOln5xZ9RS9REgSKt5wmAfdCSIFO2cVp8uB\nbOxtCHBxYqptTT1zT4qthEJ/nCqs5I2oKKrSnj4ZRRtnTSzmldkHpmyjF+Za89G4\n+RNCTmvupBRxe1kGlHNN7BGhsSYbubK0BBd1nwox1DDnL846OgRYw6uYHiyVfDvy\nHsckaCYOdgtwiMqmlmPWzExKJQX2B6A3bhVHyrLKl/wjtbhWtA2JVyT99p15fyQ+\n4q0zJj78QKp/L3T2ahSM5tLwNPROO+Ea7d3YO0ti6Q9v5uCpV65Z1xeeT0w3rzVO\nOq4CpEdvAgMBAAECggEAVhhs3M+km0xu7Si6fZ3GIX+SHVhgcRddBhuIolDyllKH\nIHKiH4YFxZLp/lvJtsWnQwvkQCkXC5dK9CpMmD0yx5GhMVgnWDvHjucsBVKYhjGa\no6vsTJJKjGJB9iqRae7eDcowChJ/EXyADpt26Vl0RUrXuTNJt2jW6pbHsBO/EdL8\nQ1ckPtSGTLe1g3Js1y+j1miTNSR+yVA3uZWxMUJt05TPRbWGa6acQMW6W/Dl5TOj\nkdLhMULW09Lj8pnIwOX2UESrWbfoA9arKcCqSwxSnziirGMsomgQapfzKlRQtxQL\nR/9uufCveQNBsQpmgyYTFAepntLE5Tz/w86/TeGfsQKBgQD0fkOsSMgcWYKExngD\nuuIMva7pUisgcZmg3XNpGt+nPXkXx0jrtLBcFXeyiWFUlBnMANbJkVyONbT4jKeU\ns/tUzvTxR0/pzKRwluT8uMkvn016HfAdEdqon6+mgGhHbnMGWut3QdM4xFSlaKgN\no0PYmE0M68JDq3y90wGvJCH8eQKBgQDR3ipY4O+CLAlf20cypwZQScmoE5curiNv\nbFImYi7iVseU3x+Djz+h7aK+GEpBbXt+lzxpebOSyJQeP6gxvjb6a3C6caUc5Jou\nX5i/YqZ8idpWJ8ahv1w08tK1EZn1a8k7sJIYOQS1vz9H0uHju7GepYOyjkf+5id0\nPuYRbIcZJwKBgQDSGruPD1CgRC+MaH30PqJJbqwkJ4+WJultu0CVnxl5v7MTQxeg\nLrurtmsRi0uQAmGU1Ve/CmLudqrZOQ4+FNk0DVGjErRS56CcfJ+1qhqCCTTsb1PL\nt28fn3Kz8/8o+3pviKx25KNeUiGnr6NTbO098cutAeEEhBcDjZQR7UwjiQKBgErv\nwj00LDFV2g8RNC4A978packLHbt8UIjTq82q10TYabFdrloCh10hhi/Mao9MMYF1\nLQwYeada2ZCneD4yxlzKilj4hVV4xxjx54/HAN2NN5n13/YXZyw83EHtRAUe9J7M\noI3npifjXwwdX606cuTMAud56Hk64zGd1/a2wtKXAoGBALGNmDDyqS9ugwMQG4D/\nFWih9o0GCTz7iH6Dq2V9TY2+iAqHCUYRko22AZPgkoPdEtwas/MrJ9qNpoGlFepe\noWiJLBp5z5it+Q/Kkbvazde7Wz0zN5q9UMryzU9F3zJOfnLa/QqbpHPmfEW9Quqn\n5UF7AJPSYQyXoOmLvtYjqeXW\n-----END PRIVATE KEY-----\n",
+  "client_email": "firebase-adminsdk-auypg@startup-carvaan-4c5db.iam.gserviceaccount.com",
+  "client_id": "107813312352877718493",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/firebase-adminsdk-auypg%40startup-carvaan-4c5db.iam.gserviceaccount.com"
+}
+cred=credentials.Certificate(serviceAccountKey)
 firebase_admin.initialize_app(cred)
 pyrebase_app=pyrebase.initialize_app(firebaseConfig)
 auth=pyrebase_app.auth()
