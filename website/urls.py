@@ -33,9 +33,9 @@ urlpatterns = [
     path('help-dash/', helpdash, name = 'help_dash_page'),
     path('blog/', blog, name = 'blog_page'),
     path('startup-blog/', startabout, name = 'startup_blog'),
-    path('profile', userprofile, name = 'profile_page'),
-    path('addblog', addBlogPage, name = 'add_blog'),
-    path('help', help, name = 'help_page'),
+    path('profile/', userprofile, name = 'profile_page'),
+    path('addblog/', addBlogPage, name = 'add_blog'),
+    path('help/', help, name = 'help_page'),
     path('',home, name = 'home_page'),
     path('registerUser/',registerUser),
 ]

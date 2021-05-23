@@ -43,7 +43,8 @@
             >Tell us about your problems and our support will contact you</span
           >
         </div>
-        <form>
+        <form action="/addblog/" method="POST">
+          {% csrf_token %}
           <div class="entry">
             <label for="title">Title</label>
             <input id="title" type="text" />

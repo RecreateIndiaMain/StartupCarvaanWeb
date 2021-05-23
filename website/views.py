@@ -2,6 +2,7 @@ from django.http import HttpResponse
 from django.shortcuts import render,redirect
 from django.contrib import messages
 import uuid
+from datetime import datetime
 import firebase_admin
 from django.utils.datastructures import MultiValueDictKeyError
 from google.oauth2 import service_account
@@ -36,8 +37,6 @@ pyrebase_app=pyrebase.initialize_app(firebaseConfig)
 auth=pyrebase_app.auth()
 db=firestore.client()
 storage=pyrebase_app.storage()
-# auth.sign_in_with_email_and_password("test@gmail.com","testuser")
-# print(auth.current_user['email'])
 
 def home(request):
     return render(request,'home.html',{})
@@ -127,28 +126,20 @@ def addblog(request):
            title=request.POST.get('title')
            blogurl=request.POST.get('blogurl')
            description=request.Post.get('description')
-           needAsistance=True
-           needFreelancer=True
-           needIntern=True
-           if request.POST.get('assistance')==None:
-               needAsistance=False
-           if request.POST.get('freelancing')==None:
-               needFreelancer=False
-           if request.POST.get('intern')==None:
-               needIntern=False
            db.collection('allshares').document(localId).collection('blogs').document().set({
                'title':title,
-               'url':videourl,
-               'needAsistance':needAsistance,
-               'needFreelancer':needFreelancer,
-               'needIntern':needIntern,
-               'description':description
+               'url':blogurl,
+               'likes':{},
+               'comments':{},
+               'description':description,
+               'type':"image",
+               'date':datetime.now(tz=None)
            })
 
 
 def help(request):
     return render(request,'help.html',{})
-#    if auth.current_user:
+#     if auth.current_user:
 #        if request.method=='GET':
 #            return render(request,'help.html',{})
 #        if request.method == 'POST':
@@ -204,12 +195,12 @@ def registerUser(request):
             db.collection('allshares').document(localId).set({
                 'advice':"advice",
                 'name':name,
-                'nextslot':" ",
+                'nextslot':datetime.now(tz=None),
                 'graph':[],
                 'description':special,
                 'growth':int(growth),
                 'introvideourl':introVideoUrl,
-                'logourl':"shareFiles/"+auth.current_user['localId']+"/"+filename,
+                'logourl':"/shareFiles/"+auth.current_user['localId']+"/"+filename,
                 'users':invest,
                 'type':"beginner",
                 'tags':[tag for tag in tag.split(' ')],
