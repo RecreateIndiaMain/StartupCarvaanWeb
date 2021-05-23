@@ -36,6 +36,7 @@ urlpatterns = [
     path('profile', userprofile, name = 'profile_page'),
     path('addblog', addBlogPage, name = 'add_blog'),
     path('help', help, name = 'help_page'),
-    path('',home, name = 'home_page')
+    path('',home, name = 'home_page'),
+    path('registerUser/',registerUser),
 ]
 urlpatterns+=static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

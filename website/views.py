@@ -2,28 +2,43 @@ from django.http import HttpResponse
 from django.shortcuts import render,redirect
 from django.contrib import messages
 import uuid
-# import firebase_admin
+import firebase_admin
 from django.utils.datastructures import MultiValueDictKeyError
-# from  pyrebase import pyrebase
-# from firebase_admin import credentials,firestore
-# firebaseConfig = {
-#    "apiKey": "AIzaSyC7fz_pXat1z2hEvzVvEk3waoQnMjmyook",
-#    "authDomain": "startup-carvaan-4c5db.firebaseapp.com",
-#    "projectId": "startup-carvaan-4c5db",
-#    "databaseURL": "https://startupcarvaan.firebaseio.com",
-#    "storageBucket": "startup-carvaan-4c5db.appspot.com",
-#    "messagingSenderId": "581476801467",
-#    "appId": "1:581476801467:web:038c2a553a3b660312829e",
-#    "measurementId": "G-P8WXN23XPF"
-# }
-# cred=credentials.Certificate('serviceAccountkey.json')
-# firebase_admin.initialize_app(cred)
-# pyrebase_app=pyrebase.initialize_app(firebaseConfig)
-# auth=pyrebase_app.auth()
-# db=firestore.client()
-# storage=pyrebase_app.storage()
-# # auth.sign_in_with_email_and_password("test@gmail.com","testuser")
-# # print(auth.current_user['email'])
+from google.oauth2 import service_account
+from  pyrebase import pyrebase
+from django.core.files.storage import FileSystemStorage 
+from firebase_admin import credentials,firestore
+firebaseConfig = {
+   "apiKey": "AIzaSyC7fz_pXat1z2hEvzVvEk3waoQnMjmyook",
+   "authDomain": "startup-carvaan-4c5db.firebaseapp.com",
+   "projectId": "startup-carvaan-4c5db",
+   "databaseURL": "https://startupcarvaan.firebaseio.com",
+   "storageBucket": "startup-carvaan-4c5db.appspot.com",
+   "messagingSenderId": "581476801467",
+   "appId": "1:581476801467:web:038c2a553a3b660312829e",
+   "measurementId": "G-P8WXN23XPF"
+}
+serviceAccountKey= {
+  "type": "service_account",
+  "project_id": "startup-carvaan-4c5db",
+  "private_key_id": "63ffa70265193e4209188101388c644167a6f918",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQDIb0Mv8Cc9QZ0q\nKjXWqXOtAdMHwvEzFAQ7n8anLUlMcZOln5xZ9RS9REgSKt5wmAfdCSIFO2cVp8uB\nbOxtCHBxYqptTT1zT4qthEJ/nCqs5I2oKKrSnj4ZRRtnTSzmldkHpmyjF+Za89G4\n+RNCTmvupBRxe1kGlHNN7BGhsSYbubK0BBd1nwox1DDnL846OgRYw6uYHiyVfDvy\nHsckaCYOdgtwiMqmlmPWzExKJQX2B6A3bhVHyrLKl/wjtbhWtA2JVyT99p15fyQ+\n4q0zJj78QKp/L3T2ahSM5tLwNPROO+Ea7d3YO0ti6Q9v5uCpV65Z1xeeT0w3rzVO\nOq4CpEdvAgMBAAECggEAVhhs3M+km0xu7Si6fZ3GIX+SHVhgcRddBhuIolDyllKH\nIHKiH4YFxZLp/lvJtsWnQwvkQCkXC5dK9CpMmD0yx5GhMVgnWDvHjucsBVKYhjGa\no6vsTJJKjGJB9iqRae7eDcowChJ/EXyADpt26Vl0RUrXuTNJt2jW6pbHsBO/EdL8\nQ1ckPtSGTLe1g3Js1y+j1miTNSR+yVA3uZWxMUJt05TPRbWGa6acQMW6W/Dl5TOj\nkdLhMULW09Lj8pnIwOX2UESrWbfoA9arKcCqSwxSnziirGMsomgQapfzKlRQtxQL\nR/9uufCveQNBsQpmgyYTFAepntLE5Tz/w86/TeGfsQKBgQD0fkOsSMgcWYKExngD\nuuIMva7pUisgcZmg3XNpGt+nPXkXx0jrtLBcFXeyiWFUlBnMANbJkVyONbT4jKeU\ns/tUzvTxR0/pzKRwluT8uMkvn016HfAdEdqon6+mgGhHbnMGWut3QdM4xFSlaKgN\no0PYmE0M68JDq3y90wGvJCH8eQKBgQDR3ipY4O+CLAlf20cypwZQScmoE5curiNv\nbFImYi7iVseU3x+Djz+h7aK+GEpBbXt+lzxpebOSyJQeP6gxvjb6a3C6caUc5Jou\nX5i/YqZ8idpWJ8ahv1w08tK1EZn1a8k7sJIYOQS1vz9H0uHju7GepYOyjkf+5id0\nPuYRbIcZJwKBgQDSGruPD1CgRC+MaH30PqJJbqwkJ4+WJultu0CVnxl5v7MTQxeg\nLrurtmsRi0uQAmGU1Ve/CmLudqrZOQ4+FNk0DVGjErRS56CcfJ+1qhqCCTTsb1PL\nt28fn3Kz8/8o+3pviKx25KNeUiGnr6NTbO098cutAeEEhBcDjZQR7UwjiQKBgErv\nwj00LDFV2g8RNC4A978packLHbt8UIjTq82q10TYabFdrloCh10hhi/Mao9MMYF1\nLQwYeada2ZCneD4yxlzKilj4hVV4xxjx54/HAN2NN5n13/YXZyw83EHtRAUe9J7M\noI3npifjXwwdX606cuTMAud56Hk64zGd1/a2wtKXAoGBALGNmDDyqS9ugwMQG4D/\nFWih9o0GCTz7iH6Dq2V9TY2+iAqHCUYRko22AZPgkoPdEtwas/MrJ9qNpoGlFepe\noWiJLBp5z5it+Q/Kkbvazde7Wz0zN5q9UMryzU9F3zJOfnLa/QqbpHPmfEW9Quqn\n5UF7AJPSYQyXoOmLvtYjqeXW\n-----END PRIVATE KEY-----\n",
+  "client_email": "firebase-adminsdk-auypg@startup-carvaan-4c5db.iam.gserviceaccount.com",
+  "client_id": "107813312352877718493",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/firebase-adminsdk-auypg%40startup-carvaan-4c5db.iam.gserviceaccount.com"
+}
+cred=credentials.Certificate(serviceAccountKey)
+firebase_admin.initialize_app(cred)
+pyrebase_app=pyrebase.initialize_app(firebaseConfig)
+auth=pyrebase_app.auth()
+db=firestore.client()
+storage=pyrebase_app.storage()
+# auth.sign_in_with_email_and_password("test@gmail.com","testuser")
+# print(auth.current_user['email'])
+
 def home(request):
     return render(request,'home.html',{})
 
@@ -33,7 +48,8 @@ def startuplogin(request):
         password=request.POST.get('startuppwd')
         try:
             user=auth.sign_in_with_email_and_password(email, password)
-            if email=='yashagrawal0601@gmail.com' :
+            if  email=='yashagrawal0601@gmail.com':
+                print(auth.user)
                 return redirect('/table')
             return redirect('/dashboard')
         except:
@@ -46,6 +62,7 @@ def userlogin(request):
         password=request.POST.get('userpwd')
         try:
             user=auth.sign_in_with_email_and_password(email, password)
+        
             return redirect('/')
         except:
             return render(request,'login.html',{})                
@@ -94,6 +111,7 @@ def table(request):
     return render(request,'table.html',{})
     
 def dashboard(request):
+    print(auth.current_user)
     return render(request,'dashboard.html',{})
 
 def blog(request):
@@ -102,30 +120,30 @@ def blog(request):
 def startabout(request):
     return render(request, 'startabout.html', {})
 
-#def addblog(request):
-#    if request.method == 'POST':
-#        if auth.current_user:
-#            localId=auth.current_user['localId']
-#            title=request.POST.get('title')
-#            blogurl=request.POST.get('blogurl')
-#            description=request.Post.get('description')
-#            needAsistance=True
-#            needFreelancer=True
-#            needIntern=True
-#            if request.POST.get('assistance')==None:
-#                needAsistance=False
-#            if request.POST.get('freelancing')==None:
-#                needFreelancer=False
-#            if request.POST.get('intern')==None:
-#                needIntern=False
-#            db.collection('allshares').document(localId).collection('blogs').document().set({
-#                'title':title,
-#                'url':videourl,
-#                'needAsistance':needAsistance,
-#                'needFreelancer':needFreelancer,
-#                'needIntern':needIntern,
-#                'description':description
-#            })
+def addblog(request):
+   if request.method == 'POST':
+       if auth.current_user:
+           localId=auth.current_user['localId']
+           title=request.POST.get('title')
+           blogurl=request.POST.get('blogurl')
+           description=request.Post.get('description')
+           needAsistance=True
+           needFreelancer=True
+           needIntern=True
+           if request.POST.get('assistance')==None:
+               needAsistance=False
+           if request.POST.get('freelancing')==None:
+               needFreelancer=False
+           if request.POST.get('intern')==None:
+               needIntern=False
+           db.collection('allshares').document(localId).collection('blogs').document().set({
+               'title':title,
+               'url':videourl,
+               'needAsistance':needAsistance,
+               'needFreelancer':needFreelancer,
+               'needIntern':needIntern,
+               'description':description
+           })
 
 
 def help(request):
@@ -160,3 +178,57 @@ def addBlogPage(request):
 
 def helpdash(request):
     return render(request, 'help-dash.html', {})
+
+def registerUser(request):
+    if request.method == 'POST' and request.FILES['logoFile']:
+        username=request.POST.get('email')
+        password=request.POST.get('password')
+        auth.create_user_with_email_and_password(username, password)
+        auth.sign_in_with_email_and_password(username, password)
+        localId=auth.current_user['localId']
+        myfile = request.FILES['logoFile']
+        fs = FileSystemStorage()
+        filename = fs.save(myfile.name, myfile)
+        storage.child("shareFiles").child(localId).child(filename).put(myfile)
+        if auth.current_user:
+            name=request.POST.get('companyName')
+            special=request.POST.get('description')
+            growth=request.POST.get('growth')
+            introVideoUrl=request.POST.get('introVideoUrl')
+            invest=request.POST.get('peopleInvested')
+            tag=request.POST.get('tag')
+            buyingPrice=request.POST.get('buyingPrice')
+            occupied=request.POST.get('occupied')
+            sellingPrice=request.POST.get('sellingPrice')
+            totalshares=request.POST.get('totalShares')
+            db.collection('allshares').document(localId).set({
+                'advice':"advice",
+                'name':name,
+                'nextslot':" ",
+                'graph':[],
+                'description':special,
+                'growth':int(growth),
+                'introvideourl':introVideoUrl,
+                'logourl':"shareFiles/"+auth.current_user['localId']+"/"+filename,
+                'users':invest,
+                'type':"beginner",
+                'tags':[tag for tag in tag.split(' ')],
+            })
+            db.collection('allshares').document(localId).collection("sharedetails").document("sharedetails").set({
+                'availableforbuying':int(totalshares),
+                'availableforselling':0,
+                'buyingprice':int(buyingPrice),
+                'sellingprice':int(sellingPrice),
+                'buyingtips':"positive",
+                "sellingtips":"negative",
+                'price':{},
+                'totalinvested':0,
+                "totalsharesatusers":0,
+                "totalsharesonmarket":0,
+
+
+            })
+            return HttpResponse("successfully registered")
+        else :
+            return render(request,'login.html')
+    return render(request,'registerstartup.html',{})
