@@ -47,11 +47,11 @@
         <form>
           <div class="entry">
             <label for="title">Title</label>
-            <input id="title" type="text" />
+            <input required id="title" type="text" />
           </div>
           <div class="entry">
             <label for="desc">Description</label>
-            <textarea name="" id="desc"  rows="3"></textarea>
+            <textarea required name="" id="desc"  rows="3"></textarea>
           </div>
           <div class="upload-section ">
             <div class="upload-choices">
@@ -59,8 +59,8 @@
               <p class="image-btn" for='images link'>Upload Image</p>
             </div>
             <div class="upload-inputs">
-              <input class="image-input" type="file" name="image" id="image-link" />
-              <input class='video-input' placeholder="Enter Video Link" type='text' name='videp' id='video-link' />
+              <input required class="image-input" type="file" name="image" id="image-link" />
+              <input required class='video-input' placeholder="Enter Video Link" type='text' name='videp' id='video-link' />
             </div>
           </div>
           <button class="btn-submit" type="submit">Add Blog</button>
