@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="{% static '../static/css/addblog.css' %}">
+    <script defer src="{%static '../static/js/addblog/addblog.js'%}"></script>
     <title>Add Blog</title>
   </head>
   <body>
@@ -53,22 +54,14 @@
             <label for="desc">Description</label>
             <textarea name="" id="desc"  rows="3"></textarea>
           </div>
-          <div class="entry">
-            <label for="link">Upload Video</label>
-            <input type="file" name="video" id="link" />
-          </div>
-          <div class="choice">
-            <div class="one">
-              <input type="checkbox" name="choice" id="freelancing" />
-              <label for="freelancing">Ask For Freelancing</label>
+          <div class="upload-section ">
+            <div class="upload-choices">
+              <p class="video-btn" for="video link">Upload Video</p>
+              <p class="image-btn" for='images link'>Upload Image</p>
             </div>
-            <div class="two">
-              <input type="checkbox" name="choice" id="intern" />
-              <label for="intern">Ask For Intern</label>
-            </div>
-            <div class="three">
-              <input type="checkbox" name="choice" id="assistance" />
-              <label for="assistance">Ask For Assistance</label>
+            <div class="upload-inputs">
+              <input class="image-input" type="file" name="image" id="image-link" />
+              <input class='video-input' placeholder="Enter Video Link" type='text' name='videp' id='video-link' />
             </div>
           </div>
           <button class="btn-submit" type="submit">Add Blog</button>

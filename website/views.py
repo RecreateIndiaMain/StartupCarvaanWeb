@@ -37,7 +37,6 @@ pyrebase_app=pyrebase.initialize_app(firebaseConfig)
 auth=pyrebase_app.auth()
 db=firestore.client()
 storage=pyrebase_app.storage()
-
 def home(request):
     return render(request,'home.html',{})
 
@@ -120,8 +119,8 @@ def startabout(request):
     return render(request, 'startabout.html', {})
 
 def addblog(request):
-   if request.method == 'POST':
-       if auth.current_user:
+    if request.method == 'POST':
+        if auth.current_user:
            localId=auth.current_user['localId']
            title=request.POST.get('title')
            blogurl=request.POST.get('blogurl')
@@ -216,8 +215,6 @@ def registerUser(request):
                 'totalinvested':0,
                 "totalsharesatusers":0,
                 "totalsharesonmarket":0,
-
-
             })
             return HttpResponse("successfully registered")
         else :
