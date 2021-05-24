@@ -6,6 +6,7 @@ from datetime import datetime
 import firebase_admin
 from django.utils.datastructures import MultiValueDictKeyError
 from google.oauth2 import service_account
+from pyasn1.type.univ import Null
 from  pyrebase import pyrebase
 from django.core.files.storage import FileSystemStorage 
 from firebase_admin import credentials,firestore
@@ -37,6 +38,7 @@ pyrebase_app=pyrebase.initialize_app(firebaseConfig)
 auth=pyrebase_app.auth()
 db=firestore.client()
 storage=pyrebase_app.storage()
+
 def home(request):
     return render(request,'home.html',{})
 
@@ -88,7 +90,7 @@ def join(request):
             'number':number,
             'student':student,
             'professional':professional,
-            'filename':filename,
+            'filename':"/startupfiles/"+folder,
             'status':False
         })
         return redirect('/userlogin')
@@ -120,12 +122,14 @@ def startabout(request):
 
 def addblog(request):
     if request.method == 'POST':
-        if auth.current_user:
-           localId=auth.current_user['localId']
-           title=request.POST.get('title')
-           blogurl=request.POST.get('blogurl')
-           description=request.Post.get('description')
-           db.collection('allshares').document(localId).collection('blogs').document().set({
+        print("entered in the first if")
+        if  auth.current_user is not Null:
+            print("entered in the nested if")
+            localId=auth.current_user['localId']
+            title=request.POST.get('title')
+            blogurl=request.POST.get('blogurl')
+            description=request.POST.get('description')
+            db.collection('allshares').document(localId).collection('blogs').document(uuid.uuid4().hex).set({
                'title':title,
                'url':blogurl,
                'likes':{},
@@ -134,32 +138,35 @@ def addblog(request):
                'type':"image",
                'date':datetime.now(tz=None)
            })
+        return render(request,'addblog.html',{})    
+    else:
+        return render(request, 'addblog.html', {})
 
 
 def help(request):
-    return render(request,'help.html',{})
-#     if auth.current_user:
-#        if request.method=='GET':
-#            return render(request,'help.html',{})
-#        if request.method == 'POST':
-#            Ask_for_Assistance=True
-#            Ask_for_Mentor=True
-#            Increase_My_Share_Price=True
-#            if request.POST.get('assistance')==None:
-#                needAsistance=False
-#            if request.POST.get('mentorship')==None:
-#                needFreelancer=False
-#            if request.POST.get('share_price')==None:
-#                needIntern=False
-#            Add_Comment=request.POST.get('comment')
-#            db.collection('help').document().set({
-#                'Ask_for_Assistance':Ask_for_Assistance,
-#                'Ask_for_Mentor':Ask_for_Mentor,
-#                'Increase_My_Share_Price':Increase_My_Share_Price,
-#                'Add_Comment':Add_Comment
-#            })
-#            return render(request,'help.html',{})
-#    return redirect('/login/')
+    if request.method is not "POST":
+        return render(request,'help.html',{})
+    if auth.current_user:
+       if request.method=='GET':
+           return render(request,'help.html',{})
+       if request.method == 'POST':
+           Ask_for_Assistance=True
+           Ask_for_Mentor=True
+           Increase_My_Share_Price=True
+           if request.POST.get('assistance')==None:
+               needAsistance=False
+           if request.POST.get('mentorship')==None:
+               needFreelancer=False
+           if request.POST.get('share_price')==None:
+               needIntern=False
+           Add_Comment=request.POST.get('comment')
+           db.collection('help').document().set({
+               'Ask_for_Assistance':Ask_for_Assistance,
+               'Ask_for_Mentor':Ask_for_Mentor,
+               'Increase_My_Share_Price':Increase_My_Share_Price,
+               'Add_Comment':Add_Comment
+           })
+           return render(request,'help.html',{})
 def userprofile(request):
     return render(request, "userprofile.html", {})
 
