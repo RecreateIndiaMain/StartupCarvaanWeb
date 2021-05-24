@@ -39,6 +39,10 @@ auth=pyrebase_app.auth()
 db=firestore.client()
 storage=pyrebase_app.storage()
 
+
+def competition(request):
+    return render(request, 'competition.html', {})
+
 def home(request):
     return render(request,'home.html',{})
 
