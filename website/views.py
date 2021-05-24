@@ -2,9 +2,11 @@ from django.http import HttpResponse
 from django.shortcuts import render,redirect
 from django.contrib import messages
 import uuid
+from datetime import datetime
 import firebase_admin
 from django.utils.datastructures import MultiValueDictKeyError
 from google.oauth2 import service_account
+from pyasn1.type.univ import Null
 from  pyrebase import pyrebase
 from django.core.files.storage import FileSystemStorage 
 from firebase_admin import credentials,firestore
@@ -36,8 +38,6 @@ pyrebase_app=pyrebase.initialize_app(firebaseConfig)
 auth=pyrebase_app.auth()
 db=firestore.client()
 storage=pyrebase_app.storage()
-auth.sign_in_with_email_and_password("test@gmail.com","testuser")
-print(auth.current_user['email'])
 
 def home(request):
     return render(request,'home.html',{})
@@ -90,7 +90,7 @@ def join(request):
             'number':number,
             'student':student,
             'professional':professional,
-            'filename':filename,
+            'filename':"/startupfiles/"+folder,
             'status':False
         })
         return redirect('/userlogin')
@@ -122,31 +122,30 @@ def startabout(request):
 
 def addblog(request):
     if request.method == 'POST':
-        if auth.current_user:
-           localId=auth.current_user['localId']
-           title=request.POST.get('title')
-           blogurl=request.POST.get('blogurl')
-           description=request.Post.get('description')
-           needAsistance=True
-           needFreelancer=True
-           needIntern=True
-           if request.POST.get('assistance')==None:
-               needAsistance=False
-           if request.POST.get('freelancing')==None:
-               needFreelancer=False
-           if request.POST.get('intern')==None:
-               needIntern=False
-           db.collection('allshares').document(localId).collection('blogs').document().set({
+        print("entered in the first if")
+        if  auth.current_user is not Null:
+            print("entered in the nested if")
+            localId=auth.current_user['localId']
+            title=request.POST.get('title')
+            blogurl=request.POST.get('blogurl')
+            description=request.POST.get('description')
+            db.collection('allshares').document(localId).collection('blogs').document(uuid.uuid4().hex).set({
                'title':title,
-               'url':videourl,
-               'needAsistance':needAsistance,
-               'needFreelancer':needFreelancer,
-               'needIntern':needIntern,
-               'description':description
+               'url':blogurl,
+               'likes':{},
+               'comments':{},
+               'description':description,
+               'type':"image",
+               'date':datetime.now(tz=None)
            })
+        return render(request,'addblog.html',{})    
+    else:
+        return render(request, 'addblog.html', {})
 
 
 def help(request):
+    if request.method is not "POST":
+        return render(request,'help.html',{})
     if auth.current_user:
        if request.method=='GET':
            return render(request,'help.html',{})
@@ -168,7 +167,6 @@ def help(request):
                'Add_Comment':Add_Comment
            })
            return render(request,'help.html',{})
-    return redirect('/login/')
 def userprofile(request):
     return render(request, "userprofile.html", {})
 
@@ -203,12 +201,12 @@ def registerUser(request):
             db.collection('allshares').document(localId).set({
                 'advice':"advice",
                 'name':name,
-                'nextslot':" ",
+                'nextslot':datetime.now(tz=None),
                 'graph':[],
                 'description':special,
                 'growth':int(growth),
                 'introvideourl':introVideoUrl,
-                'logourl':"shareFiles/"+auth.current_user['localId']+"/"+filename,
+                'logourl':"/shareFiles/"+auth.current_user['localId']+"/"+filename,
                 'users':invest,
                 'type':"beginner",
                 'tags':[tag for tag in tag.split(' ')],
