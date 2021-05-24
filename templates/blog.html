@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="{% static '../static/css/blog.css' %}" />
     <link rel="icon" href="{% static '../static/media/common/Logo.png' %}" type="image/x-icon">
     <script defer src="{% static '../static/js/blog/blog.js' %}"></script>
+    <script defer src="{% static '../static/js/blog/mainblog.js' %}"></script>
     <title>StartUp Carvaan | Blog Page</title>
   </head>
   <body>
@@ -49,7 +50,7 @@
                 <div class="interaction">
                     <div class="like">
                         <img src="{% static '../static/media/Blog/like.png' %}" alt="like-err">
-                        <p>450</p>
+                        <p>{{ doc.to_dict.likes }}</p>
                     </div>
                     <div class="comment">
                         <img src="{% static '../static/media/Blog/comment.png' %}" alt="comment-err">
@@ -83,7 +84,7 @@
                             </div>
                             <div class="bl-likes">
                                 <img src="{% static '../static/media/Blog/like.png' %}" alt="err">
-                                <p>465</p>
+                                <p></p>
                             </div>
                         </div>
                         <p class="blogs-data" >
