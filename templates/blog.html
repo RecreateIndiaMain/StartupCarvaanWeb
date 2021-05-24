@@ -34,16 +34,17 @@
       </nav>
     <main>
         <section class="sidebar">
+        {% for doc in docs %}
             <div class="blog-data" id = 'slug'>
                 <h1 class="blog-title">
-                    What is a StartUp?.
+                    {{ doc.to_dict.title }}
                 </h1>
                 <p class="desc">
-                    Lorem ipsum dolor, Sit autem reiciendis aspernatur enim dolores, dolor minima at cupiditate necessitatibus?
+                    {{ doc.to_dict.description }}
                 </p>
                 <div class="author">
                     <img src="{% static '../static/media/Blog/avatar.jpeg' %}" alt="err">
-                    <p class="name">Om Gupta</p>
+                    <p class="name">{{ doc.to_dict.title }}</p>
                 </div>
                 <div class="interaction">
                     <div class="like">
@@ -56,193 +57,8 @@
                     </div>
                 </div>
             </div>
-
-            <div class="blog-data" id = 'slug'>
-                <h1 class="blog-title">
-                    What is a StartUp?.
-                </h1>
-                <p class="desc">
-                    Lorem ipsum dolor, Sit autem reiciendis aspernatur enim dolores, dolor minima at cupiditate necessitatibus?
-                </p>
-                <div class="author">
-                    <img src="{% static '../static/media/Blog/avatar.jpeg' %}" alt="err">
-                    <p class="name">Om Gupta</p>
-                </div>
-                <div class="interaction">
-                    <div class="like">
-                        <img src="{% static '../static/media/Blog/like.png' %}" alt="like-err">
-                        <p>450</p>
-                    </div>
-                    <div class="comment">
-                        <img src="{% static '../static/media/Blog/comment.png' %}" alt="comment-err">
-                        <p>500</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="blog-data" id = 'slug'>
-                <h1 class="blog-title">
-                    What is a StartUp?.
-                </h1>
-                <p class="desc">
-                    Lorem ipsum dolor, Sit autem reiciendis aspernatur enim dolores, dolor minima at cupiditate necessitatibus?
-                </p>
-                <div class="author">
-                    <img src="{% static '../static/media/Blog/avatar.jpeg' %}" alt="err">
-                    <p class="name">Om Gupta</p>
-                </div>
-                <div class="interaction">
-                    <div class="like">
-                        <img src="{% static '../static/media/Blog/like.png' %}" alt="like-err">
-                        <p>450</p>
-                    </div>
-                    <div class="comment">
-                        <img src="{% static '../static/media/Blog/comment.png' %}" alt="comment-err">
-                        <p>500</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="blog-data" id = 'slug'>
-                <h1 class="blog-title">
-                    What is a StartUp?.
-                </h1>
-                <p class="desc">
-                    Lorem ipsum dolor, Sit autem reiciendis aspernatur enim dolores, dolor minima at cupiditate necessitatibus?
-                </p>
-                <div class="author">
-                    <img src="{% static '../static/media/Blog/avatar.jpeg' %}" alt="err">
-                    <p class="name">Om Gupta</p>
-                </div>
-                <div class="interaction">
-                    <div class="like">
-                        <img src="{% static '../static/media/Blog/like.png' %}" alt="like-err">
-                        <p>450</p>
-                    </div>
-                    <div class="comment">
-                        <img src="{% static '../static/media/Blog/comment.png' %}" alt="comment-err">
-                        <p>500</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="blog-data" id = 'slug'>
-                <h1 class="blog-title">
-                    What is a StartUp?.
-                </h1>
-                <p class="desc">
-                    Lorem ipsum dolor, Sit autem reiciendis aspernatur enim dolores, dolor minima at cupiditate necessitatibus?
-                </p>
-                <div class="author">
-                    <img src="{% static '../static/media/Blog/avatar.jpeg' %}" alt="err">
-                    <p class="name">Om Gupta</p>
-                </div>
-                <div class="interaction">
-                    <div class="like">
-                        <img src="{% static '../static/media/Blog/like.png' %}" alt="like-err">
-                        <p>450</p>
-                    </div>
-                    <div class="comment">
-                        <img src="{% static '../static/media/Blog/comment.png' %}" alt="comment-err">
-                        <p>500</p>
-                    </div>
-                </div>
-            </div>
-
-
-            <div class="blog-data" id = 'slug'>
-                <h1 class="blog-title">
-                    What is a StartUp?.
-                </h1>
-                <p class="desc">
-                    Lorem ipsum dolor, Sit autem reiciendis aspernatur enim dolores, dolor minima at cupiditate necessitatibus?
-                </p>
-                <div class="author">
-                    <img src="{% static '../static/media/Blog/avatar.jpeg' %}" alt="err">
-                    <p class="name">Om Gupta</p>
-                </div>
-                <div class="interaction">
-                    <div class="like">
-                        <img src="{% static '../static/media/Blog/like.png' %}" alt="like-err">
-                        <p>450</p>
-                    </div>
-                    <div class="comment">
-                        <img src="{% static '../static/media/Blog/comment.png' %}" alt="comment-err">
-                        <p>500</p>
-                    </div>
-                </div>
-            </div>
-
-
-            <div class="blog-data" id = 'slug'>
-                <h1 class="blog-title">
-                    What is a StartUp?.
-                </h1>
-                <p class="desc">
-                    Lorem ipsum dolor, Sit autem reiciendis aspernatur enim dolores, dolor minima at cupiditate necessitatibus?
-                </p>
-                <div class="author">
-                    <img src="{% static '../static/media/Blog/avatar.jpeg' %}" alt="err">
-                    <p class="name">Om Gupta</p>
-                </div>
-                <div class="interaction">
-                    <div class="like">
-                        <img src="{% static '../static/media/Blog/like.png' %}" alt="like-err">
-                        <p>450</p>
-                    </div>
-                    <div class="comment">
-                        <img src="{% static '../static/media/Blog/comment.png' %}" alt="comment-err">
-                        <p>500</p>
-                    </div>
-                </div>
-            </div>
-
-
-            <div class="blog-data" id = 'slug'>
-                <h1 class="blog-title">
-                    What is a StartUp?.
-                </h1>
-                <p class="desc">
-                    Lorem ipsum dolor, Sit autem reiciendis aspernatur enim dolores, dolor minima at cupiditate necessitatibus?
-                </p>
-                <div class="author">
-                    <img src="{% static '../static/media/Blog/avatar.jpeg' %}" alt="err">
-                    <p class="name">Om Gupta</p>
-                </div>
-                <div class="interaction">
-                    <div class="like">
-                        <img src="{% static '../static/media/Blog/like.png' %}" alt="like-err">
-                        <p>450</p>
-                    </div>
-                    <div class="comment">
-                        <img src="{% static '../static/media/Blog/comment.png' %}" alt="comment-err">
-                        <p>500</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="blog-data" id = 'slug'>
-                <h1 class="blog-title">
-                    What is a StartUp?.
-                </h1>
-                <p class="desc">
-                    Lorem ipsum dolor, Sit autem reiciendis aspernatur enim dolores, dolor minima at cupiditate necessitatibus?
-                </p>
-                <div class="author">
-                    <img src="{% static '../static/media/Blog/avatar.jpeg' %}" alt="err">
-                    <p class="name">Om Gupta</p>
-                </div>
-                <div class="interaction">
-                    <div class="like">
-                        <img src="{% static '../static/media/Blog/like.png' %}" alt="like-err">
-                        <p>450</p>
-                    </div>
-                    <div class="comment">
-                        <img src="{% static '../static/media/Blog/comment.png' %}" alt="comment-err">
-                        <p>500</p>
-                    </div>
-                </div>
-            </div>
+        {% endfor %}
+            
 
         </section>
         <section class="blog-page">
