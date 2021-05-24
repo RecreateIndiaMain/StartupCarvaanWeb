@@ -48,25 +48,11 @@ def startuplogin(request):
         password=request.POST.get('startuppwd')
         try:
             user=auth.sign_in_with_email_and_password(email, password)
-            if  email=='yashagrawal0601@gmail.com':
-                print(auth.user)
-                return redirect('/table')
             return redirect('/dashboard')
         except:
             return render(request,'login.html',{})                
     return render(request,'login.html',{})
-
-def userlogin(request):
-    if request.method == 'POST':
-        email=request.POST.get('useremail')
-        password=request.POST.get('userpwd')
-        try:
-            user=auth.sign_in_with_email_and_password(email, password)
-        
-            return redirect('/')
-        except:
-            return render(request,'login.html',{})                
-    return render(request,'login.html',{})    
+  
 
 def join(request):
     if request.method == 'POST' and request.FILES['blueone']:
@@ -113,9 +99,6 @@ def table(request):
 def dashboard(request):
     print(auth.current_user)
     return render(request,'dashboard.html',{})
-
-def blog(request):
-    return render(request, 'blog.html', {})
 
 def startabout(request):
     return render(request, 'startabout.html', {})
@@ -227,3 +210,9 @@ def registerUser(request):
         else :
             return render(request,'login.html')
     return render(request,'registerstartup.html',{})
+
+def blog(request):
+    if auth.current_user:
+        docs = db.collection(u'allshares').document(u'shareid').collection(u'blogs').stream()
+        return render(request,'blog.html',{'docs': docs})    
+    return redirect("/startuplogin")    
