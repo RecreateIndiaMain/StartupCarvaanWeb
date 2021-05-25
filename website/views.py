@@ -39,6 +39,26 @@ auth=pyrebase_app.auth()
 db=firestore.client()
 storage=pyrebase_app.storage()
 
+
+def competition(request):
+    if request.method == 'POST':
+        startupname=request.POST.get('startup-name')
+        email=request.POST.get('email')
+        videourl=request.POST.get('video')
+        description=request.POST.get('desc')
+        db.collection('competition').document().set({
+            'startupname':startupname,
+            'email':email,
+            'videourl':videourl,
+            'description':description
+        })
+        return redirect('/startuplogin')
+    docs=db.collection('competition').document('isopened').get()
+    doc = docs.to_dict()['yes']
+    if(doc):
+        return render(request, 'competition.html',{})
+    return render(request,'login.html',{})    
+
 def home(request):
     return render(request,'home.html',{})
 
@@ -79,7 +99,7 @@ def join(request):
             'filename':"/startupfiles/"+folder,
             'status':False
         })
-        return redirect('/userlogin')
+        return redirect('/startuplogin')
     return render(request, 'join.html',{})
 
 def startups(request):

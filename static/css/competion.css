@@ -1,0 +1,152 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+/* Constants */
+:root{
+    --primary:#364f6b;
+    --assent:white;
+    --main:'Akaya Kanadaka', cursive;
+    --secon: 'Inconsolata', monospace;
+    --hover:#dbf6e9;
+    --under: #EBEEF2;
+}
+a{
+    text-decoration: none;
+    color: inherit;
+}
+a:hover{
+    text-decoration: none;
+    color: inherit;
+}
+.comp-page{
+    display: flex;
+    justify-content: space-between;
+    height: 100vh;
+    overflow-y: hidden;
+    flex-wrap: wrap;
+}
+.comp-left{
+    flex: 1;
+}
+.comp-image{
+    flex: 1;
+    width: 100%;
+    background-color: #BFD6F6;
+    height: 100vh;
+    align-items: center;
+    justify-content: center;
+}
+.comp-image>img{
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+}
+.comp-logo{
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    text-transform: uppercase;
+    font-size: 1.2rem;
+    font-weight: bold;
+    font-family: var(--main);
+    margin-bottom: 10px;
+}
+.comp-logo>img{
+    width: 60px;
+}
+.comp-data{
+    display: flex;
+    flex-direction: column;
+    justify-content : center;
+    padding: 0px 0px 10px 10%;
+}
+.comp-data>h1{
+    font-size: 1.8rem;
+    font-family: var(--main);
+}
+.comp-data>p{
+    font-size: 15px;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: #6b95d4;
+    font-family: var(--main);
+    letter-spacing: 2px;
+    margin: 5px 0px 30px 3px;
+}
+.comp-field{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+}
+.comp-form{
+    max-width: 350px;
+}
+.comp-field>input{
+    border: 2px solid #6b95d4;
+    border-radius: 5px;
+    width: 100%;
+    padding: 8px 10px;
+    font-size: 13px;
+    outline: none;
+    font-family: var(--main);
+}
+.comp-field>label{
+    font-family: var(--main);
+    font-size: 16px;
+    font-weight: 400;
+    margin-bottom: 4px;
+    letter-spacing: 1px;
+}
+.comp-field>textarea{
+    border: 2px solid #6b95d4;
+    border-radius: 5px;
+    padding: 5px 10px;
+    font-size: 13px;
+}
+.comp-btn{
+    width: 100%;
+    padding: 8px 0px;
+    font-size: 1.3rem;
+    font-weight: bold;
+    font-family: var(--main);
+    background-color: #BFD6F6;
+    outline: none;
+    border: none;
+    color: white;
+    border-radius: 10px;
+    letter-spacing: 2px;
+    cursor: pointer;
+    transition: all 0.4s ease;
+}
+.comp-btn:hover{
+    background-color: #6b95d4;
+}
+
+@media screen and (max-width:950px)
+{
+    .comp-page{
+        display: flex;
+        justify-content: space-between;
+        height: 100vh;
+        overflow-y: scroll;
+        flex-wrap: wrap;
+    }
+    .comp-data{
+        display: flex;
+        align-items: center;
+    }
+    .comp-image{
+        display: none;   
+    }
+    .comp-form{
+        width: 100%;
+    }
+    .comp-data{
+        display: flex;
+        flex-direction: column;
+        justify-content : center;
+        padding: 0px
+    }
+}
