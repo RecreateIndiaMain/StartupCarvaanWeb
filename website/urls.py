@@ -24,7 +24,6 @@ from django.conf.urls.static import static
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('startuplogin/', startuplogin, name="login_page"),
-    path('userlogin/', userlogin, name="login_page"),
     path('join/', join, name="joinus_page"),
     path('startups/', startups, name = 'startup_page'),
     path('users/', users, name = 'users_page'),
@@ -38,5 +37,6 @@ urlpatterns = [
     path('help/', help, name = 'help_page'),
     path('',home, name = 'home_page'),
     path('registerUser/',registerUser),
+    path('competition/', competition, name = 'competition')
 ]
 urlpatterns+=static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

@@ -1,0 +1,77 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Startup Competion</title>
+    <link rel="icon" href="{% static '../static/media/common/Logo.png' %}" />
+    <link rel="stylesheet" href="{% static '../static/css/competion.css' %}" />
+  </head>
+  <body>
+      <div class="comp-page">
+        <div class="comp-left">
+        <div class="comp-logo">
+          <img src = "{% static "../static/media/common/Logo.png" %}" alt =
+          'logo' />
+          <p>Startup Carvaan</p>
+        </div>
+        <div class="comp-data">
+          <h1>Startup Carvaan Competion</h1>
+          <p>Register Your Startup Now !</p>
+
+          <form class="comp-form" action="/competition/" method="POST">
+            {% csrf_token %}
+            <div class="comp-field">
+              <label for="name">Startup Name</label>
+              <input
+                required
+                id="name"
+                type="text"
+                name="startup-name"
+                placeholder="Enter your Startup Name"
+              />
+            </div>
+
+            <div class="comp-field">
+              <label for="name">Email</label>
+              <input
+                required
+                id="email"
+                type="email"
+                name="email"
+                placeholder="Enter your Email"
+              />
+            </div>
+
+            <div class="comp-field">
+              <label for="video">Intro Video Url</label>
+              <input
+                id="video"
+                type="text"
+                name="video"
+                placeholder="Intro Video URL"
+              />
+            </div>
+
+            <div class="comp-field">
+              <label for="desc">Description</label>
+              <textarea
+                name="desc"
+                id="desc"
+                rows="5"
+                placeholder="About your Startup"
+              ></textarea>
+            </div>
+            <button type= 'submit' class="comp-btn" >Register</button>
+          </form>
+        </div>
+        </div>
+        <div class="comp-image">
+            <img src = "{% static "../static/media/competition/competiton.svg" %}" alt = 'err' />
+        </div>
+        
+    </div>
+  </body>
+</html>

@@ -44,7 +44,7 @@ nav{
     justify-content: space-between;
     align-items: center;
     padding: 10px 60px 10px 30px;
-    box-shadow: 1px 5px 10px rgba(0, 0, 0, 0.3);
+    box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.3);
 }
 .logo{
     display: flex;
@@ -88,51 +88,17 @@ ul>li:nth-child(2){
 
 /* Sidebar */
 .sidebar{
-    box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.8);
+    box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.4);
     position: sticky;
     top: 0;
     height: 100vh;
 }
-.search-form{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: sticky;
-    top: 0px;
-    background-color: white;
-    z-index: 10;
-    padding: 18px 10px 15px 10px;
-    box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.8);
-}
-#search-box{
-    flex: 1;
-    outline: none;
-    border: none;
-    padding: 5px 10px;
-    border-bottom: 1px solid lightskyblue;
-    font-size: 1em;
-}
-#search-btn{
-    border: none;
-    outline: none;
-    background-color: inherit;
-    cursor: pointer;
-    padding: 5px 5px;
-    margin-left: 10px;
-    border: 1px solid black;
-    border-radius: 10px;
-    transform: translateY(-10%);
-}
-#search-btn>img{
-    width: 25px;
-}
 .blog-data{
+    border: none;
     border-bottom: 1px solid black;
     padding: 10px 20px;
-    display: flex;
-    flex-direction: column;
-    cursor: pointer;
     transition: 1s all;
+    outline: none;
 }
 .blog-data:hover{
     background-color: var(--hover);
@@ -141,7 +107,7 @@ ul>li:nth-child(2){
     font-family: var(--main);
     font-size: 1.8em;
     text-align: center;
-    margin: 10px 0px;
+    margin: 10px 60px;
 }
 .desc{
     text-align: center;
@@ -149,7 +115,7 @@ ul>li:nth-child(2){
 }
 .author{
     display: flex;
-    justify-content: flex-end;
+    justify-content: space-between;
     align-items: center;
     font-size: 1.1em;
     cursor: pointer;
