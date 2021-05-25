@@ -124,7 +124,6 @@ def addblog(request):
     if request.method == 'POST':
         print("entered in the first if")
         if  auth.current_user is not Null:
-            print("entered in the nested if")
             localId=auth.current_user['localId']
             title=request.POST.get('title')
             blogurl=request.POST.get('blogurl')
