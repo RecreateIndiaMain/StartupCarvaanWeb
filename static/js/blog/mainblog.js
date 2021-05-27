@@ -4,9 +4,11 @@ function myfunct(){
     var author = document.getElementById("author").textContent;
     var likes = document.getElementById("likes").textContent;
     var description = document.getElementById("description").textContent;
+    var comments = document.getElementById("comments").textContent;
     document.getElementById("1").innerHTML = title;
     document.getElementById("2").innerHTML = date;
     document.getElementById("3").innerHTML = author;
     document.getElementById("4").innerHTML = likes;
     document.getElementById("5").innerHTML = description;
+    document.getElementById("6").innerHTML = comments;
 }

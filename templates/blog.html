@@ -49,6 +49,9 @@
                     <p class="time" id="date" hidden>
                         {{ doc.to_dict.date }}
                     </p>
+                    <p  id="comment" hidden>
+                        {{ doc.to_dict.comments }}
+                    </p>
                     <div class="author" id="author">
                         <img src="{% static '../static/media/Blog/avatar.jpeg' %}" alt="err">
                         <p class="name">{{ doc.to_dict.title }}</p>
@@ -56,7 +59,7 @@
                     <div class="interaction">
                         <div class="like">
                             <img src="{% static '../static/media/Blog/like.png' %}" alt="like-err">
-                            <p id="likes">450</p>
+                            <p id="likes">{{ doc.to_dict.likes }}</p>
                         </div>
                         <div class="comment">
                             <img src="{% static '../static/media/Blog/comment.png' %}" alt="comment-err">
@@ -107,50 +110,18 @@
                                 <p>(5)</p>
                                 <img id="arrow-btn" src="{% static '../static/media/Blog/arrow.svg' %}" alt="err">
                             </button>
-
+                        
                             <div class="cmmts">
                                 <div class="user-name">
                                     <img src="{% static '../static/media/Blog/avatar2.jpeg' %}" alt="err">
                                     <p>Om Gupta</p>
                                 </div>
                                 <div class="cmmts-desc">
-                                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Et dolorem, laboriosam neque debitis tempora vel. Labore excepturi ducimus fuga maxime, quas officia laborum inventore facilis? Non incidunt quia sint aperiam.</p>
-                                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eligendi, delectus voluptatibus accusamus nesciunt aut consequatur natus voluptatum, nulla cupiditate aliquid animi molestiae asperiores tempora quidem illo. Dignissimos est consequuntur culpa.</p>
+                                    <p id="6"></p>
                                 </div>
                             </div>
-
-                            <div class="cmmts">
-                                <div class="user-name">
-                                    <img src="{% static '../static/media/Blog/avatar2.jpeg' %}" alt="err">
-                                    <p>Om Gupta</p>
-                                </div>
-                                <div class="cmmts-desc">
-                                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Et dolorem, laboriosam neque debitis tempora vel. Labore excepturi ducimus fuga maxime, quas officia laborum inventore facilis? Non incidunt quia sint aperiam.</p>
-                                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eligendi, delectus voluptatibus accusamus nesciunt aut consequatur natus voluptatum, nulla cupiditate aliquid animi molestiae asperiores tempora quidem illo. Dignissimos est consequuntur culpa.</p>
-                                </div>
-                            </div>
-
-                            <div class="cmmts">
-                                <div class="user-name">
-                                    <img src="{% static '../static/media/Blog/avatar2.jpeg' %}" alt="err">
-                                    <p>Om Gupta</p>
-                                </div>
-                                <div class="cmmts-desc">
-                                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Et dolorem, laboriosam neque debitis tempora vel. Labore excepturi ducimus fuga maxime, quas officia laborum inventore facilis? Non incidunt quia sint aperiam.</p>
-                                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eligendi, delectus voluptatibus accusamus nesciunt aut consequatur natus voluptatum, nulla cupiditate aliquid animi molestiae asperiores tempora quidem illo. Dignissimos est consequuntur culpa.</p>
-                                </div>
-                            </div>
-
-                            <div class="cmmts">
-                                <div class="user-name">
-                                    <img src="{% static '../static/media/Blog/avatar2.jpeg' %}" alt="err">
-                                    <p>Om Gupta</p>
-                                </div>
-                                <div class="cmmts-desc">
-                                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Et dolorem, laboriosam neque debitis tempora vel. Labore excepturi ducimus fuga maxime, quas officia laborum inventore facilis? Non incidunt quia sint aperiam.</p>
-                                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eligendi, delectus voluptatibus accusamus nesciunt aut consequatur natus voluptatum, nulla cupiditate aliquid animi molestiae asperiores tempora quidem illo. Dignissimos est consequuntur culpa.</p>
-                                </div>
-                            </div>
+                                            
+                            
                         </div>
                     </div>
                 </div>
