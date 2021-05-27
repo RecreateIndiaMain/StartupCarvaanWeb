@@ -46,18 +46,20 @@ def competition(request):
         email=request.POST.get('email')
         videourl=request.POST.get('video')
         description=request.POST.get('desc')
-        db.collection('competition').document().set({
+        number=request.POST.get('number')
+        db.collection('competition').document(email).set({
             'startupname':startupname,
             'email':email,
             'videourl':videourl,
-            'description':description
+            'description':description,
+            'number':number
         })
         return redirect('/startuplogin')
     docs=db.collection('competition').document('isopened').get()
     doc = docs.to_dict()['yes']
     if(doc):
         return render(request, 'competition.html',{})
-    return render(request,'login.html',{})    
+    return render(request,'home.html',{})    
 
 def home(request):
     return render(request,'home.html',{})
@@ -127,7 +129,6 @@ def addblog(request):
     if request.method == 'POST':
         print("entered in the first if")
         if  auth.current_user is not Null:
-            print("entered in the nested if")
             localId=auth.current_user['localId']
             title=request.POST.get('title')
             blogurl=request.POST.get('blogurl')
@@ -234,8 +235,14 @@ def registerUser(request):
 def blog(request):
     if auth.current_user:
         docs = db.collection(u'allshares').document(u'shareid').collection(u'blogs').stream()
+<<<<<<< HEAD
         #for document in docs:
         #    likes=document.to_dict()['likes']
         #    document.to_dict()['likes']=len(likes)       
+=======
+        for doc in docs:
+            likes= doc.to_dict()['likes']
+            print(len(likes))
+>>>>>>> 8845eae886a2f8130bf7166adbafd4b9f37ea24f
         return render(request,'blog.html',{'docs': docs})    
     return redirect("/startuplogin")    
