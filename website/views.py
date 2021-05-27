@@ -235,14 +235,8 @@ def registerUser(request):
 def blog(request):
     if auth.current_user:
         docs = db.collection(u'allshares').document(u'shareid').collection(u'blogs').stream()
-<<<<<<< HEAD
-        #for document in docs:
-        #    likes=document.to_dict()['likes']
-        #    document.to_dict()['likes']=len(likes)       
-=======
         for doc in docs:
             likes= doc.to_dict()['likes']
             print(len(likes))
->>>>>>> 8845eae886a2f8130bf7166adbafd4b9f37ea24f
         return render(request,'blog.html',{'docs': docs})    
     return redirect("/startuplogin")    
