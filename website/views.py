@@ -47,7 +47,7 @@ def competition(request):
         videourl=request.POST.get('video')
         description=request.POST.get('desc')
         number=request.POST.get('number')
-        db.collection('competition').document().set({
+        db.collection('competition').document(email).set({
             'startupname':startupname,
             'email':email,
             'videourl':videourl,
@@ -59,7 +59,7 @@ def competition(request):
     doc = docs.to_dict()['yes']
     if(doc):
         return render(request, 'competition.html',{})
-    return render(request,'login.html',{})    
+    return render(request,'home.html',{})    
 
 def home(request):
     return render(request,'home.html',{})
