@@ -46,11 +46,13 @@ def competition(request):
         email=request.POST.get('email')
         videourl=request.POST.get('video')
         description=request.POST.get('desc')
+        number=request.POST.get('number')
         db.collection('competition').document().set({
             'startupname':startupname,
             'email':email,
             'videourl':videourl,
-            'description':description
+            'description':description,
+            'number':number
         })
         return redirect('/startuplogin')
     docs=db.collection('competition').document('isopened').get()
@@ -233,5 +235,8 @@ def registerUser(request):
 def blog(request):
     if auth.current_user:
         docs = db.collection(u'allshares').document(u'shareid').collection(u'blogs').stream()
+        for doc in docs:
+            likes= doc.to_dict()['likes']
+            print(len(likes))
         return render(request,'blog.html',{'docs': docs})    
     return redirect("/startuplogin")    
