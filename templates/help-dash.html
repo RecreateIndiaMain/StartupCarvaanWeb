@@ -45,94 +45,26 @@
                             </tr>
                         </thead>
                         <tbody>
+                        {% for doc in hlp %}
                             <tr>
                                 <td>1</td>
-                                <td>Ask for Startup</td>
-                                <td>Need help regarding my Startup</td>
-                                <td>20th February 2021</td>
+                                <td>
+                                   {%if doc.to_dict.Ask_for_Assistance%}
+                                      Ask_for_Assistance
+                                    {%endif%}
+                                    {%if doc.to_dict.Ask_for_Freelacing%}
+                                        Ask_for_Freelacing
+                                     {%endif%}
+                                    {%if doc.to_dict.Ask_for_Intern%}
+                                      Ask_for_Intern
+                                    {%endif%}
+                                </td>
+                                <td>{{ doc.to_dict.Add_Comment }}</td>
+                                <td>{{ doc.to_dict.date }}</td>
                                 <td><a href="#" type="btn" class="btn1">Edit</a>
                                 <a href="#" type="btn" class="btn2">Delete</a></td>
                             </tr>   
-                            <tr>
-                                <td>2</td>
-                                <td>Ask for Startup</td>
-                                <td>Need help regarding my Startup</td>
-                                <td>20th February 2021</td>
-                                <td><a href="#" type="btn" class="btn1">Edit</a>
-                                <a href="#" type="btn" class="btn2">Delete</a></td>
-                            </tr>  
-                            <tr>
-                                <td>3</td>
-                                <td>Ask for Startup</td>
-                                <td>Need help regarding my Startup</td>
-                                <td>20th February 2021</td>
-                                <td><a href="#" type="btn" class="btn1">Edit</a>
-                                <a href="#" type="btn" class="btn2">Delete</a></td>
-                            </tr>  
-                            <tr>
-                                <td>4</td>
-                                <td>Ask for Startup</td>
-                                <td>Need help regarding my Startup</td>
-                                <td>20th February 2021</td>
-                                <td><a href="#" type="btn" class="btn1">Edit</a>
-                                <a href="#" type="btn" class="btn2">Delete</a></td>
-                            </tr>  
-                            <tr>
-                                <td>5</td>
-                                <td>Ask for Startup</td>
-                                <td>Need help regarding my Startup</td>
-                                <td>20th February 2021</td>
-                                <td><a href="#" type="btn" class="btn1">Edit</a>
-                                <a href="#" type="btn" class="btn2">Delete</a></td>
-                            </tr>  
-                            <tr>
-                                <td>6</td>
-                                <td>Ask for Startup</td>
-                                <td>Need help regarding my Startup</td>
-                                <td>20th February 2021</td>
-                                <td><a href="#" type="btn" class="btn1">Edit</a>
-                                <a href="#" type="btn" class="btn2">Delete</a></td>
-                            </tr>  
-                            <tr>
-                                <td>7</td>
-                                <td>Ask for Startup</td>
-                                <td>Need help regarding my Startup</td>
-                                <td>20th February 2021</td>
-                                <td><a href="#" type="btn" class="btn1">Edit</a>
-                                <a href="#" type="btn" class="btn2">Delete</a></td>
-                            </tr>  
-                            <tr>
-                                <td>8</td>
-                                <td>Ask for Startup</td>
-                                <td>Need help regarding my Startup</td>
-                                <td>20th February 2021</td>
-                                <td><a href="#" type="btn" class="btn1">Edit</a>
-                                <a href="#" type="btn" class="btn2">Delete</a></td>
-                            </tr>  
-                            <tr>
-                                <td>9</td>
-                                <td>Ask for Startup</td>
-                                <td>Need help regarding my Startup</td>
-                                <td>20th February 2021</td>
-                                <td><a href="#" type="btn" class="btn1">Edit</a>
-                                <a href="#" type="btn" class="btn2">Delete</a></td>
-                            </tr>  
-                            <tr>
-                                <td>10</td>
-                                <td>Ask for Startup</td>
-                                <td>Need help regarding my Startup</td>
-                                <td>20th February 2021</td>
-                                <td><a href="#" type="btn" class="btn1">Edit</a>
-                                <a href="#" type="btn" class="btn2">Delete</a></td>
-                            </tr>  
-                            <tr>
-                                <td>11</td>
-                                <td>Ask for Startup</td>
-                                <td>Need help regarding my Startup</td>
-                                <td>20th February 2021</td>
-                                <td><a href="#" type="btn" class="btn1">Edit</a>
-                                <a href="#" type="btn" class="btn2">Delete</a></td>
-                            </tr>         
+                        {% endfor %}
                         </tbody>
                     </table>
                 </div>
