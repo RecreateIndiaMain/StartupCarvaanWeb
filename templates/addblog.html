@@ -44,15 +44,15 @@
             >Tell us about your problems and our support will contact you</span
           >
         </div>
-        <form action="/addblog/" method="POST">
+        <form action="/addblog/" method="POST" enctype="multipart/form-data">
           {% csrf_token %}
           <div class="entry">
             <label for="title">Title</label>
-            <input required id="title" type="text" />
+            <input required id="title" type="text" name="title" />
           </div>
           <div class="entry">
             <label for="desc">Description</label>
-            <textarea required name="" id="desc"  rows="3"></textarea>
+            <textarea required name="description" id="desc"  rows="3"></textarea>
           </div>
           <div class="upload-section ">
             <div class="upload-choices">
@@ -61,7 +61,7 @@
             </div>
             <div class="upload-inputs">
               <input required class="image-input" type="file" name="image" id="image-link" />
-              <input required class='video-input' placeholder="Enter Video Link" type='text' name='videp' id='video-link' />
+              <input required class='video-input' placeholder="Enter Video Link" type='text' name='video' id='video-link' />
             </div>
           </div>
           <button class="btn-submit" type="submit">Add Blog</button>

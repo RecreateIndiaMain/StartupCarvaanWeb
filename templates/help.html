@@ -22,6 +22,11 @@
         <li><a href="{% url 'blog_page' %}">Blog</a></li>
         <li><a href="{% url 'add_blog' %}">Add Blog</a></li>
         <li><a href="{% url 'help_page' %}">Help</a></li>
+        {% if val %}
+          <li><a href="{% url 'help_dash_page' %}">Help Dashboard</a></li>
+          <li><a href="{% url 'table_page' %}">Startup Dashboard</a></li>
+          {% endif %}
+          <li><a href="{% url 'logout' %}">Logout</a></li>
       </ul>
       <div class="ham">
         <img
@@ -40,23 +45,24 @@
             you.</span
           >
         </div>
-        <form>
+        <form action="/help/" method="POST">
+          {% csrf_token %}
           <div class="choice">
             <div class="one">
-              <input type="checkbox" name="choice" id="freelancing" />
+              <input type="checkbox" id="freelancing" name="freelancing" />
               <label for="freelancing">Ask For Freelancing</label>
             </div>
             <div class="two">
-              <input type="checkbox" name="choice" id="intern" />
+              <input type="checkbox" id="intern" name="intern" />
               <label for="intern">Ask For Intern</label>
             </div>
             <div class="three">
-              <input type="checkbox" name="choice" id="assistance" />
+              <input type="checkbox" id="assistance" name="assistance" />
               <label for="assistance">Ask For Assistance</label>
             </div>
           </div>
           <div class="entry">
-            <textarea name="" id="desc"  rows="8"></textarea>
+            <textarea name="comment" id="desc"  rows="8"></textarea>
           </div>
           <button class="btn-submit"> Submit </button>
         </form>

@@ -115,8 +115,13 @@ def delete(request,id):
     id=id.replace('<','')
     print(id)
     return HttpResponse(str(id))
+
 def table(request):
-    return render(request,'table.html',{})
+    if auth.current_user:
+        if auth.current_user['email'] == 'yashagrawal0601@gmail.com':
+            docs = db.collection(u'newstartups').stream()
+            return render(request,'table.html',{'docs':docs})
+        return redirect("/startuplogin")    
     
 def dashboard(request):
     if auth.current_user:
@@ -130,57 +135,62 @@ def startabout(request):
     return render(request, 'startabout.html', {})
 
 def addblog(request):
-    if request.method == 'POST':
-        print("entered in the first if")
-        if  auth.current_user is not Null:
-            print("entered in the nested if")
+    if auth.current_user:
+        if request.method == 'POST':
             localId=auth.current_user['localId']
             title=request.POST.get('title')
-            blogurl=request.POST.get('blogurl')
+            videourl=request.POST.get('video')
             description=request.POST.get('description')
+            types = "video"
+            if videourl==None:
+                types = "image"
+            filename = None    
+            if request.FILES['image']:
+                myfile = request.FILES['image']
+                folder = uuid.uuid4().hex
+                folder = folder[:20]
+                storage.child('blogs').child(folder).put(myfile)
+                filename = myfile.name    
             db.collection('allshares').document(localId).collection('blogs').document(uuid.uuid4().hex).set({
                'title':title,
-               'url':blogurl,
+               'url':videourl,
                'likes':{},
                'comments':{},
                'description':description,
-               'type':"image",
-               'date':datetime.now(tz=None)
+               'type':types,
+               'date':datetime.now(tz=None),
+               'filename':filename 
            })
         return render(request,'addblog.html',{})    
-    else:
-        return render(request, 'addblog.html', {})
+    return render(request, 'login.html', {})
 
 
 def help(request):
-    if request.method is not "POST":
-        return render(request,'help.html',{})
     if auth.current_user:
        if request.method=='GET':
            return render(request,'help.html',{})
        if request.method == 'POST':
            Ask_for_Assistance=True
-           Ask_for_Mentor=True
-           Increase_My_Share_Price=True
+           Ask_for_Intern=True
+           Ask_for_Freelancing=True
            if request.POST.get('assistance')==None:
-               needAsistance=False
-           if request.POST.get('mentorship')==None:
-               needFreelancer=False
-           if request.POST.get('share_price')==None:
-               needIntern=False
+               Ask_for_Assistance=False
+           if request.POST.get('intern')==None:
+               Ask_for_Intern=False
+           if request.POST.get('freelancing')==None:
+               Ask_for_Freelancing=False
            Add_Comment=request.POST.get('comment')
            db.collection('help').document().set({
                'Ask_for_Assistance':Ask_for_Assistance,
-               'Ask_for_Mentor':Ask_for_Mentor,
-               'Increase_My_Share_Price':Increase_My_Share_Price,
-               'Add_Comment':Add_Comment
+               'Ask_for_Intern':Ask_for_Intern,
+               'Ask_for_Freelancing':Ask_for_Freelancing,
+               'Add_Comment':Add_Comment,
+               'date':datetime.now(tz=None)
            })
            return render(request,'help.html',{})
+
 def userprofile(request):
     return render(request, "userprofile.html", {})
-
-def addBlogPage(request):
-    return render(request, 'addblog.html', {})
 
 def helpdash(request):
     return render(request, 'help-dash.html', {})
