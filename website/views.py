@@ -46,21 +46,23 @@ def competition(request):
         email=request.POST.get('email')
         videourl=request.POST.get('video')
         description=request.POST.get('desc')
-        db.collection('competition').document().set({
+        number=request.POST.get('number')
+        db.collection('competition').document(email).set({
             'startupname':startupname,
             'email':email,
             'videourl':videourl,
-            'description':description
+            'description':description,
+            'number':number
         })
         return redirect('/startuplogin')
     docs=db.collection('competition').document('isopened').get()
     doc = docs.to_dict()['yes']
     if(doc):
         return render(request, 'competition.html',{})
-    return render(request,'login.html',{})    
+    return render(request,'home.html',{})     
 
 def home(request):
-    return render(request,'home.html',{})
+    return render(request,'home.html',{'docs':docs})
 
 def startuplogin(request):
     if request.method == 'POST':
@@ -238,14 +240,17 @@ def registerUser(request):
 def blog(request):
     if auth.current_user:
         docs = db.collection(u'allshares').document(u'shareid').collection(u'blogs').stream()
-<<<<<<< HEAD
-        #for document in docs:
-        #    likes=document.to_dict()['likes']
-        #    document.to_dict()['likes']=len(likes)       
-=======
         for doc in docs:
-            likes= doc.to_dict()['likes']
-            print(len(likes))
->>>>>>> db505029f6d40d97c583f188896a23da2f1814d1
+            likes=doc.to_dict()['likes']
+            print(doc)
+            doc = doc.to_dict()
+            print(doc)
+            #d1 = {likes : len(likes)}
+            #doc.update(d1)     
         return render(request,'blog.html',{'docs': docs})    
     return redirect("/startuplogin")    
+
+def logout(request):
+    if auth.current_user:
+         auth.current_user = None
+         return redirect("/startuplogin") 

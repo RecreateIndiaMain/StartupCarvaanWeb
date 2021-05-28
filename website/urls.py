@@ -38,6 +38,6 @@ urlpatterns = [
     path('',home, name = 'home_page'),
     path('registerUser/',registerUser),
     path('competition/', competition, name = 'competition'),
-    path('logout/', competition, name = 'logout')
+    path('logout/', logout, name = 'logout')
 ]
 urlpatterns+=static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
