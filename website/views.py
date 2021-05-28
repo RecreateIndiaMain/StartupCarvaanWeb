@@ -62,7 +62,7 @@ def competition(request):
     return render(request,'home.html',{})     
 
 def home(request):
-    return render(request,'home.html',{'docs':docs})
+    return render(request,'home.html',{})
 
 def startuplogin(request):
     if request.method == 'POST':
