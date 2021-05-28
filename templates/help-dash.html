@@ -9,17 +9,96 @@
     <link rel="stylesheet" href="{% static 'css/table.css' %}">
     <title>Table Info</title>
     <style>
-      .btn1 {
-          border-radius: 7px;
-          border: 2px solid #ffffff; 
-          padding: 2px 16px;
-           background-color:#f0a04b;
-            color:#ffffff;
-            font-size:13px;
-      }
-      .btn2 {
-         border-radius: 7px;border: 2px solid #ffffff; padding: 2px 10px; background-color:#183a1d; color:#ffffff;font-size:13px;
-      }
+        .modal-content{
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+        .hide-modal{
+            display: none;
+        }
+        #click-edit{
+            display: none;
+        }
+        .btn-click{
+            display: block;
+            background-color: blueviolet;
+            color: white;
+            text-align: center;
+            border-radius: 10px;
+            box-shadow: 0px 0px 3px rgba(0, 0 ,0 , 0.3);
+            cursor: pointer;
+            outline: none;
+            border: none;
+            padding: 1px 7px;
+            margin-right: 5px;
+        }
+        .btn-dlt{
+            background-color: red;
+            color: white;
+        }
+        .modal-content{
+            min-height: 350px;
+            max-height: 500px;
+            width: 500px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0px 0px 0px rgba(0, 0 ,0 , 0.3);
+        }
+        .modal-header{
+            height: 68px;
+            background-color: #27ae60;
+            overflow: hidden;
+            border-radius: 3px 3px 0 0;
+            box-shadow: 0px 2px 3px 0 rgba(0, 0 ,0 , 0.3);
+        }
+        .modal-header>h2{
+            color: white;
+            padding-left: 32px;
+            font-weight: 500;
+            overflow: hidden;
+        }
+        .line{
+            margin-left: 10px;
+            width: 95%;
+            margin-right: 10px;
+            bottom: 60px;
+            height: 2px;
+            background-color: silver;
+        }
+        .modal-close{
+            background-color: whitesmoke;
+            color: blueviolet;
+            font-size: 18px;
+            font-weight: bold;
+            padding: 5px 10px;
+            border: 1px solid blueviolet;
+            border-radius: 5px;
+            cursor: pointer;
+            display: flex;
+            align-items: flex-end;
+            justify-content: flex-end;
+            width: 65px;
+            margin: 20px;
+        }
+        .help-heads{
+            display: flex;
+            justify-content: space-between;
+            margin: 20px 20px;
+        }
+        .help-heads>p:nth-child(1)
+        {
+            font-size: 15px;
+            font-weight: bold;
+        }
+        .help-heads>p:nth-child(2)
+        {
+            text-align: end;
+        }
+        .help-desc-modal{
+            width: 300px;
+        }
     </style>
 </head>
 <body>
@@ -61,8 +140,8 @@
                                 </td>
                                 <td>{{ doc.to_dict.Add_Comment }}</td>
                                 <td>{{ doc.to_dict.date }}</td>
-                                <td><a href="#" type="btn" class="btn1">Edit</a>
-                                <a href="#" type="btn" class="btn2">Delete</a></td>
+                                <td style="display: flex; align-items: center; justify-content: center;" ><button class="btn-click" >Edit</button>
+                                    <button class="btn-click btn-dlt" >Delete</button></td>
                             </tr>   
                         {% endfor %}
                         </tbody>
@@ -70,8 +149,58 @@
                 </div>
             </div>
         </div>
+
+
+        <div class="modal-content hide-modal">
+            <div class="modal-header">
+                <h2>Help Action</h2>
+            </div>
+            <div class="modal-data">
+                <div class="help-heads">
+                    <p>Title</p>
+                    <p>Ask For Intern</p>
+                </div>
+                <div class="help-heads">
+                    <p>Description</p>
+                    <p class="help-desc-modal" >Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet, exercitationem.</p>
+                </div>
+                <div class="help-heads">
+                    <p>Date requested</p>
+                    <p>May, 28, 2021</p>
+                </div>
+                <div class="help-heads">
+                    <p>Status</p>
+                    <p>Processing</p>
+                </div>
+            </div>
+            
+            <div class="line"></div>
+            <div class="modal-close">
+                Close
+            </div>
+        </div>
+
+
     </div>
 
 
 </body>
+<script>
+    const modalBtn = document.querySelector('.modal-content');
+    const showModal = document.querySelector('.btn-click');
+    const closeModal = document.querySelector('.modal-close');
+
+    console.log(modalBtn.classList);
+    console.log(showModal);
+
+
+    showModal.addEventListener('click', () => {
+        modalBtn.classList.remove('hide-modal')
+    });
+
+    closeModal.addEventListener('click', () => {
+        modalBtn.classList.add('hide-modal');
+    });
+    
+</script>
 </html>
