@@ -119,9 +119,9 @@ def delete(request,id):
 def table(request):
     if auth.current_user:
         if auth.current_user['email'] in ['yashagrawal0601@gmail.com', "login@gmail.com"]:
-            docs = db.collection(u'newstartups').stream()
+            docs = db.collection(u'allshares').document(u'shareid').collection(u'sharedetails').stream()
             return render(request,'table.html',{'docs':docs})
-        return redirect("/startuplogin")  
+        return redirect("/startuplogin")   
 
 # yashagrawal0601@gmail.com
 
@@ -134,7 +134,8 @@ def dashboard(request):
     return render(request,"login.html",{})    
 
 def startabout(request):
-    return render(request, 'startabout.html', {})
+    docs = db.collection(u'allshares').stream()
+    return render(request, 'startabout.html', {'docs':docs})
 
 def addblog(request):
     if auth.current_user:
