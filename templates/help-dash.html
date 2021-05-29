@@ -153,13 +153,9 @@
                                 </td>
                                 <td id="comment">{{ doc.to_dict.Add_Comment }}</td>
                                 <td id="date">{{ doc.to_dict.date }}</td>
-                                <P hidden id="status">{{ doc.to_dict.status }}</p>
-<<<<<<< HEAD
+                                <p hidden id="status">{{ doc.to_dict.status }}</p>
+                                <p hidden id="author">{{ doc.to_dict.author }}</p>
                                 <td style="display: flex; align-items: center; justify-content: center;" ><button id = 'btn-view' class="btn-click" >View</button>
-=======
-                                <P hidden id="author">{{ doc.to_dict.author }}</p>
-                                <td style="display: flex; align-items: center; justify-content: center;" ><button class="btn-click" onclick="myfunct();">View</button>
->>>>>>> f04145b318d6bc2816596527fe7815da61029446
                                     <a class="btn-click btn-dlt" href="delete_help/{{ doc.id }}">Delete</a>
                                     <a class="btn-click btn-accept" href="accept_help/{{ doc.id }}">Accept</a></td>
                             </tr>   
@@ -170,7 +166,6 @@
             </div>
         </div>
 
-
         <div class="modal-content hide-modal">
             <div class="modal-header">
                 <h2>Help Action</h2>
@@ -178,7 +173,7 @@
             <div class="modal-data">
                 <div class="help-heads">
                     <p>Author</p>
-                    <p id="5">Email</p>
+                    <p id="5">Om Gupta</p>
                 </div>
                 <div class="help-heads">
                     <p>Title</p>
@@ -203,10 +198,6 @@
                 Close
             </div>
         </div>
-
-
     </div>
-
-
 </body>
 </html>
