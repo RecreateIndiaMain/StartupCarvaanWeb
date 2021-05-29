@@ -54,7 +54,7 @@ def competition(request):
             'description':description,
             'number':number
         })
-        return redirect('/startuplogin')
+        return redirect('/')
     docs=db.collection('competition').document('isopened').get()
     doc = docs.to_dict()['yes']
     if(doc):
