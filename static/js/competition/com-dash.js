@@ -1,4 +1,4 @@
-const viewM = document.querySelectorAll('#btn-view');
+const viewdata = document.querySelectorAll('#btn-view');
 const data = document.querySelectorAll('.data-row');
 const modalBold = document.querySelector('.modal-content');
 const closeM = document.querySelector('.modal-close');
@@ -9,7 +9,7 @@ closeM.addEventListener('click', () => {
 
 for(let i = 0; i<data.length; i++)
 {
-    viewM[i].addEventListener('click', () => {
+    viewdata[i].addEventListener('click', () => {
         var teamname = document.querySelectorAll("#title")[i];
         var email = document.querySelectorAll("#email")[i];
         var number = document.querySelectorAll("#phonenumber")[i];

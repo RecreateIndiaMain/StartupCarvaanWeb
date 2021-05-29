@@ -37,8 +37,9 @@
           </div>
         </div>
         <div class="bl-tags">
-          <p>{{ doc.to_dict.tags}}</p>
-          
+        {% for tags in doc.to_dict.tags%}
+          <p>{{ tags }}</p>
+        {% endfor %}  
         </div>
       </div>
       <hr />
