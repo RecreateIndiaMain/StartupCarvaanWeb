@@ -38,6 +38,8 @@ urlpatterns = [
     path('',home, name = 'home_page'),
     path('registerUser/',registerUser),
     path('competition/', competition, name = 'competition'),
+    path('join-dash/', joindash, name = 'joindash'),
+    path('comp-dash/', compdash, name = 'compdash'),
     path('help-dash/delete_help/<str:id>', delete_help, name = 'delete_help'),
     path('logout/', logout, name = 'logout')
 ]

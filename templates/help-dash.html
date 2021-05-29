@@ -10,6 +10,14 @@
     <script defer src="{% static '../static/js/help-dash/help-dash.js' %}"></script>
     <title>Table Info</title>
     <style>
+        a{
+            text-decoration: none;
+            color: white;
+        }
+        a:hover{
+            color: white;
+            text-decoration: none;
+        }
         .modal-content{
             position: absolute;
             top: 50%;
@@ -130,7 +138,7 @@
                         </thead>
                         <tbody>
                         {% for doc in hlp %}
-                            <tr>
+                            <tr class="data-row" >
                                 <td>1</td>
                                 <td id="title">
                                    {% if doc.to_dict.Ask_for_Assistance %}
@@ -146,7 +154,7 @@
                                 <td id="comment">{{ doc.to_dict.Add_Comment }}</td>
                                 <td id="date">{{ doc.to_dict.date }}</td>
                                 <P hidden id="status">{{ doc.to_dict.status }}</p>
-                                <td style="display: flex; align-items: center; justify-content: center;" ><button class="btn-click" onclick="myfunct();">View</button>
+                                <td style="display: flex; align-items: center; justify-content: center;" ><button id = 'btn-view' class="btn-click" >View</button>
                                     <a class="btn-click btn-dlt" href="delete_help/{{ doc.id }}">Delete</a>
                                     <a class="btn-click btn-accept" href="delete_help/{{ doc.id }}">Accept</a></td>
                             </tr>   
@@ -192,22 +200,4 @@
 
 
 </body>
-<script>
-    const modalBtn = document.querySelector('.modal-content');
-    const showModal = document.querySelector('.btn-click');
-    const closeModal = document.querySelector('.modal-close');
-
-    console.log(modalBtn.classList);
-    console.log(showModal);
-
-
-    showModal.addEventListener('click', () => {
-        modalBtn.classList.remove('hide-modal')
-    });
-
-    closeModal.addEventListener('click', () => {
-        modalBtn.classList.add('hide-modal');
-    });
-    
-</script>
 </html>

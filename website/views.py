@@ -203,7 +203,13 @@ def helpdash(request):
             return render(request,"help-dash.html",{'hlp':hlp})
         else:
             return render(request,"login.html")
-    return render(request,"login.html")        
+    return render(request,"login.html")     
+
+def joindash(request):
+    return render(request, 'joindash.html')   
+
+def compdash(request):
+    return render(request, 'compdash.html')   
 
 def registerUser(request):
     if request.method == 'POST' and request.FILES['logoFile']:
