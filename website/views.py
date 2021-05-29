@@ -116,9 +116,13 @@ def users(request):
 def table(request):
     if auth.current_user:
         if auth.current_user['email'] in ['yashagrawal0601@gmail.com', "login@gmail.com"]:
-            docs = db.collection(u'newstartups').stream()
+            docs = db.collection(u'allshares').document(u'shareid').collection(u'sharedetails').stream()
             return render(request,'table.html',{'docs':docs})
+<<<<<<< HEAD
     return redirect("/startuplogin")  
+=======
+        return redirect("/startuplogin")   
+>>>>>>> 7f51043f1954339c6b6a45fd42abf612ce999cbc
 
 # yashagrawal0601@gmail.com
 
@@ -131,7 +135,8 @@ def dashboard(request):
     return redirect("/startuplogin") 
 
 def startabout(request):
-    return render(request, 'startabout.html', {})
+    docs = db.collection(u'allshares').stream()
+    return render(request, 'startabout.html', {'docs':docs})
 
 def addblog(request):
     if auth.current_user:
@@ -283,6 +288,10 @@ def blog(request):
         return render(request,'blog.html',{'docs': docs})    
     return redirect("/startuplogin")    
 
+<<<<<<< HEAD
+def forgot(request):
+    return render(request,'forgot-pass.html')   
+=======
 def delete_help(request,id):
     if auth.current_user:
         if auth.current_user['email'] in ['yashagrawal0601@gmail.com', "login@gmail.com"]:
@@ -321,6 +330,7 @@ def accept_help(request,id):
             return redirect("/help-dash")
     return redirect('/startuplogin')    
 
+<<<<<<< HEAD
 def accept_join(request,id):
     if auth.current_user:
         if auth.current_user['email'] in ['yashagrawal0601@gmail.com', "login@gmail.com"]:
@@ -343,6 +353,9 @@ def accept_comp(request,id):
             return redirect("/comp-dash")
     return redirect('/startuplogin')    
 
+=======
+>>>>>>> dba3fa3791b9b53c4249dbf8769e44e037128800
+>>>>>>> 7f51043f1954339c6b6a45fd42abf612ce999cbc
 
 def logout(request):
     if auth.current_user:
