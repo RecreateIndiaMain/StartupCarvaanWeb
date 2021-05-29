@@ -182,13 +182,15 @@ def help(request):
            if request.POST.get('freelancing')==None:
                Ask_for_Freelancing=False
            Add_Comment=request.POST.get('comment')
+           author = auth.current_user['email']
            db.collection('help').document().set({
                'Ask_for_Assistance':Ask_for_Assistance,
                'Ask_for_Intern':Ask_for_Intern,
                'Ask_for_Freelancing':Ask_for_Freelancing,
                'Add_Comment':Add_Comment,
                'date':datetime.now(tz=None),
-               'status':"pending"
+               'status':"Pending",
+               'author':author 
            })
            return render(request,'help.html',{})
     return redirect("/startuplogin")       
@@ -260,11 +262,11 @@ def registerUser(request):
 def blog(request):
     if auth.current_user:
         docs = db.collection(u'allshares').document(u'shareid').collection(u'blogs').stream()
-        for doc in docs:
-            likes=doc.to_dict()['likes']
-            print(doc)
-            doc = doc.to_dict()
-            print(doc)
+        #for doc in docs:
+        #    likes=doc.to_dict()['likes']
+        #    print(doc)
+        #    doc = doc.to_dict()
+        #    print(doc)
             #d1 = {likes : len(likes)}
             #doc.update(d1)     
         return render(request,'blog.html',{'docs': docs})    
@@ -278,6 +280,18 @@ def delete_help(request,id):
             doc=db.collection("help").document(id).delete()
             return redirect("/help-dash")
     return redirect('/startuplogin')    
+
+def accept_help(request,id):
+    if auth.current_user:
+        if auth.current_user['email'] in ['yashagrawal0601@gmail.com', "login@gmail.com"]:
+            id = id
+            print(id)
+            db.collection("help").document(id).update({
+                'status': 'Accepted'
+            })
+            return redirect("/help-dash")
+    return redirect('/startuplogin')    
+
 
 def logout(request):
     if auth.current_user:
