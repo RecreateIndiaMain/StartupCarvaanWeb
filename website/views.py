@@ -118,15 +118,17 @@ def delete(request,id):
 
 def table(request):
     if auth.current_user:
-        if auth.current_user['email'] == 'yashagrawal0601@gmail.com':
+        if auth.current_user['email'] in ['yashagrawal0601@gmail.com', "login@gmail.com"]:
             docs = db.collection(u'newstartups').stream()
             return render(request,'table.html',{'docs':docs})
-        return redirect("/startuplogin")    
-    
+        return redirect("/startuplogin")  
+
+# yashagrawal0601@gmail.com
+
 def dashboard(request):
     if auth.current_user:
         val = False
-        if(auth.current_user['email'] == 'yashagrawal0601@gmail.com'):
+        if(auth.current_user['email'] in ['yashagrawal0601@gmail.com', "login@gmail.com"]):
             val = True
         return render(request,'dashboard.html',{'val':val})
     return render(request,"login.html",{})    
@@ -193,7 +195,12 @@ def userprofile(request):
     return render(request, "userprofile.html", {})
 
 def helpdash(request):
-    return render(request, 'help-dash.html', {})
+   if auth.current_user:
+        if auth.current_user['email'] in ['yashagrawal0601@gmail.com', "login@gmail.com"]:
+            hlp = db.collection(u'help').stream()
+            return render(request,"help-dash.html",{'hlp':hlp})
+        else:
+            return render(request,"login.html")
 
 def registerUser(request):
     if request.method == 'POST' and request.FILES['logoFile']:
