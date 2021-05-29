@@ -125,24 +125,18 @@
                             <th>Selling Price</th>
                             <th>Shares To Buy</th>
                             <th>Shares To Sell</th>
-                            <th>Users Invested</th>
-                            <th>Total Shares</th>
-                            <th>Logo</th>
                         </tr>
                     </thead>
                     <tbody>
+                     {% for doc in docs %}
                         <tr>
-                            <td style="display: flex; align-items: center; justify-content: center;" ><button class="btn-click" >Edit</button>
-                                <button class="btn-click btn-dlt" >Delete</button></td>
-                            <td></td>
-                            <td>$10</td>
-                            <td>15</td>
-                            <td>21</td>
-                            <td>135,178</td>
-                            <td>1234</td>
-                            <td></td>
+                            <td style="display: flex; align-items: center; justify-content: center;" ><button class="btn-click" >Edit</button></td>
+                             <td>{{ doc.to_dict.buyingprice }}</td>
+                            <td>{{ doc.to_dict.sellingprice }}</td>
+                            <td>{{ doc.to_dict.totalsharesonmarket }}</td>
+                            <td>{{ doc.to_dict.totalinvested }}</td>
                         </tr>
-                          
+                          {%endfor%}
                     </tbody>
                 </table>
             </div>
@@ -171,18 +165,7 @@
                     <p>Shares To Sell</p>
                     <p>200</p>
                 </div>
-                <div class="help-heads">
-                    <p>Users Invested</p>
-                    <p>135, 658</p>
-                </div>
-                <div class="help-heads">
-                    <p>Total Shares</p>
-                    <p>5000</p>
-                </div>
-                <div class="help-heads">
-                    <p>Logo</p>
-                    <p>5000</p>
-                </div>
+                
             </div>
             
             <div class="line"></div>
