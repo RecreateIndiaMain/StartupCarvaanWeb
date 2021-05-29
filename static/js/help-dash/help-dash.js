@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 const showModal = document.querySelectorAll('#btn-view');
 const dataRow = document.querySelectorAll('.data-row');
 const modalBtn = document.querySelector('.modal-content');
@@ -20,4 +21,17 @@ for(let i = 0; i<dataRow.length; i++)
         document.getElementById("3").innerHTML = date.textContent;
         document.getElementById("4").innerHTML = status.textContent;
     })
+=======
+function myfunct(){
+    var title = document.getElementById("title").textContent;
+    var date = document.getElementById("date").textContent;
+    var comment = document.getElementById("comment").textContent;
+    var status = document.getElementById("status").textContent;
+    var author = document.getElementById("author").textContent;
+    document.getElementById("1").innerHTML = title;
+    document.getElementById("2").innerHTML = comment;
+    document.getElementById("3").innerHTML = date;
+    document.getElementById("4").innerHTML = status;
+    document.getElementById("5").innerHTML = author;
+>>>>>>> f04145b318d6bc2816596527fe7815da61029446
 }

@@ -144,7 +144,7 @@
                                    {% if doc.to_dict.Ask_for_Assistance %}
                                       Ask_for_Assistance
                                     {% endif %}
-                                    {% if doc.to_dict.Ask_for_Freelacing %}
+                                    {% if doc.to_dict.Ask_for_Freelancing %}
                                         Ask_for_Freelacing
                                      {% endif %}
                                     {% if doc.to_dict.Ask_for_Intern %}
@@ -154,9 +154,14 @@
                                 <td id="comment">{{ doc.to_dict.Add_Comment }}</td>
                                 <td id="date">{{ doc.to_dict.date }}</td>
                                 <P hidden id="status">{{ doc.to_dict.status }}</p>
+<<<<<<< HEAD
                                 <td style="display: flex; align-items: center; justify-content: center;" ><button id = 'btn-view' class="btn-click" >View</button>
+=======
+                                <P hidden id="author">{{ doc.to_dict.author }}</p>
+                                <td style="display: flex; align-items: center; justify-content: center;" ><button class="btn-click" onclick="myfunct();">View</button>
+>>>>>>> f04145b318d6bc2816596527fe7815da61029446
                                     <a class="btn-click btn-dlt" href="delete_help/{{ doc.id }}">Delete</a>
-                                    <a class="btn-click btn-accept" href="delete_help/{{ doc.id }}">Accept</a></td>
+                                    <a class="btn-click btn-accept" href="accept_help/{{ doc.id }}">Accept</a></td>
                             </tr>   
                         {% endfor %}
                         </tbody>
@@ -171,6 +176,10 @@
                 <h2>Help Action</h2>
             </div>
             <div class="modal-data">
+                <div class="help-heads">
+                    <p>Author</p>
+                    <p id="5">Email</p>
+                </div>
                 <div class="help-heads">
                     <p>Title</p>
                     <p id="1">Ask For Intern</p>
