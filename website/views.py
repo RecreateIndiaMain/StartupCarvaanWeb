@@ -187,20 +187,23 @@ def help(request):
                'Ask_for_Intern':Ask_for_Intern,
                'Ask_for_Freelancing':Ask_for_Freelancing,
                'Add_Comment':Add_Comment,
-               'date':datetime.now(tz=None)
+               'date':datetime.now(tz=None),
+               'status':"pending"
            })
            return render(request,'help.html',{})
+    return redirect("/startuplogin")       
 
 def userprofile(request):
     return render(request, "userprofile.html", {})
 
 def helpdash(request):
-   if auth.current_user:
+    if auth.current_user:
         if auth.current_user['email'] in ['yashagrawal0601@gmail.com', "login@gmail.com"]:
             hlp = db.collection(u'help').stream()
             return render(request,"help-dash.html",{'hlp':hlp})
         else:
             return render(request,"login.html")
+    return render(request,"login.html")        
 
 def registerUser(request):
     if request.method == 'POST' and request.FILES['logoFile']:
@@ -266,6 +269,15 @@ def blog(request):
             #doc.update(d1)     
         return render(request,'blog.html',{'docs': docs})    
     return redirect("/startuplogin")    
+
+def delete_help(request,id):
+    if auth.current_user:
+        if auth.current_user['email'] in ['yashagrawal0601@gmail.com', "login@gmail.com"]:
+            id = id
+            print(id)
+            doc=db.collection("help").document(id).delete()
+            return redirect("/help-dash")
+    return redirect('/startuplogin')    
 
 def logout(request):
     if auth.current_user:

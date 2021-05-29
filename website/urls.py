@@ -38,6 +38,7 @@ urlpatterns = [
     path('',home, name = 'home_page'),
     path('registerUser/',registerUser),
     path('competition/', competition, name = 'competition'),
+    path('help-dash/delete_help/<str:id>', delete_help, name = 'delete_help'),
     path('logout/', logout, name = 'logout')
 ]
 urlpatterns+=static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

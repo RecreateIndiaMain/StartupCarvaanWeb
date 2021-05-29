@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     <link rel="stylesheet" href="{% static 'css/table.css' %}">
+    <script defer src="{% static '../static/js/help-dash/help-dash.js' %}"></script>
     <title>Table Info</title>
     <style>
         .modal-content{
@@ -36,6 +37,10 @@
         }
         .btn-dlt{
             background-color: red;
+            color: white;
+        }
+        .btn-accept{
+            background-color: green;
             color: white;
         }
         .modal-content{
@@ -127,21 +132,23 @@
                         {% for doc in hlp %}
                             <tr>
                                 <td>1</td>
-                                <td>
-                                   {%if doc.to_dict.Ask_for_Assistance%}
+                                <td id="title">
+                                   {% if doc.to_dict.Ask_for_Assistance %}
                                       Ask_for_Assistance
-                                    {%endif%}
-                                    {%if doc.to_dict.Ask_for_Freelacing%}
+                                    {% endif %}
+                                    {% if doc.to_dict.Ask_for_Freelacing %}
                                         Ask_for_Freelacing
-                                     {%endif%}
-                                    {%if doc.to_dict.Ask_for_Intern%}
+                                     {% endif %}
+                                    {% if doc.to_dict.Ask_for_Intern %}
                                       Ask_for_Intern
-                                    {%endif%}
+                                    {% endif %}
                                 </td>
-                                <td>{{ doc.to_dict.Add_Comment }}</td>
-                                <td>{{ doc.to_dict.date }}</td>
-                                <td style="display: flex; align-items: center; justify-content: center;" ><button class="btn-click" >Edit</button>
-                                    <button class="btn-click btn-dlt" >Delete</button></td>
+                                <td id="comment">{{ doc.to_dict.Add_Comment }}</td>
+                                <td id="date">{{ doc.to_dict.date }}</td>
+                                <P hidden id="status">{{ doc.to_dict.status }}</p>
+                                <td style="display: flex; align-items: center; justify-content: center;" ><button class="btn-click" onclick="myfunct();">View</button>
+                                    <a class="btn-click btn-dlt" href="delete_help/{{ doc.id }}">Delete</a>
+                                    <a class="btn-click btn-accept" href="delete_help/{{ doc.id }}">Accept</a></td>
                             </tr>   
                         {% endfor %}
                         </tbody>
@@ -158,19 +165,19 @@
             <div class="modal-data">
                 <div class="help-heads">
                     <p>Title</p>
-                    <p>Ask For Intern</p>
+                    <p id="1">Ask For Intern</p>
                 </div>
                 <div class="help-heads">
                     <p>Description</p>
-                    <p class="help-desc-modal" >Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet, exercitationem.</p>
+                    <p class="help-desc-modal" id="2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet, exercitationem.</p>
                 </div>
                 <div class="help-heads">
                     <p>Date requested</p>
-                    <p>May, 28, 2021</p>
+                    <p id="3">May, 28, 2021</p>
                 </div>
                 <div class="help-heads">
                     <p>Status</p>
-                    <p>Processing</p>
+                    <p id="4">Processing</p>
                 </div>
             </div>
             
