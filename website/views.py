@@ -265,6 +265,9 @@ def blog(request):
         return render(request,'blog.html',{'docs': docs})    
     return redirect("/startuplogin")    
 
+def forgot(request):
+    return render(request,'forgot-pass.html')   
+
 def logout(request):
     if auth.current_user:
          auth.current_user = None
