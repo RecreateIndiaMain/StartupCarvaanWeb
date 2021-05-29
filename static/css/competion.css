@@ -51,7 +51,6 @@ a:hover{
     font-size: 1.2rem;
     font-weight: bold;
     font-family: var(--main);
-    margin-bottom: 10px;
 }
 .comp-logo>img{
     width: 60px;
@@ -61,24 +60,26 @@ a:hover{
     flex-direction: column;
     justify-content : center;
     padding: 0px 0px 10px 10%;
+    margin-left: 40px;
+    margin-bottom: 10px;
 }
 .comp-data>h1{
     font-size: 1.8rem;
     font-family: var(--main);
 }
 .comp-data>p{
-    font-size: 15px;
+    font-size: 13px;
     font-weight: bold;
     text-transform: uppercase;
     color: #6b95d4;
     font-family: var(--main);
     letter-spacing: 2px;
-    margin: 5px 0px 30px 3px;
+    margin-bottom: 10px;
 }
 .comp-field{
     display: flex;
     flex-direction: column;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
 }
 .comp-form{
     max-width: 350px;
@@ -136,6 +137,7 @@ a:hover{
     .comp-data{
         display: flex;
         align-items: center;
+        margin: 0px;
     }
     .comp-image{
         display: none;   

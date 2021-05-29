@@ -54,7 +54,7 @@ def competition(request):
             'description':description,
             'number':number
         })
-        return redirect('/startuplogin')
+        return redirect('/')
     docs=db.collection('competition').document('isopened').get()
     doc = docs.to_dict()['yes']
     if(doc):
@@ -118,15 +118,17 @@ def delete(request,id):
 
 def table(request):
     if auth.current_user:
-        if auth.current_user['email'] == 'yashagrawal0601@gmail.com':
+        if auth.current_user['email'] in ['yashagrawal0601@gmail.com', "login@gmail.com"]:
             docs = db.collection(u'newstartups').stream()
             return render(request,'table.html',{'docs':docs})
         return redirect("/startuplogin")  
-    
+
+# yashagrawal0601@gmail.com
+
 def dashboard(request):
     if auth.current_user:
         val = False
-        if(auth.current_user['email'] == 'yashagrawal0601@gmail.com'):
+        if(auth.current_user['email'] in ['yashagrawal0601@gmail.com', "login@gmail.com"]):
             val = True
         return render(request,'dashboard.html',{'val':val})
     return render(request,"login.html",{})    
@@ -180,25 +182,36 @@ def help(request):
            if request.POST.get('freelancing')==None:
                Ask_for_Freelancing=False
            Add_Comment=request.POST.get('comment')
+           author = auth.current_user['email']
            db.collection('help').document().set({
                'Ask_for_Assistance':Ask_for_Assistance,
                'Ask_for_Intern':Ask_for_Intern,
                'Ask_for_Freelancing':Ask_for_Freelancing,
                'Add_Comment':Add_Comment,
-               'date':datetime.now(tz=None)
+               'date':datetime.now(tz=None),
+               'status':"Pending",
+               'author':author 
            })
            return render(request,'help.html',{})
+    return redirect("/startuplogin")       
 
 def userprofile(request):
     return render(request, "userprofile.html", {})
 
 def helpdash(request):
-   if auth.current_user:
-        if auth.current_user['email']=='yashagrawal0601@gmail.com':
+    if auth.current_user:
+        if auth.current_user['email'] in ['yashagrawal0601@gmail.com', "login@gmail.com"]:
             hlp = db.collection(u'help').stream()
             return render(request,"help-dash.html",{'hlp':hlp})
         else:
             return render(request,"login.html")
+    return render(request,"login.html")     
+
+def joindash(request):
+    return render(request, 'joindash.html')   
+
+def compdash(request):
+    return render(request, 'compdash.html')   
 
 def registerUser(request):
     if request.method == 'POST' and request.FILES['logoFile']:
@@ -255,18 +268,41 @@ def registerUser(request):
 def blog(request):
     if auth.current_user:
         docs = db.collection(u'allshares').document(u'shareid').collection(u'blogs').stream()
-        for doc in docs:
-            likes=doc.to_dict()['likes']
-            print(doc)
-            doc = doc.to_dict()
-            print(doc)
+        #for doc in docs:
+        #    likes=doc.to_dict()['likes']
+        #    print(doc)
+        #    doc = doc.to_dict()
+        #    print(doc)
             #d1 = {likes : len(likes)}
             #doc.update(d1)     
         return render(request,'blog.html',{'docs': docs})    
     return redirect("/startuplogin")    
 
+<<<<<<< HEAD
 def forgot(request):
     return render(request,'forgot-pass.html')   
+=======
+def delete_help(request,id):
+    if auth.current_user:
+        if auth.current_user['email'] in ['yashagrawal0601@gmail.com', "login@gmail.com"]:
+            id = id
+            print(id)
+            doc=db.collection("help").document(id).delete()
+            return redirect("/help-dash")
+    return redirect('/startuplogin')    
+
+def accept_help(request,id):
+    if auth.current_user:
+        if auth.current_user['email'] in ['yashagrawal0601@gmail.com', "login@gmail.com"]:
+            id = id
+            print(id)
+            db.collection("help").document(id).update({
+                'status': 'Accepted'
+            })
+            return redirect("/help-dash")
+    return redirect('/startuplogin')    
+
+>>>>>>> dba3fa3791b9b53c4249dbf8769e44e037128800
 
 def logout(request):
     if auth.current_user:

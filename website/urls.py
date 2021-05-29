@@ -38,7 +38,14 @@ urlpatterns = [
     path('',home, name = 'home_page'),
     path('registerUser/',registerUser),
     path('competition/', competition, name = 'competition'),
+<<<<<<< HEAD
     path('forgot/', forgot, name = "forgot_password"),
+=======
+    path('join-dash/', joindash, name = 'joindash'),
+    path('comp-dash/', compdash, name = 'compdash'),
+    path('help-dash/delete_help/<str:id>', delete_help, name = 'delete_help'),
+    path('help-dash/accept_help/<str:id>', accept_help, name = 'accept_help'),
+>>>>>>> dba3fa3791b9b53c4249dbf8769e44e037128800
     path('logout/', logout, name = 'logout')
 ]
 urlpatterns+=static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
