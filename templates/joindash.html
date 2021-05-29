@@ -7,7 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     <link rel="stylesheet" href="{% static 'css/table.css' %}">
-    <title>Competition DashBoard</title>
+    <script defer src="{% static '../static/js/joinus/join-dash.js' %}"></script>
+    <title>Join DashBoard</title>
     <style>
         .link{
             text-decoration: none;
@@ -131,21 +132,31 @@
                             <th>Team Size</th>
                             <th>Pitch Deck</th>
                             <th>Stage</th>
+                            <th>Status</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td style="display: flex; align-items: center; justify-content: center;" ><button class="btn-click" onclick="myfunct();">View</button>
-                                <a class="btn-click btn-dlt link" href="delete_help/{{ doc.id }}">Delete</a>
-                                <a class="btn-click btn-accept link" href="delete_help/{{ doc.id }}">Accept</a></td>
-                            <td>TalkIt</td>
-                            <td>talkit@gmail.com</td>
-                            <td>9898989990</td>
-                            <td>10</td>
-                            <td><a href="#" target="_blank" >Deck.pdf</a></td>
-                            <td>Student</td>
+                    {% for doc in docs %}
+                        <tr class="data-row">
+                            <td style="display: flex; align-items: center; justify-content: center;" ><button class="btn-click" id="btn-view">View</button>
+                                <a class="btn-click btn-dlt link" href="delete_join/{{ doc.id }}">Delete</a>
+                                <a class="btn-click btn-accept link" href="accept_join/{{ doc.id }}">Accept</a></td>
+                            <td id="teamname">{{ doc.to_dict.teamName }}</td>
+                            <td id="email">{{ doc.to_dict.email }}</td>
+                            <td id="number">{{ doc.to_dict.number }}</td>
+                            <td id="teamsize">{{ doc.to_dict.teamsize}}</td>
+                            <td id="filename"><a href="#" target="_blank" >{{doc.to_dict.filename}}</a></td>
+                            <td id="choice">
+                                {% if doc.to_dict.student %}
+                                    Student
+                                {% endif %}
+                                {% if doc.to_dict.professional %}
+                                    Professional
+                                {% endif %}
+                            </td>
+                            <td id="status">{{ doc.to_dict.status }}</td>
                         </tr>
-                          
+                    {% endfor %}      
                     </tbody>
                 </table>
             </div>
@@ -159,32 +170,32 @@
             </div>
             <div class="modal-data">
                 <div class="help-heads">
-                    <p>Buying Price</p>
-                    <p>$100</p>
+                    <p>Team Name</p>
+                    <p id="1">$100</p>
                 </div>
                 <div class="help-heads">
-                    <p>Selling Price</p>
-                    <p class="help-desc-modal" >$120</p>
+                    <p>Email</p>
+                    <p id="2" class="help-desc-modal" >$120</p>
                 </div>
                 <div class="help-heads">
-                    <p>Shares To Buy</p>
-                    <p>200</p>
+                    <p>Phone Number</p>
+                    <p id="3">200</p>
                 </div>
                 <div class="help-heads">
-                    <p>Shares To Sell</p>
-                    <p>200</p>
+                    <p>Team Size</p>
+                    <p id="4">200</p>
                 </div>
                 <div class="help-heads">
-                    <p>Users Invested</p>
-                    <p>135, 658</p>
+                    <p>Pitch Deck</p>
+                    <p id="5">135, 658</p>
                 </div>
                 <div class="help-heads">
-                    <p>Total Shares</p>
-                    <p>5000</p>
+                    <p>Stage</p>
+                    <p id="6">5000</p>
                 </div>
                 <div class="help-heads">
-                    <p>Logo</p>
-                    <p>5000</p>
+                    <p>Status</p>
+                    <p id="7">5000</p>
                 </div>
             </div>
             

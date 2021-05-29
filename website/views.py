@@ -52,7 +52,8 @@ def competition(request):
             'email':email,
             'videourl':videourl,
             'description':description,
-            'number':number
+            'number':number,
+            'status':'Pending'
         })
         return redirect('/')
     docs=db.collection('competition').document('isopened').get()
@@ -81,6 +82,7 @@ def join(request):
         teamName=request.POST.get('teamname')
         email=request.POST.get('email')
         number=request.POST.get('phone')
+        teamsize=request.POST.get('teamsize')
         student=True
         professional=True
         if request.POST.get('student')==None:
@@ -97,9 +99,10 @@ def join(request):
             'email':email,
             'number':number,
             'student':student,
+            'teamsize':teamsize,
             'professional':professional,
             'filename':"/startupfiles/"+folder,
-            'status':False
+            'status':'Pending'
         })
         return redirect('/startuplogin')
     return render(request, 'join.html',{})
@@ -110,18 +113,12 @@ def startups(request):
 def users(request):
     return render(request,'users.html',{})
 
-def delete(request,id):
-    id=id.replace('>','')
-    id=id.replace('<','')
-    print(id)
-    return HttpResponse(str(id))
-
 def table(request):
     if auth.current_user:
         if auth.current_user['email'] in ['yashagrawal0601@gmail.com', "login@gmail.com"]:
             docs = db.collection(u'newstartups').stream()
             return render(request,'table.html',{'docs':docs})
-        return redirect("/startuplogin")  
+    return redirect("/startuplogin")  
 
 # yashagrawal0601@gmail.com
 
@@ -131,7 +128,7 @@ def dashboard(request):
         if(auth.current_user['email'] in ['yashagrawal0601@gmail.com', "login@gmail.com"]):
             val = True
         return render(request,'dashboard.html',{'val':val})
-    return render(request,"login.html",{})    
+    return redirect("/startuplogin") 
 
 def startabout(request):
     return render(request, 'startabout.html', {})
@@ -164,7 +161,7 @@ def addblog(request):
                'filename':filename 
            })
         return render(request,'addblog.html',{})    
-    return render(request, 'login.html', {})
+    return redirect("/startuplogin")
 
 
 def help(request):
@@ -205,13 +202,21 @@ def helpdash(request):
             return render(request,"help-dash.html",{'hlp':hlp})
         else:
             return render(request,"login.html")
-    return render(request,"login.html")     
+    return redirect("/startuplogin")     
 
 def joindash(request):
-    return render(request, 'joindash.html')   
+    if auth.current_user:
+        if auth.current_user['email'] in ['yashagrawal0601@gmail.com', 'login@gmail.com']:
+            docs=db.collection('newstartups').stream()
+            return render(request,"joindash.html",{'docs':docs})
+    return redirect("/startuplogin")   
 
 def compdash(request):
-    return render(request, 'compdash.html')   
+    if auth.current_user:
+        if auth.current_user['email'] in ['yashagrawal0601@gmail.com', 'login@gmail.com']:
+            docs=db.collection('competition').stream()
+            return render(request,"compdash.html",{'docs':docs})
+    return redirect("/startuplogin")    
 
 def registerUser(request):
     if request.method == 'POST' and request.FILES['logoFile']:
@@ -285,7 +290,25 @@ def delete_help(request,id):
             print(id)
             doc=db.collection("help").document(id).delete()
             return redirect("/help-dash")
-    return redirect('/startuplogin')    
+    return redirect('/startuplogin') 
+
+def delete_join(request,id):
+    if auth.current_user:
+        if auth.current_user['email'] in ['yashagrawal0601@gmail.com', "login@gmail.com"]:
+            id = id
+            print(id)
+            doc=db.collection("newstartups").document(id).delete()
+            return redirect("/join-dash")
+    return redirect('/startuplogin')        
+
+def delete_comp(request,id):
+    if auth.current_user:
+        if auth.current_user['email'] in ['yashagrawal0601@gmail.com', "login@gmail.com"]:
+            id = id
+            print(id)
+            #doc=db.collection("competition").document(id).delete()
+            return redirect("/comp-dash")
+    return redirect('/startuplogin')        
 
 def accept_help(request,id):
     if auth.current_user:
@@ -296,6 +319,28 @@ def accept_help(request,id):
                 'status': 'Accepted'
             })
             return redirect("/help-dash")
+    return redirect('/startuplogin')    
+
+def accept_join(request,id):
+    if auth.current_user:
+        if auth.current_user['email'] in ['yashagrawal0601@gmail.com', "login@gmail.com"]:
+            id = id
+            print(id)
+            db.collection("newstartups").document(id).update({
+                'status': 'Accepted'
+            })
+            return redirect("/join-dash")
+    return redirect('/startuplogin')    
+
+def accept_comp(request,id):
+    if auth.current_user:
+        if auth.current_user['email'] in ['yashagrawal0601@gmail.com', "login@gmail.com"]:
+            id = id
+            print(id)
+            db.collection("competition").document(id).update({
+                'status': 'Accepted'
+            })
+            return redirect("/comp-dash")
     return redirect('/startuplogin')    
 
 

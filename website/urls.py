@@ -42,6 +42,10 @@ urlpatterns = [
     path('comp-dash/', compdash, name = 'compdash'),
     path('help-dash/delete_help/<str:id>', delete_help, name = 'delete_help'),
     path('help-dash/accept_help/<str:id>', accept_help, name = 'accept_help'),
+    path('join-dash/accept_join/<str:id>', accept_join, name = 'accept_join'),
+    path('join-dash/delete_join/<str:id>', delete_join, name = 'delete_join'),
+    path('comp-dash/accept_comp/<str:id>', accept_comp, name = 'accept_comp'),
+    path('comp-dash/delete_comp/<str:id>', delete_comp, name = 'delete_comp'),
     path('logout/', logout, name = 'logout')
 ]
 urlpatterns+=static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

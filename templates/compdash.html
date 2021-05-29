@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     <link rel="stylesheet" href="{% static 'css/table.css' %}">
+    <script defer src="{% static '../static/js/competition/com-dash.js' %}"></script>
     <title>Competition DashBoard</title>
     <style>
         .link{
@@ -133,22 +134,25 @@
                             <th>Phone Number</th>
                             <th>Intro Video</th>
                             <th>Description</th>
-                            <th>Stage</th>
+                            <th>Status</th>
                         </tr>
                     </thead>
                     <tbody>
+                    {% for doc in docs %}
                         <tr class="data-row" >
-                            <td style="display: flex; align-items: center; justify-content: center;" ><button id = 'btn-view' class="btn-click" onclick="myfunct();">View</button>
-                                <a class="btn-click btn-dlt link" href="delete_help/{{ doc.id }}">Delete</a>
-                                <a class="btn-click btn-accept link" href="delete_help/{{ doc.id }}">Accept</a></td>
-                            <td id = 'title' >TalkIt</td>
-                            <td id = 'email' >talkit@gmail.com</td>
-                            <td id = 'phonenumber' >9898989990</td>
-                            <td id = 'link' > <a href="#" target="_blank"> Link </a> </td>
-                            <td  id = 'desc' class="comp-desc" >Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ullam non sit, ipsum ex minima magnam. Modi iusto tempora minus nam?</td>
-                            <td id = 'status' >Processing</td>
+                            <td style="display: flex; align-items: center; justify-content: center;" ><button id = 'btn-view' class="btn-click">View</button>
+                                <a class="btn-click btn-dlt link" href="delete_comp/{{ doc.id }}">Delete</a>
+                                <a class="btn-click btn-accept link" href="accept_comp/{{ doc.id }}">Accept</a></td>
+                            <td id = 'title' >{{ doc.to_dict.startupname  }}</td>
+                            <td id = 'email' >{{ doc.to_dict.email  }}</td>
+                            <td id = 'phonenumber' >{{ doc.to_dict.number }}</td>
+                            <td id='link' hidden> <a href="#" target="_blank" hidden> {{ doc.to_dict.videourl}} </a> </td>
+                            <td> <a href="#" target="_blank"> {{ doc.to_dict.videourl|slice:":10"  }} </a> </td>
+                            <td class="comp-desc" >{{ doc.to_dict.description|slice:":10" }}</td>
+                            <td id = 'desc' hidden class="comp-desc" >{{ doc.to_dict.description }}</td>
+                            <td id = 'status' >{{ doc.to_dict.status}}</td>
                         </tr>
-                          
+                    {% endfor %}      
                     </tbody>
                 </table>
             </div>
@@ -162,32 +166,28 @@
             </div>
             <div class="modal-data">
                 <div class="help-heads">
-                    <p>Buying Price</p>
+                    <p>Title</p>
                     <p id = '1' >$100</p>
                 </div>
                 <div class="help-heads">
-                    <p>Selling Price</p>
+                    <p>Email</p>
                     <p id = '2' class="help-desc-modal" >$120</p>
                 </div>
                 <div class="help-heads">
-                    <p>Shares To Buy</p>
+                    <p>Phone Number</p>
                     <p id = '3' >200</p>
                 </div>
                 <div class="help-heads">
-                    <p>Shares To Sell</p>
+                    <p>Video Url</p>
                     <p id = '4' >200</p>
                 </div>
                 <div class="help-heads">
-                    <p>Users Invested</p>
+                    <p>Description</p>
                     <p id = '5' >135, 658</p>
                 </div>
                 <div class="help-heads">
-                    <p>Total Shares</p>
+                    <p>Status</p>
                     <p id = '6' >5000</p>
-                </div>
-                <div class="help-heads">
-                    <p>Logo</p>
-                    <p id = '7' >5000</p>
                 </div>
             </div>
             
@@ -202,34 +202,5 @@
 
 </body>
 
-</html>
-<script>
-    const showModal = document.querySelectorAll('#btn-view');
-    const dataRow = document.querySelectorAll('.data-row');
-    console.log(dataRow);
-    const modalBtn = document.querySelector('.modal-content');
-    const closeModal = document.querySelector('.modal-close');
-    closeModal.addEventListener('click', () => {
-        modalBtn.classList.add('hide-modal');
-    });
-
-    for(let i = 0; i<dataRow.length; i++)
-    {
-        showModal[i].addEventListener('click', () => {
-            var title = document.querySelectorAll("#title")[i];
-            var email = document.querySelectorAll("#email")[i];
-            var phonenumber = document.querySelectorAll("#phonenumber")[i];
-            var link = document.querySelectorAll("#link")[i];
-            var desc = document.querySelectorAll("#desc")[i];
-            var status = document.querySelectorAll("#status")[i];
-            modalBtn.classList.remove('hide-modal');
-            document.getElementById("1").innerHTML = title.textContent;
-            document.getElementById("2").innerHTML = email.textContent;
-            document.getElementById("3").innerHTML = link.textContent;
-            document.getElementById("3").innerHTML = link.textContent;
-            document.getElementById("4").innerHTML = status.textContent;
-        })
-    } 
-</script>
 </html>
 
