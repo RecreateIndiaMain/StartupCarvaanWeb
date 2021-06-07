@@ -59,11 +59,12 @@
                     <div class="interaction">
                         <div class="like">
                             <img src="{% static '../static/media/Blog/like.png' %}" alt="like-err">
-                            <p id="likes">{{ doc.to_dict.likes }}</p>
+                            <p id="likes">{{ doc.to_dict.likes|length }}</p>
                         </div>
                         <div class="comment">
                             <img src="{% static '../static/media/Blog/comment.png' %}" alt="comment-err">
-                            <p id="comments">500</p>
+                            <p>{{ doc.to_dict.comments|length }}</p>
+                            <p hidden id="comments">{{ doc.to_dict.comments }}</p>
                         </div>
                     </div>
                 </button>
@@ -114,7 +115,7 @@
                                     <img src="{% static '../static/media/Blog/avatar2.jpeg' %}" alt="err">
                                     <p>Om Gupta</p>
                                 </div>
-                                <div class="cmmts-desc">
+                                <div class="cmmts-desc" id="comma">
                                     <p id="6"></p>
                                 </div>
                             </div>

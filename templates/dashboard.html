@@ -96,7 +96,7 @@
                     "
                     >People Invested</span
                   >
-                  <h1>10K</h1>
+                  <h1>{{ docs.to_dict.totalsharesatusers }}</h1>
                 </div>
               </div>
             </div>
@@ -125,7 +125,7 @@
                     "
                     >Total Shares</span
                   >
-                  <h1>57,000</h1>
+                  <h1>{{ docs.to_dict.totalsharesatusers }}</h1>
                 </div>
               </div>
             </div>
@@ -156,7 +156,7 @@
                     "
                     >Buying Price</span
                   >
-                  <h1>$127</h1>
+                  <h1>{{ docs.to_dict.buyingprice }}</h1>
                 </div>
               </div>
             </div>
@@ -185,7 +185,7 @@
                     "
                     >Selling Price</span
                   >
-                  <h1>$158</h1>
+                  <h1>{{ docs.to_dict.sellingprice }}</h1>
                 </div>
               </div>
             </div>
@@ -214,9 +214,9 @@
                       font-size: 18px;
                       color: #808080;
                     "
-                    >Shares Occupied</span
+                    >Shares Available For Buying</span
                   >
-                  <h1>30,500</h1>
+                  <h1>{{ docs.to_dict.availableforbuying }}</h1>
                 </div>
               </div>
             </div>
@@ -243,9 +243,9 @@
                       font-size: 18px;
                       color: #808080;
                     "
-                    >Shares Available</span
+                    >Shares Available For Selling</span
                   >
-                  <h1>72,800</h1>
+                  <h1>{{ docs.to_dict.availableforselling }}</h1>
                 </div>
               </div>
             </div>

@@ -125,11 +125,11 @@ def table(request):
 
 def dashboard(request):
     if auth.current_user:
-        val = False
-        if(auth.current_user['email'] in ['yashagrawal0601@gmail.com', "login@gmail.com"]):
-            val = True
-        return render(request,'dashboard.html',{'val':val})
-    return redirect("/startuplogin") 
+        if request.method == 'GET':
+            localId = auth.current_user['localId']
+            docs = db.collection('allshares').document(localId).collection("sharedetails").document("sharedetails").get()
+            return render(request,"dashboard.html",{'docs':docs})     
+    return redirect("/startuplogin")  
 
 def startabout(request):
     docs = db.collection(u'allshares').stream()
@@ -219,6 +219,7 @@ def compdash(request):
             docs=db.collection('competition').stream()
             return render(request,"compdash.html",{'docs':docs})
     return redirect("/startuplogin")    
+         
 
 def registerUser(request):
     if request.method == 'POST' and request.FILES['logoFile']:
@@ -274,14 +275,7 @@ def registerUser(request):
 
 def blog(request):
     if auth.current_user:
-        docs = db.collection(u'allshares').document(u'shareid').collection(u'blogs').stream()
-        #for doc in docs:
-        #    likes=doc.to_dict()['likes']
-        #    print(doc)
-        #    doc = doc.to_dict()
-        #    print(doc)
-            #d1 = {likes : len(likes)}
-            #doc.update(d1)     
+        docs = db.collection(u'allshares').document(u'shareid').collection(u'blogs').stream()  
         return render(request,'blog.html',{'docs': docs})    
     return redirect("/startuplogin")    
 
