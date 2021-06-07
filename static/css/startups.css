@@ -1,0 +1,107 @@
+.ft{
+    background-color: black;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding:20px 60px;
+    margin-bottom: 0px;
+}
+.ft-logo{
+    display: flex;
+    font-size: 2rem;
+    font-family: var(--main);
+    align-items: center;
+}
+.ft-logo>p{
+    margin-left: 10px;
+}
+.copy{
+    background-color: black;
+    margin-bottom: 0;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1rem;
+}
+@media screen and (max-width:544px){
+    .ft{
+        display: flex;
+        flex-direction: column-reverse;
+    }
+    .ft-options{
+        display: flex;
+        font-size: 1.4rem;
+        font-family: var(--main);
+   }
+    .ft-options>p{
+        padding:10px 15px;
+    }
+}
+@media screen and (max-width:425px){
+    .ft{
+        display: flex;
+        flex-direction: column-reverse;
+    }
+    .ft-options{
+        display: flex;
+        font-size: 1.4rem;
+        font-family: var(--main);
+   }
+    .ft-options>p{
+        padding:10px 12px;
+        font-size: 1.3rem;
+    }
+    .ft-logo>img{
+        width: 80px;
+    }
+    .ft-logo>p{
+        margin-left: 10px;
+        font-size: 1.8rem;
+    }
+}
+@media screen and (max-width:375px){
+    .ft{
+        display: flex;
+        flex-direction: column-reverse;
+    }
+    .ft-options{
+        display: flex;
+        font-size: 1.4rem;
+        font-family: var(--main);
+   }
+    .ft-options>p{
+        padding:10px 12px;
+        font-size: 1.3rem;
+    }
+    .ft-logo>img{
+        width: 80px;
+    }
+    .ft-logo>p{
+        margin-left: 10px;
+        font-size: 1.5rem;
+    }
+}
+@media screen and (max-width:325px){
+    .ft{
+        display: flex;
+        flex-direction: column-reverse;
+    }
+    .ft-options{
+        display: flex;
+        font-size: 1.4rem;
+        font-family: var(--main);
+   }
+    .ft-options>p{
+        padding:10px 6px;
+        font-size: 1.3rem;
+    }
+    .ft-logo>img{
+        width: 60px;
+    }
+    .ft-logo>p{
+        margin-left: 10px;
+        font-size: 1.2rem;
+    }
+}
