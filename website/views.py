@@ -126,9 +126,12 @@ def table(request):
 def dashboard(request):
     if auth.current_user:
         if request.method == 'GET':
+            val = False
+            if auth.current_user['email'] in ['yashagrawal0601@gmail.com', "login@gmail.com"]:
+                val = True
             localId = auth.current_user['localId']
             docs = db.collection('allshares').document(localId).collection("sharedetails").document("sharedetails").get()
-            return render(request,"dashboard.html",{'docs':docs})     
+            return render(request,"dashboard.html",{'docs':docs, 'val':val})     
     return redirect("/startuplogin")  
 
 def startabout(request):
