@@ -368,11 +368,11 @@ def payment(request):
     }
     payload = {
     'purpose': 'FIFA 16',
-    'amount': '2500',
+    'amount': '11',
     'buyer_name': 'John Doe',
     'email': 'foo@example.com',
     'phone': '8171365728',
-    'redirect_url': 'http://www.example.com/redirect/',
+    'redirect_url': 'http://127.0.0.1:8000/successful',
     'send_email': 'True',
     'send_sms': 'True',
     'webhook': 'http://www.example.com/webhook/',
@@ -383,5 +383,17 @@ def payment(request):
         data=payload, 
         headers=headers
     )
-    print(response.text)
-    return HttpResponse(response.json()['id'])
+    id=response.json()['id']
+    url=response.json()['longurl']
+    return HttpResponse(id+"    "+url)
+
+    
+
+def status(request,id):
+    headers = { "X-Api-Key": "4775c2f06f3d85a5b9cbeb9cfd2eeb69", "X-Auth-Token": "c8e0383df746f9d6f1c87fa1c1cab81e"}
+    response = requests.get("https://www.instamojo.com/api/1.1/payment-requests/5c2b04e0ecb24b669734a90e7b332afa/",headers=headers)
+    print (response.text)
+    return HttpResponse(response.text)
+
+def successful(request):
+    return HttpResponse("successful")

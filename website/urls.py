@@ -48,6 +48,8 @@ urlpatterns = [
     # path('comp-dash/accept_comp/<str:id>', accept_comp, name = 'accept_comp'),
     # path('comp-dash/delete_comp/<str:id>', delete_comp, name = 'delete_comp'),
     # path('logout/', logout, name = 'logout'),
-    path('payment/',payment,name='payment')
+    path('payment/',payment,name='payment'),
+    path('status/<slug:id>',status,name='status'),
+    path('successful',successful,name='successful')
 ]
 urlpatterns+=static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
