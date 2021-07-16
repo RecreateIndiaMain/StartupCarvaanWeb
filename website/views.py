@@ -14,6 +14,7 @@ from firebase_admin import credentials,firestore
 import requests
 from requests.models import REDIRECT_STATI
 from requests.sessions import HTTPAdapter
+from instamojo_wrapper import Instamojo
 firebaseConfig = {
    "apiKey": "AIzaSyC7fz_pXat1z2hEvzVvEk3waoQnMjmyook",
    "authDomain": "startup-carvaan-4c5db.firebaseapp.com",
@@ -393,13 +394,14 @@ def checkPayment(request):
         })
     return HttpResponse(link)
 def payment(request):
-    response=requests.post('https://api.instamojo.com/oauth2/token/', data={
+
+    response1=requests.post('https://api.instamojo.com/oauth2/token/', data={
         'grant_type': 'client_credentials',
         'client_id': 'WUUP4tPdNShfzLsVrMbeMKHk56KB7ovA7mvrCpz6',
         'client_secret': 'iPLQoTVa4XbLyIwQLRha2HJiYp1blY9t23vybxCWcruwiUgH78Soyy3CFJABJKLajAgDZEeES4SUDAfzzMHHSmdMQzHo08SfxcLIlrrMkgc6pBZI8y9XOEnVP3Gf9UnO'
     })
     headers = { 
-    "Authorization": "Bearer "+response.json()['access_token']
+    "Authorization": "Bearer "+response1.json()['access_token']
     }
     payload = {
     'purpose': 'FIFA 16',
@@ -407,21 +409,31 @@ def payment(request):
     'buyer_name': 'John Doe',
     'email': 'foo@example.com',
     'phone': '8171365728',
-    'redirect_url': 'https://startup-carvaan.herokuapp.com/successful',
+    'redirect_url': 'https://api.instamojo.com/integrations/android/redirect/',
     'send_email': 'True',
     'send_sms': 'True',
-    'webhook': 'https://startup-carvaan.herokuapp.com/successful',
+    'webhook': 'http://www.example.com/webhook/',
     'allow_repeated_payments': 'False',
     }
     response = requests.post(
-    "https://api.instamojo.com/v2/payment_requests/",
-        data=payload, 
-        headers=headers
-    )
-    id=response.json()['id']
-    url=response.json()['longurl']
-    return HttpResponse(url)
+    "https://api.instamojo.com/v2/payment_requests/", 
+    data=payload, 
+    headers=headers
+    ) 
+    print(response.text)
 
+    headers = { 
+    "Authorization": "Bearer "+response1.json()['access_token']
+    }
+    payload = {
+    'id': response.json()['id'],
+    }
+    response2 = requests.post(
+    "https://api.instamojo.com/v2/gateway/orders/payment-request/", 
+    data=payload, 
+    headers=headers
+    )
+    return HttpResponse(response2.json()['order_id'])
     
 
 def status(request,id):
@@ -431,4 +443,8 @@ def status(request,id):
     return 
 
 def successful(request):
-    return HttpResponse("successful")
+    status=request.POST.get('payment_status')
+    if status == "Failed":
+        return HttpResponse("payment failed")
+    else:
+        return HttpResponse("payment completed")
