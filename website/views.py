@@ -358,8 +358,9 @@ def logout(request):
          auth.current_user = None
          return redirect("/startuplogin") 
 
-
-
+#buy-sell section
+def buySell(request):
+    return render(request,'buy-sell.html',{})
 
 
 
