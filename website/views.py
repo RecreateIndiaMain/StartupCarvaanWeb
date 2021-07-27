@@ -363,7 +363,7 @@ def payments(request):
     return render(request,'payments.html',{})
 
 def payment_status(request):
-    return HttpResponse(request.GET.data())
+    return HttpResponse(request.POST.items())
 #buy-sell section
 def buySell(request):
     return render(request,'buy-sell.html',{})
