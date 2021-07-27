@@ -1,5 +1,5 @@
 import json
-from django.http import HttpResponse
+from django.http import HttpResponse, request
 from django.shortcuts import render,redirect
 from django.contrib import messages
 import uuid
@@ -13,7 +13,7 @@ from django.core.files.storage import FileSystemStorage
 from firebase_admin import credentials,firestore
 import requests
 from requests.models import REDIRECT_STATI
-from requests.sessions import HTTPAdapter
+from requests.sessions import HTTPAdapter, Request
 firebaseConfig = {
    "apiKey": "AIzaSyC7fz_pXat1z2hEvzVvEk3waoQnMjmyook",
    "authDomain": "startup-carvaan-4c5db.firebaseapp.com",
@@ -359,7 +359,11 @@ def logout(request):
          return redirect("/startuplogin") 
 
 
+def payments(request):
+    return render(request,'payments.html',{})
 
+def payment_status(request):
+    return HttpResponse(request.GET.data())
 
 
 
