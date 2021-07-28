@@ -42,6 +42,7 @@ pyrebase_app=pyrebase.initialize_app(firebaseConfig)
 auth=pyrebase_app.auth()
 db=firestore.client()
 storage=pyrebase_app.storage()
+user_id="Null"
 
 
 def competition(request):
@@ -358,15 +359,25 @@ def logout(request):
          auth.current_user = None
          return redirect("/startuplogin") 
 
-
-def payments(request):
-    return render(request,'payments.html',{})
+def payments(request,id):
+    response= render(request,'payments.html',{})
+    response.set_cookie('userid',id,max_age=100)
+    return response
 
 def payment_status(request):
-    return HttpResponse(request.POST.items())
+    return HttpResponse(request.COOKIES['userid'])
 #buy-sell section
 def buySell(request):
     return render(request,'buy-sell.html',{})
+
+# def setting_cookie(request):
+#     response = HttpResponse("")
+#     response.set_cookie('userid', 'hahahahaha',5)
+#     return response
+
+# def getting_cookie(request):
+#     first_test  = request.COOKIES['userid'] 
+#     return first_test
 
 
 
