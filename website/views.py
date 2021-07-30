@@ -1,5 +1,5 @@
 import json
-from django.http import HttpResponse
+from django.http import HttpResponse, request
 from django.shortcuts import render,redirect
 from django.contrib import messages
 import uuid
@@ -13,7 +13,7 @@ from django.core.files.storage import FileSystemStorage
 from firebase_admin import credentials,firestore
 import requests
 from requests.models import REDIRECT_STATI
-from requests.sessions import HTTPAdapter
+from requests.sessions import HTTPAdapter, Request
 firebaseConfig = {
     "apiKey": "AIzaSyBSWuQjmVQ1TJSKbYr8_A_Hw8zEp4Bhtb8",
     "authDomain": "startup-carvaan-bbfe2.firebaseapp.com",
@@ -43,6 +43,7 @@ pyrebase_app=pyrebase.initialize_app(firebaseConfig)
 auth=pyrebase_app.auth()
 db=firestore.client()
 storage=pyrebase_app.storage()
+user_id="Null"
 
 
 def competition(request):
@@ -359,6 +360,25 @@ def logout(request):
          auth.current_user = None
          return redirect("/startuplogin") 
 
+def payments(request,id):
+    response= render(request,'payments.html',{})
+    response.set_cookie('userid',id,max_age=100)
+    return response
+
+def payment_status(request):
+    return HttpResponse(request.COOKIES['userid'])
+#buy-sell section
+def buySell(request):
+    return render(request,'buy-sell.html',{})
+
+# def setting_cookie(request):
+#     response = HttpResponse("")
+#     response.set_cookie('userid', 'hahahahaha',5)
+#     return response
+
+# def getting_cookie(request):
+#     first_test  = request.COOKIES['userid'] 
+#     return first_test
 
 
 
@@ -380,56 +400,69 @@ def logout(request):
 
 
 
+# def checkPayment(request):
+#     payments=db.collection("test").stream()
+#     for payment in payments:
+#         dict_payment=payment.to_dict()
+#         # print(dict_payment)
+#         response=requests.get("http://127.0.0.1:8000/payment/")
+#         link=response.text
+#         db.collection("test").document("test").update({
+#             "link":link
+#         })
+#     return HttpResponse(link)
+# def payment(request):
 
+#     response1=requests.post('https://api.instamojo.com/oauth2/token/', data={
+#         'grant_type': 'client_credentials',
+#         'client_id': 'WUUP4tPdNShfzLsVrMbeMKHk56KB7ovA7mvrCpz6',
+#         'client_secret': 'iPLQoTVa4XbLyIwQLRha2HJiYp1blY9t23vybxCWcruwiUgH78Soyy3CFJABJKLajAgDZEeES4SUDAfzzMHHSmdMQzHo08SfxcLIlrrMkgc6pBZI8y9XOEnVP3Gf9UnO'
+#     })
+#     headers = { 
+#     "Authorization": "Bearer "+response1.json()['access_token']
+#     }
+#     payload = {
+#     'purpose': 'FIFA 16',
+#     'amount': '11',
+#     'buyer_name': 'John Doe',
+#     'email': 'foo@example.com',
+#     'phone': '8171365728',
+#     'redirect_url': 'https://api.instamojo.com/integrations/android/redirect/',
+#     'send_email': 'True',
+#     'send_sms': 'True',
+#     'webhook': 'https://api.instamojo.com/integrations/android/redirect/',
+#     'allow_repeated_payments': 'False',
+#     }
+#     response = requests.post(
+#         "https://api.instamojo.com/v2/payment_requests/", 
+#         data=payload, 
+#         headers=headers
+#     ) 
+#     print(response.text)
 
-def checkPayment(request):
-    payments=db.collection("test").stream()
-    for payment in payments:
-        dict_payment=payment.to_dict()
-        # print(dict_payment)
-        response=requests.get("http://127.0.0.1:8000/payment/")
-        link=response.text
-        db.collection("test").document("test").update({
-            "link":link
-        })
-    return HttpResponse(link)
-def payment(request):
-    response=requests.post('https://api.instamojo.com/oauth2/token/', data={
-        'grant_type': 'client_credentials',
-        'client_id': 'WUUP4tPdNShfzLsVrMbeMKHk56KB7ovA7mvrCpz6',
-        'client_secret': 'iPLQoTVa4XbLyIwQLRha2HJiYp1blY9t23vybxCWcruwiUgH78Soyy3CFJABJKLajAgDZEeES4SUDAfzzMHHSmdMQzHo08SfxcLIlrrMkgc6pBZI8y9XOEnVP3Gf9UnO'
-    })
-    headers = { 
-    "Authorization": "Bearer "+response.json()['access_token']
-    }
-    payload = {
-    'purpose': 'FIFA 16',
-    'amount': '11',
-    'buyer_name': 'John Doe',
-    'email': 'foo@example.com',
-    'phone': '8171365728',
-    'redirect_url': 'https://startup-carvaan.herokuapp.com/successful',
-    'send_email': 'True',
-    'send_sms': 'True',
-    'webhook': 'https://startup-carvaan.herokuapp.com/successful',
-    'allow_repeated_payments': 'False',
-    }
-    response = requests.post(
-    "https://api.instamojo.com/v2/payment_requests/",
-        data=payload, 
-        headers=headers
-    )
-    id=response.json()['id']
-    url=response.json()['longurl']
-    return HttpResponse(url)
-
+#     headers = { 
+#     "Authorization": "Bearer "+response1.json()['access_token']
+#     }
+#     payload = {
+#     'id': response.json()['id'],
+#     }
+#     response2 = requests.post(
+#     "https://api.instamojo.com/v2/gateway/orders/payment-request/", 
+#     data=payload, 
+#     headers=headers
+#     )
+#     return HttpResponse(response2.json()['order_id'])
     
 
-def status(request,id):
-    headers = { "X-Api-Key": "4775c2f06f3d85a5b9cbeb9cfd2eeb69", "X-Auth-Token": "c8e0383df746f9d6f1c87fa1c1cab81e"}
-    response = requests.get("https://www.instamojo.com/api/1.1/payment-requests/5c2b04e0ecb24b669734a90e7b332afa/",headers=headers)
-    print (response.text)
-    return 
+# def status(request,id):
+#     headers = { "X-Api-Key": "4775c2f06f3d85a5b9cbeb9cfd2eeb69", "X-Auth-Token": "c8e0383df746f9d6f1c87fa1c1cab81e"}
+#     response = requests.get("https://www.instamojo.com/api/1.1/payment-requests/5c2b04e0ecb24b669734a90e7b332afa/",headers=headers)
+#     print (response.text)
+#     return 
 
-def successful(request):
-    return HttpResponse("successful")
+# def successful(request):
+#     status=request.POST.get('payment_status')
+#     if status == "Failed":
+#         return HttpResponse("payment failed")
+#     else:
+#         return HttpResponse("payment completed")

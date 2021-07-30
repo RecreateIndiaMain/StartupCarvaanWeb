@@ -1,0 +1,487 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Startup Carvaan</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- <link rel="stylesheet" href="./style.css"> -->
+    <link rel="stylesheet" href="{% static '../static/css/buy-sell.css' %}" />
+</head>
+<body>
+    <nav class="navbar navbar-light" style = "z-index: 1">
+        <div class = "navbar-brand">
+          <div class="logo">
+            <img src="{% static '../static/media/buy-sell/Logo.png' %}" style = "width: 80px;height: auto;" alt="err" />
+            Startup Carvaan
+          </div>
+        </div>
+    </nav>
+    
+    <main class = "main">
+        <div class = "container-fluid h-100">
+            <div class = "h-100 row">
+                <div class = "col-lg-6" style = "background: #BFD6F6;">
+                   <div class = "inner-sec h-100 mx-5 py-3">
+                       <div class="d-flex justify-content-center mb-3">
+                        <div class="p-2">
+                            <h2 class = "text-center">SELL VOLUME</h2>
+                            <h3 class = "text-center">Buy Requests Section</h3>
+                        </div>
+                        <div class="p-2"><img src="{% static '../static/media/buy-sell/sell.png' %}" class = "head-image" alt=""></div>
+                      </div>
+                      <div class = "accordion-area px-3">
+                        <div class="accordion accordion-flush" id="accordionFlushExample">
+                            <div class="mb-4">
+                              <h2 class="accordion-header" id="flush-headingOne">
+                                <div class="d-flex">
+                                  <div class="flex-fill">
+                                    <button class="btn py-2 w-100 collapsed" style = "text-align: left; background: #BFD6F6;color: #505050;font-size: 20px;font-weight: bolder">
+                                      BUY REQUEST 1 <span style = "float: right;vertical-align: middle;"><input type="checkbox" /></span>
+                                    </button>
+                                  </div>
+                                  <div class="accordion-button text-center px-2 collapsed" style = "width: 30px;" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne"></div>
+                                </div>
+                              </h2>
+                              <div id="flush-collapseOne" class="accordion-collapse collapse" style = "margin-top: -5px;" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+                                <div class="d-flex">
+                                    <div class="flex-fill" style = "border: 3px solid #6C9EE3;border-radius: 5px;">
+                                        <div class="accordion-body">
+                                            <div class = "row">
+                                              <div class = "col-lg-6">
+                                                Completed Time: July 6, 2021
+                                              </div>
+                                              <div class = "col-lg-6">
+                                                Requested Time: July 6, 2021
+                                              </div>
+                                            </div>
+                                            <div class = "row">
+                                              <div class = "col-lg-6">
+                                                Price: 10
+                                              </div>
+                                              <div class = "col-lg-6">
+                                                Quantity: 10
+                                              </div>
+                                            </div>
+                                            <div class = "row">
+                                              <div class = "col-lg-6">
+                                                ShareId: 4e2424
+                                              </div>
+                                              <div class = "col-lg-6">
+                                                pending
+                                              </div>
+                                            </div>
+                                            <div class = "row">
+                                              <div class = "col-lg-6">
+                                                Type: "Buy"
+                                              </div>
+                                              <div class = "col-lg-6">
+                                                UserID: abc123
+                                              </div>
+                                            </div>
+                                          </div>
+                                    </div>
+                                    <div class="px-2" style = "width: 30px;"></div>
+                                  </div>
+                              </div>
+                            </div>
+                            <div class="mb-4">
+                              <h2 class="accordion-header" id="flush-headingTwo">
+                                <div class="d-flex">
+                                  <div class="flex-fill">
+                                    <button class="btn py-2 w-100 collapsed" style = "text-align: left; background: #BFD6F6;color: #505050;font-size: 20px;font-weight: bolder">
+                                      BUY REQUEST 2 <span style = "float: right;vertical-align: middle;"><input type="checkbox" /></span>
+                                    </button>
+                                  </div>
+                                  <div class="accordion-button text-center px-2 collapsed" style = "width: 30px;" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo"></div>
+                                </div>
+                              </h2>
+                              <div id="flush-collapseTwo" class="accordion-collapse collapse" style = "margin-top: -5px;" aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
+                                <div class="d-flex">
+                                    <div class="flex-fill" style = "border: 3px solid #6C9EE3;border-radius: 5px;">
+                                        <div class="accordion-body">
+                                            <div class = "row">
+                                              <div class = "col-lg-6">
+                                                Completed Time: July 6, 2021
+                                              </div>
+                                              <div class = "col-lg-6">
+                                                Requested Time: July 6, 2021
+                                              </div>
+                                            </div>
+                                            <div class = "row">
+                                              <div class = "col-lg-6">
+                                                Price: 10
+                                              </div>
+                                              <div class = "col-lg-6">
+                                                Quantity: 10
+                                              </div>
+                                            </div>
+                                            <div class = "row">
+                                              <div class = "col-lg-6">
+                                                ShareId: 4e2424
+                                              </div>
+                                              <div class = "col-lg-6">
+                                                pending
+                                              </div>
+                                            </div>
+                                            <div class = "row">
+                                              <div class = "col-lg-6">
+                                                Type: "Buy"
+                                              </div>
+                                              <div class = "col-lg-6">
+                                                UserID: abc123
+                                              </div>
+                                            </div>
+                                          </div>
+                                    </div>
+                                    <div class="px-2" style = "width: 30px;"></div>
+                                  </div>
+                              </div>
+                            </div>
+                            <div class="mb-4">
+                              <h2 class="accordion-header" id="flush-headingThree">
+                                <div class="d-flex">
+                                  <div class="flex-fill">
+                                    <button class="btn py-2 w-100 collapsed" style = "text-align: left; background: #BFD6F6;color: #505050;font-size: 20px;font-weight: bolder">
+                                      BUY REQUEST 3 <span style = "float: right;vertical-align: middle;"><input type="checkbox" /></span>
+                                    </button>
+                                  </div>
+                                  <div class="accordion-button text-center px-2 collapsed" style = "width: 30px;" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree"></div>
+                                </div>
+                              </h2>
+                              <div id="flush-collapseThree" class="accordion-collapse collapse" style = "margin-top: -5px;" aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushExample">
+                                <div class="d-flex">
+                                    <div class="flex-fill" style = "border: 3px solid #6C9EE3;border-radius: 5px;">
+                                        <div class="accordion-body">
+                                            <div class = "row">
+                                              <div class = "col-lg-6">
+                                                Completed Time: July 6, 2021
+                                              </div>
+                                              <div class = "col-lg-6">
+                                                Requested Time: July 6, 2021
+                                              </div>
+                                            </div>
+                                            <div class = "row">
+                                              <div class = "col-lg-6">
+                                                Price: 10
+                                              </div>
+                                              <div class = "col-lg-6">
+                                                Quantity: 10
+                                              </div>
+                                            </div>
+                                            <div class = "row">
+                                              <div class = "col-lg-6">
+                                                ShareId: 4e2424
+                                              </div>
+                                              <div class = "col-lg-6">
+                                                pending
+                                              </div>
+                                            </div>
+                                            <div class = "row">
+                                              <div class = "col-lg-6">
+                                                Type: "Buy"
+                                              </div>
+                                              <div class = "col-lg-6">
+                                                UserID: abc123
+                                              </div>
+                                            </div>
+                                          </div>
+                                    </div>
+                                    <div class="px-2" style = "width: 30px;"></div>
+                                  </div>
+                              </div>
+                            </div>
+                            <div class="mb-4">
+                              <h2 class="accordion-header" id="flush-headingFour">
+                                <div class="d-flex">
+                                  <div class="flex-fill">
+                                    <button class="btn py-2 w-100 collapsed" style = "text-align: left; background: #BFD6F6;color: #505050;font-size: 20px;font-weight: bolder">
+                                      BUY REQUEST 4 <span style = "float: right;vertical-align: middle;"><input type="checkbox" /></span>
+                                    </button>
+                                  </div>
+                                  <div class="accordion-button text-center px-2 collapsed" style = "width: 30px;" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseFour" aria-expanded="false" aria-controls="flush-collapseFour"></div>
+                                </div>
+                              </h2>
+                              <div id="flush-collapseFour" class="accordion-collapse collapse" style = "margin-top: -5px;" aria-labelledby="flush-headingFour" data-bs-parent="#accordionFlushExample">
+                                <div class="d-flex">
+                                    <div class="flex-fill" style = "border: 3px solid #6C9EE3;border-radius: 5px;">
+                                        <div class="accordion-body">
+                                            <div class = "row">
+                                              <div class = "col-lg-6">
+                                                Completed Time: July 6, 2021
+                                              </div>
+                                              <div class = "col-lg-6">
+                                                Requested Time: July 6, 2021
+                                              </div>
+                                            </div>
+                                            <div class = "row">
+                                              <div class = "col-lg-6">
+                                                Price: 10
+                                              </div>
+                                              <div class = "col-lg-6">
+                                                Quantity: 10
+                                              </div>
+                                            </div>
+                                            <div class = "row">
+                                              <div class = "col-lg-6">
+                                                ShareId: 4e2424
+                                              </div>
+                                              <div class = "col-lg-6">
+                                                pending
+                                              </div>
+                                            </div>
+                                            <div class = "row">
+                                              <div class = "col-lg-6">
+                                                Type: "Buy"
+                                              </div>
+                                              <div class = "col-lg-6">
+                                                UserID: abc123
+                                              </div>
+                                            </div>
+                                          </div>
+                                    </div>
+                                    <div class="px-2" style = "width: 30px;"></div>
+                                  </div>
+                              </div>
+                            </div>
+                          </div>
+                      </div>
+                   </div>
+                </div>
+                <div class = "col-lg-6">
+                  <div class = "inner-sec h-100 mx-4 py-3">
+                    <div class="d-flex justify-content-center mb-3">
+                      <div class="p-2"><img src="{% static '../static/media/buy-sell/buy person.png' %}" class = "head-image" alt=""></div>
+                      <div class="p-2">
+                         <h2 class = "text-center">BUY VOLUME</h2>
+                         <h3 class = "text-center">Sell Requests Section</h3>
+                     </div>
+                   </div>
+                   <div class = "accordion-area px-3">
+                     <div class="accordion accordion-flush" id="accordionFlushExample">
+                           <div class="mb-4">
+                              <h2 class="accordion-header" id="flush-headingFive">
+                                <div class="d-flex">
+                                  <div class="flex-fill">
+                                    <button class="btn py-2 w-100 collapsed" style = "text-align: left; background: #BFD6F6;color: #505050;font-size: 20px;font-weight: bolder">
+                                      SELL REQUEST 1 <span style = "float: right;vertical-align: middle;"><input type="checkbox" /></span>
+                                    </button>
+                                  </div>
+                                  <div class="accordion-button text-center px-2 collapsed" style = "width: 30px;" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseFive" aria-expanded="false" aria-controls="flush-collapseFive"></div>
+                                </div>
+                              </h2>
+                              <div id="flush-collapseFive" class="accordion-collapse collapse" style = "margin-top: -5px;" aria-labelledby="flush-headingFive" data-bs-parent="#accordionFlushExample">
+                                <div class="d-flex">
+                                    <div class="flex-fill" style = "border: 3px solid #6C9EE3;border-radius: 5px;">
+                                        <div class="accordion-body">
+                                            <div class = "row">
+                                              <div class = "col-lg-6">
+                                                Completed Time: July 6, 2021
+                                              </div>
+                                              <div class = "col-lg-6">
+                                                Requested Time: July 6, 2021
+                                              </div>
+                                            </div>
+                                            <div class = "row">
+                                              <div class = "col-lg-6">
+                                                Price: 10
+                                              </div>
+                                              <div class = "col-lg-6">
+                                                Quantity: 10
+                                              </div>
+                                            </div>
+                                            <div class = "row">
+                                              <div class = "col-lg-6">
+                                                ShareId: 4e2424
+                                              </div>
+                                              <div class = "col-lg-6">
+                                                pending
+                                              </div>
+                                            </div>
+                                            <div class = "row">
+                                              <div class = "col-lg-6">
+                                                Type: "Buy"
+                                              </div>
+                                              <div class = "col-lg-6">
+                                                UserID: abc123
+                                              </div>
+                                            </div>
+                                          </div>
+                                    </div>
+                                    <div class="px-2" style = "width: 30px;"></div>
+                                  </div>
+                              </div>
+                            </div>
+                            <div class="mb-4">
+                              <h2 class="accordion-header" id="flush-headingSix">
+                                <div class="d-flex">
+                                  <div class="flex-fill">
+                                    <button class="btn py-2 w-100 collapsed" style = "text-align: left; background: #BFD6F6;color: #505050;font-size: 20px;font-weight: bolder">
+                                      SELL REQUEST 2 <span style = "float: right;vertical-align: middle;"><input type="checkbox" /></span>
+                                    </button>
+                                  </div>
+                                  <div class="accordion-button text-center px-2 collapsed" style = "width: 30px;" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseSix" aria-expanded="false" aria-controls="flush-collapseSix"></div>
+                                </div>
+                              </h2>
+                              <div id="flush-collapseSix" class="accordion-collapse collapse" style = "margin-top: -5px;" aria-labelledby="flush-headingSix" data-bs-parent="#accordionFlushExample">
+                                <div class="d-flex">
+                                    <div class="flex-fill" style = "border: 3px solid #6C9EE3;border-radius: 5px;">
+                                        <div class="accordion-body">
+                                            <div class = "row">
+                                              <div class = "col-lg-6">
+                                                Completed Time: July 6, 2021
+                                              </div>
+                                              <div class = "col-lg-6">
+                                                Requested Time: July 6, 2021
+                                              </div>
+                                            </div>
+                                            <div class = "row">
+                                              <div class = "col-lg-6">
+                                                Price: 10
+                                              </div>
+                                              <div class = "col-lg-6">
+                                                Quantity: 10
+                                              </div>
+                                            </div>
+                                            <div class = "row">
+                                              <div class = "col-lg-6">
+                                                ShareId: 4e2424
+                                              </div>
+                                              <div class = "col-lg-6">
+                                                pending
+                                              </div>
+                                            </div>
+                                            <div class = "row">
+                                              <div class = "col-lg-6">
+                                                Type: "Buy"
+                                              </div>
+                                              <div class = "col-lg-6">
+                                                UserID: abc123
+                                              </div>
+                                            </div>
+                                          </div>
+                                    </div>
+                                    <div class="px-2" style = "width: 30px;"></div>
+                                  </div>
+                              </div>
+                            </div>
+                            <div class="mb-4">
+                              <h2 class="accordion-header" id="flush-headingSeven">
+                                <div class="d-flex">
+                                  <div class="flex-fill">
+                                    <button class="btn py-2 w-100 collapsed" style = "text-align: left; background: #BFD6F6;color: #505050;font-size: 20px;font-weight: bolder">
+                                      SELL REQUEST 3 <span style = "float: right;vertical-align: middle;"><input type="checkbox" /></span>
+                                    </button>
+                                  </div>
+                                  <div class="accordion-button text-center px-2 collapsed" style = "width: 30px;" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseSeven" aria-expanded="false" aria-controls="flush-collapseSeven"></div>
+                                </div>
+                              </h2>
+                              <div id="flush-collapseSeven" class="accordion-collapse collapse" style = "margin-top: -5px;" aria-labelledby="flush-headingSeven" data-bs-parent="#accordionFlushExample">
+                                <div class="d-flex">
+                                    <div class="flex-fill" style = "border: 3px solid #6C9EE3;border-radius: 5px;">
+                                        <div class="accordion-body">
+                                            <div class = "row">
+                                              <div class = "col-lg-6">
+                                                Completed Time: July 6, 2021
+                                              </div>
+                                              <div class = "col-lg-6">
+                                                Requested Time: July 6, 2021
+                                              </div>
+                                            </div>
+                                            <div class = "row">
+                                              <div class = "col-lg-6">
+                                                Price: 10
+                                              </div>
+                                              <div class = "col-lg-6">
+                                                Quantity: 10
+                                              </div>
+                                            </div>
+                                            <div class = "row">
+                                              <div class = "col-lg-6">
+                                                ShareId: 4e2424
+                                              </div>
+                                              <div class = "col-lg-6">
+                                                pending
+                                              </div>
+                                            </div>
+                                            <div class = "row">
+                                              <div class = "col-lg-6">
+                                                Type: "Buy"
+                                              </div>
+                                              <div class = "col-lg-6">
+                                                UserID: abc123
+                                              </div>
+                                            </div>
+                                          </div>
+                                    </div>
+                                    <div class="px-2" style = "width: 30px;"></div>
+                                  </div>
+                              </div>
+                            </div>
+                            <div class="mb-4">
+                              <h2 class="accordion-header" id="flush-headingEight">
+                                <div class="d-flex">
+                                  <div class="flex-fill">
+                                    <button class="btn py-2 w-100 collapsed" style = "text-align: left; background: #BFD6F6;color: #505050;font-size: 20px;font-weight: bolder">
+                                      SELL REQUEST 3 <span style = "float: right;vertical-align: middle;"><input type="checkbox" /></span>
+                                    </button>
+                                  </div>
+                                  <div class="accordion-button text-center px-2 collapsed" style = "width: 30px;" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseEight" aria-expanded="false" aria-controls="flush-collapseEight"></div>
+                                </div>
+                              </h2>
+                              <div id="flush-collapseEight" class="accordion-collapse collapse" style = "margin-top: -5px;" aria-labelledby="flush-headingEight" data-bs-parent="#accordionFlushExample">
+                                <div class="d-flex">
+                                    <div class="flex-fill" style = "border: 3px solid #6C9EE3;border-radius: 5px;">
+                                        <div class="accordion-body">
+                                            <div class = "row">
+                                              <div class = "col-lg-6">
+                                                Completed Time: July 6, 2021
+                                              </div>
+                                              <div class = "col-lg-6">
+                                                Requested Time: July 6, 2021
+                                              </div>
+                                            </div>
+                                            <div class = "row">
+                                              <div class = "col-lg-6">
+                                                Price: 10
+                                              </div>
+                                              <div class = "col-lg-6">
+                                                Quantity: 10
+                                              </div>
+                                            </div>
+                                            <div class = "row">
+                                              <div class = "col-lg-6">
+                                                ShareId: 4e2424
+                                              </div>
+                                              <div class = "col-lg-6">
+                                                pending
+                                              </div>
+                                            </div>
+                                            <div class = "row">
+                                              <div class = "col-lg-6">
+                                                Type: "Buy"
+                                              </div>
+                                              <div class = "col-lg-6">
+                                                UserID: abc123
+                                              </div>
+                                            </div>
+                                          </div>
+                                    </div>
+                                    <div class="px-2" style = "width: 30px;"></div>
+                                  </div>
+                              </div>
+                            </div>
+                       </div>
+                   </div>
+                </div>
+              </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+</body>
+</html>
