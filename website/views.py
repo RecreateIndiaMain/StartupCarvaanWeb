@@ -1,5 +1,5 @@
 import json
-from django.http import HttpResponse, request
+from django.http import HttpResponse
 from django.shortcuts import render,redirect
 from django.contrib import messages
 import uuid
@@ -13,7 +13,7 @@ from django.core.files.storage import FileSystemStorage
 from firebase_admin import credentials,firestore
 import requests
 from requests.models import REDIRECT_STATI
-from requests.sessions import HTTPAdapter, Request
+from requests.sessions import HTTPAdapter
 firebaseConfig = {
     "apiKey": "AIzaSyBSWuQjmVQ1TJSKbYr8_A_Hw8zEp4Bhtb8",
     "authDomain": "startup-carvaan-bbfe2.firebaseapp.com",
@@ -21,9 +21,9 @@ firebaseConfig = {
     "storageBucket": "startup-carvaan-bbfe2.appspot.com",
     "messagingSenderId": "132130200533",
     "appId": "1:132130200533:web:adc4fb4fac949601947b5c",
-    "measurementId": "G-RV429MN3PM"
+    "measurementId": "G-RV429MN3PM",
+    "databaseURL": "https://startupcarvaan.firebaseio.com",
 }
-
 serviceAccountKey= {
   "type": "service_account",
   "project_id": "startup-carvaan-bbfe2",
@@ -37,13 +37,14 @@ serviceAccountKey= {
   "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/firebase-adminsdk-3t3qn%40startup-carvaan-bbfe2.iam.gserviceaccount.com"
 }
 
+
 cred=credentials.Certificate(serviceAccountKey)
 firebase_admin.initialize_app(cred)
 pyrebase_app=pyrebase.initialize_app(firebaseConfig)
 auth=pyrebase_app.auth()
 db=firestore.client()
 storage=pyrebase_app.storage()
-user_id="Null"
+
 
 
 def competition(request):
