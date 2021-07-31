@@ -12,6 +12,7 @@ from  pyrebase import pyrebase
 from django.core.files.storage import FileSystemStorage 
 from firebase_admin import credentials,firestore
 import requests
+from requests.adapters import HTTPResponse
 from requests.models import REDIRECT_STATI
 from requests.sessions import HTTPAdapter
 firebaseConfig = {
@@ -356,18 +357,27 @@ def accept_comp(request,id):
             return redirect("/comp-dash")
     return redirect('/startuplogin')    
 
+
 def logout(request):
     if auth.current_user:
          auth.current_user = None
          return redirect("/startuplogin") 
+
 
 def payments(request,id):
     response= render(request,'payments.html',{})
     response.set_cookie('userid',id,max_age=100)
     return response
 
+
 def payment_status(request):
-    return HttpResponse(request.COOKIES['userid'])
+    id=request.COOKIES['userid']
+    data=db.collection('users').document(id).get()
+    db.collection('users').document(id).update({
+        "addedrci":data.to_dict()['addedrci']+10
+    })
+    return HTTPResponse("hello user your payment is completed")
+
 #buy-sell section
 def buySell(request):
     return render(request,'buy-sell.html',{})
