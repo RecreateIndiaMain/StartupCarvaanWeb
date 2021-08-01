@@ -1,6 +1,6 @@
 import json
-from django.http import HttpResponse
-from django.shortcuts import render,redirect
+from django import http
+from django.shortcuts import HttpResponse,render,redirect
 from django.contrib import messages
 import uuid
 from datetime import datetime
@@ -12,7 +12,6 @@ from  pyrebase import pyrebase
 from django.core.files.storage import FileSystemStorage 
 from firebase_admin import credentials,firestore
 import requests
-from requests.adapters import HTTPResponse
 from requests.models import REDIRECT_STATI
 from requests.sessions import HTTPAdapter
 firebaseConfig = {
@@ -371,12 +370,12 @@ def payments(request,id):
 
 
 def payment_status(request):
-    id=request.COOKIES['userid']
-    data=db.collection('users').document(id).get()
-    db.collection('users').document(id).update({
-        "addedrci":data.to_dict()['addedrci']+10
+    # id=request.COOKIES['userid']
+    data=db.collection('users').document("ByT93rO6JbXqTXNDXZLZXW3dlBv2").get()
+    db.collection('users').document("ByT93rO6JbXqTXNDXZLZXW3dlBv2").update({
+        'addedrci' : data.to_dict()["addedrci"]+10
     })
-    return HTTPResponse("hello user your payment is completed")
+    return HttpResponse("hello user your payment is completed")
 
 #buy-sell section
 def buySell(request):
