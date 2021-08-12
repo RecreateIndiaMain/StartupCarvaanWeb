@@ -420,34 +420,48 @@ ul>li:nth-child(4){
 
 
 /* Achievements Page */
-.circle {
-	width: 90px;
-	height: 90px;
-	border-radius: 90px;
-	background-color: orange;
-	text-align: center;
-	display: table-cell;
-	overflow: hidden;
-	vertical-align: middle;
+.achievements-container{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    margin: 20px 30px;
+    margin-bottom: 80px;
 }
-#over {
-	margin-left: auto;
-	margin-right: auto;
-	display: block;
+.container-circle{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
 }
-.in-circle {
-	padding: 80px;
-	border-radius: 1000px;
+.number-container{
+    text-align: center;
+    border-radius: 100%;
+    background-color: orange;
+    display: inline-block;
+    padding: 30px 20px;
+    min-width: 150px;
 }
-#carouselsection {
-	width: 100%;
-	background: #000;
-	margin-top: 20px;
+.number-container>p{
+    margin: 0px;
+    color: white;
+    font-size: 3rem;
+    font-weight: bold;
+    font-family: var(--main);
 }
-.carousel-heading {
-	overflow: hidden;
-	color: #d3d3d3;
-	font-weight: bold;
+.container-title>p{
+    font-size: 1.5rem;
+    margin-top: 20px;
+    font-family: var(--main);
+}
+@media screen and (max-width: 768px){
+    .achievements-container{
+        flex-direction: column;
+    }
+    .container-circle{
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        margin-bottom: 50px;
+    }
 }
 /* End Achievements Page */
 

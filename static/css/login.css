@@ -11,7 +11,14 @@
     --assent:white;
     --main:'Akaya Kanadaka', cursive;
 }
-
+a{
+    text-decoration: none !important;
+    color: white;
+}
+.forgot_password{
+    color: white !important;
+    text-decoration: none;
+}
 /* -- Constants--- */
 
 .col-primary{
