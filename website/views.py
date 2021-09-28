@@ -481,10 +481,15 @@
 
 
 from django.http.response import HttpResponse
-
+from rssi.models import rssi
 
 def bla(request):
     ma={}
     for key,value in request.POST.items():
-        ma[key]=value
+        object=rssi(value=1.001)
+        object.save()
     return HttpResponse(ma)
+
+def showRssi(request):
+    li=list(rssi.objects.all())
+    return HttpResponse(li) 
