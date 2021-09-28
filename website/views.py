@@ -491,5 +491,5 @@ def bla(request):
 
 
 def showRssi(request):
-    li=list(Rssi.objects.all())
-    return HttpResponse(li) 
+    obj=Rssi.objects.all()
+    return HttpResponse(obj) 
