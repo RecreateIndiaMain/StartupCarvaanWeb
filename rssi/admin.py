@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import rssi
+from .models import Rssi
 # Register your models here.
 
-admin.site.register(rssi)
+admin.site.register(Rssi)
