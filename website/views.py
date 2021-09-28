@@ -484,6 +484,7 @@ from django.http.response import HttpResponse
 
 
 def bla(request):
+    ma={}
     for key,value in request.POST.items():
-        print(key+"  "+value)
-    return HttpResponse("bla")
+        ma[key]=value
+    return HttpResponse(ma)
